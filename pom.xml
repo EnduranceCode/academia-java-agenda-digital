@@ -6,4 +6,7 @@
   <packaging>pom</packaging>
   <name>Agenda Digital Parent</name>
   <description>Projecto Agenda Digital</description>
+  <modules>
+  	<module>agenda-digital-entity</module>
+  </modules>
 </project>
