@@ -2,15 +2,28 @@ package com.everis.academia.java.agenda.digital.entity;
 
 public class ServicoPrestado {
 
+	private Integer codigo;
 	private PrestacaoServico prestacaoServico;
 	private TipoServico tipoServico;
-	private double valor;
+	private Float valor;
 	
-	public ServicoPrestado(PrestacaoServico prestacaoServico, TipoServico tipoServico, double valor) {
+	public ServicoPrestado() {
+		
 		super();
-		this.prestacaoServico = prestacaoServico;
-		this.tipoServico = tipoServico;
-		this.valor = valor;
+	}
+	
+	public ServicoPrestado(Integer codigo) {
+		
+		super();
+		this.codigo = codigo;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public PrestacaoServico getPrestacaoServico() {
@@ -33,7 +46,7 @@ public class ServicoPrestado {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(Float valor) {
 		this.valor = valor;
 	}
 }

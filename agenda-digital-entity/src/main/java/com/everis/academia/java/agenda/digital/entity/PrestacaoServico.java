@@ -5,24 +5,27 @@ import java.util.Set;
 
 public class PrestacaoServico {
 
-	private int codigo;
+	private Integer codigo;
 	private Date date;
-	private PrestadorServico prestador;
-	private Set<ServicoPrestado> servicoPrestado;
+	private PrestadorServico prestadores;
+	private Set<ServicoPrestado> servicosPrestados;
 	
-	public PrestacaoServico(int codigo, Date date, PrestadorServico prestador, Set<ServicoPrestado> servicoPrestado) {
+	public PrestacaoServico() {
+		
+		super();
+	}
+	
+	public PrestacaoServico(Integer codigo) {
+		
 		super();
 		this.codigo = codigo;
-		this.date = date;
-		this.prestador = prestador;
-		this.servicoPrestado = servicoPrestado;
 	}
 
-	public int getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
@@ -35,18 +38,18 @@ public class PrestacaoServico {
 	}
 
 	public PrestadorServico getPrestador() {
-		return prestador;
+		return prestadores;
 	}
 
 	public void setPrestador(PrestadorServico prestador) {
-		this.prestador = prestador;
+		this.prestadores = prestador;
 	}
 
 	public Set<ServicoPrestado> getServicoPrestado() {
-		return servicoPrestado;
+		return servicosPrestados;
 	}
 
 	public void setServicoPrestado(Set<ServicoPrestado> servicoPrestado) {
-		this.servicoPrestado = servicoPrestado;
+		this.servicosPrestados = servicoPrestado;
 	}
 }

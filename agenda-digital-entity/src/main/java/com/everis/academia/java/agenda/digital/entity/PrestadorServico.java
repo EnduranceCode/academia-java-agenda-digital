@@ -6,7 +6,7 @@ import com.everis.academia.java.agenda.digital.enumerator.TipoLogradouro;
 
 public class PrestadorServico {
 	
-	private int codigo;
+	private Integer codigo;
 	private String nome;
 	private Cidade cidade;
 	private String bairro;
@@ -16,30 +16,22 @@ public class PrestadorServico {
 	private String complemento;
 	private String numero;
 	private String email;
-	private Set<Telefone> telefone;
-	private Set<PrestacaoServico> prestacaoServico;
+	private Set<Telefone> telefones;
+	private Set<PrestacaoServico> prestacoesServicos;
 	private Set<TipoServico> servicosCredenciados;
 	
-	public PrestadorServico(int codigo, String nome, Cidade cidade, String bairro, String cep,
-			TipoLogradouro tipoLogradouro, String logradouro, String complemento, String numero, String email,
-			Set<Telefone> telefone, Set<PrestacaoServico> prestacaoServico, Set<TipoServico> servicosCredenciados) {
+	public PrestadorServico() {
+		
+		super();
+	}
+	
+	public PrestadorServico(Integer codigo) {
+		
 		super();
 		this.codigo = codigo;
-		this.nome = nome;
-		this.cidade = cidade;
-		this.bairro = bairro;
-		this.cep = cep;
-		this.tipoLogradouro = tipoLogradouro;
-		this.logradouro = logradouro;
-		this.complemento = complemento;
-		this.numero = numero;
-		this.email = email;
-		this.telefone = telefone;
-		this.prestacaoServico = prestacaoServico;
-		this.servicosCredenciados = servicosCredenciados;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 	
@@ -120,19 +112,19 @@ public class PrestadorServico {
 	}
 
 	public Set<Telefone> getTelefone() {
-		return telefone;
+		return telefones;
 	}
 
 	public void setTelefone(Set<Telefone> telefone) {
-		this.telefone = telefone;
+		this.telefones = telefone;
 	}
 
 	public Set<PrestacaoServico> getPrestacaoServico() {
-		return prestacaoServico;
+		return prestacoesServicos;
 	}
 
 	public void setPrestacaoServico(Set<PrestacaoServico> prestacaoServico) {
-		this.prestacaoServico = prestacaoServico;
+		this.prestacoesServicos = prestacaoServico;
 	}
 
 	public Set<TipoServico> getServicosCredenciados() {

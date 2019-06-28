@@ -2,27 +2,29 @@ package com.everis.academia.java.agenda.digital.entity;
 
 public class Telefone {
 	
-	private int codigo;
-	private int numero;
+	private Integer codigo;
+	private Integer numero;
 	
-	public Telefone(int codigo, int numero) {
-		this.codigo = codigo;
-		this.numero = numero;
+	public Telefone() {
+
+		super();
 	}
 	
-	public void setCodigo(int codigo) {
+	public Telefone(Integer codigo) {
+		
+		super();
 		this.codigo = codigo;
 	}
-	
+
 	public int getCodigo() {
 		return codigo;
 	}
 	
-	public void setNumero(int numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 	
-	public int getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 }

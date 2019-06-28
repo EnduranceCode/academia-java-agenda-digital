@@ -2,13 +2,23 @@ package com.everis.academia.java.agenda.digital.entity;
 
 public class Cidade {
 	
-	private int codigo;
+	private Integer codigo;
 	private String nome;
+	
+	public Cidade() {
+		
+		super();
+	}
+	
+	public Cidade(Integer codigo) {
+		
+		this();
+		this.codigo = codigo;
+	}
 	
 	public Cidade(Integer codigo, String nome) {
 		
-		super();
-		this.codigo = codigo;
+		this(codigo);
 		this.nome = nome;
 	}
 	
