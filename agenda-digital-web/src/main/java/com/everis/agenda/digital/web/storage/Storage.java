@@ -41,5 +41,14 @@ public class Storage {
 		return cidadeNova;
 	}
 	
-	
+	public static void apagarCidade(String cidade) {
+		
+		for (Cidade cidadeActual : cidades) {
+			
+			if (cidadeActual.getNome().equals(cidade)) {
+				
+				cidades.remove(cidadeActual);
+			}
+		}
+	}
 }

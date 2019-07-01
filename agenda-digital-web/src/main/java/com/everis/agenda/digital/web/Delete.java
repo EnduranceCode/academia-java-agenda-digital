@@ -13,13 +13,18 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 import com.everis.agenda.digital.web.storage.Storage;
 
-@WebServlet(name = "read", urlPatterns = "/read")
-public class Read extends HttpServlet {
+@WebServlet(name = "delete", urlPatterns = "/delete")
+public class Delete extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		/* Obtêm o nome da cidade a eliminar */
+		String cidade = request.getParameter("cidade");
+		
+		Storage.apagarCidade(cidade);
 		
 		PrintWriter out = response.getWriter();
 		out.println(new HeadHtml().getHead());
@@ -31,6 +36,11 @@ public class Read extends HttpServlet {
 		out.println("<h1>Academia Java</h1>");
 		out.println("<h2>Agenda Digital</h2>");
 		out.println("<h3>Listagem de Cidades</h3>");
+		  
+		out.println("<div class=\"alert alert-success\">");
+		out.println("<p><strong>Sucesso!</strong></p>");
+		out.println("<p>A cidade " + cidade + " foi eliminada</p>");
+		out.println("</div>");
 		
 		out.println("<table class=\"table\">");
 		out.println("<thead>");
@@ -39,14 +49,7 @@ public class Read extends HttpServlet {
 		out.println("<tbody>");
 
 		for (Cidade cidadeActual : Storage.getCidades()) {
-			out.println("<tr>"
-							+ "<td>" + cidadeActual.getCodigo() + "</td>"
-							+ "<td>"+ cidadeActual.getNome() + "</td>"
-							+ "<td>"
-								+ "<a style=\"margin-right: 10px;\" class=\"btn btn-small btn-success\">Editar</a>"
-								+ "<a class=\"btn btn-small btn-danger\" href=\"/agenda-digital-web/delete?cidade="+ cidadeActual.getNome() + "\">Eliminar</a>"
-								+ "</td>"
-						+ "</tr>");
+			out.println("<tr><td>" + cidadeActual.getCodigo() + "</td><td>"+ cidadeActual.getNome() + "</td><td><a style=\"margin-right: 10px;\" class=\"btn btn-small btn-success\">Editar</a><a class=\"btn btn-small btn-danger\" href=\"/agenda-digital-web/delete?cidade=" + cidadeActual.getNome() + "\">Eliminar</a></td></tr>");
 		}
 		
 		out.println("</tbody>");
