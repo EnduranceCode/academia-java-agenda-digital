@@ -24,9 +24,14 @@ public class EditarCidade extends HttpServlet {
 		/* Obtêm os dados da cidade a editar */
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 		String cidade = request.getParameter("cidade");
+		String cidadeAntiga = request.getParameter("cidade-antiga");
 		
-		/* Valida os dados recebidos*/
-		Storage.validarCidade(cidade);
+		/* Só validamos os dados se a cidade foi alterada */
+		if (! cidade.equals(cidadeAntiga)) {
+			
+			/* Valida os dados recebidos*/
+			Storage.validarCidade(cidade);
+		}
 
 		/* Insere a nova cidade na lista de armazenamento*/
 		Storage.actualizarCidade(codigo, cidade);
