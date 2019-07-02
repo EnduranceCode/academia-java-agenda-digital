@@ -24,6 +24,9 @@ public class NovaCidade extends HttpServlet {
 		/* Obtêm o nome da cidade inserido no formulário */
 		String cidade = request.getParameter("cidade");
 		
+		/* Valida os dados recebidos*/
+		Storage.validarCidade(cidade);
+		
 		/* Insere a nova cidade na lista de armazenamento*/
 		Cidade cidadeNova = Storage.inserirCidade(cidade);
 		
