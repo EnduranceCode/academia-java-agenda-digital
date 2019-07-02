@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 
-@WebServlet(name = "create", urlPatterns = "/create")
+@WebServlet(name = "create-cidade", urlPatterns = "/create/cidade")
 public class Create extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -33,7 +33,7 @@ public class Create extends HttpServlet {
 		
 		out.println("<div clas=\"row-fluid\">");
 		out.println("<div clas=\"offset4 span8\">");
-		out.println("<form action=\"nova-cidade\">");
+		out.println("<form action=\"/agenda-digital-web/nova-cidade\">");
 		out.println("<fieldset>");
 		out.println("<legend>Inserir Cidade</legend>");
 		out.println("<label>Cidade</label>");
