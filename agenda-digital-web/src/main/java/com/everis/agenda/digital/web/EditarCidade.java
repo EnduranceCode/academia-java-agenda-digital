@@ -63,7 +63,10 @@ public class EditarCidade extends HttpServlet {
 							+ "<td>" + cidadeActual.getCodigo() + "</td>"
 							+ "<td>"+ cidadeActual.getNome() + "</td>"
 							+ "<td>"
-								+ "<a style=\"margin-right: 10px;\" class=\"btn btn-small btn-success\">Editar</a>"
+								+ "<a href=\"/agenda-digital-web/update?codigo=" + cidadeActual.getCodigo() + "&cidade=" + cidadeActual.getNome() + "\""
+										+ "class=\"btn btn-small btn-success\""
+										+ "style=\"margin-right: 10px;\">Editar"
+								+ "</a>"
 								+ "<a class=\"btn btn-small btn-danger\" href=\"/agenda-digital-web/delete?cidade=" + cidadeActual.getNome() + "\">Eliminar</a>"
 							+ "</td>"
 						+ "</tr>");
