@@ -53,7 +53,7 @@ public class Delete extends HttpServlet{
 							+ "<td>" + cidadeActual.getCodigo() + "</td>"
 							+ "<td>"+ cidadeActual.getNome() + "</td>"
 							+ "<td>"
-								+ "<a href=\"/agenda-digital-web/update?codigo=" + cidadeActual.getCodigo() + "&cidade=" + cidadeActual.getNome() + "\""
+								+ "<a href=\"/agenda-digital-web/update/cidade?codigo=" + cidadeActual.getCodigo() + "&cidade=" + cidadeActual.getNome() + "\""
 									+ "style=\"margin-right: 10px;\""
 									+ "class=\"btn btn-small btn-success\">Editar"
 								+ "</a>"

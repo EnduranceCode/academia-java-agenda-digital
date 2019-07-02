@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 
-@WebServlet(name = "update", urlPatterns = "/update")
+@WebServlet(name = "update", urlPatterns = "/update/cidade")
 public class Update extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
