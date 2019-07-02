@@ -24,11 +24,7 @@ public class Delete extends HttpServlet{
 		/* Obtêm o nome da cidade a eliminar */
 		String cidade = request.getParameter("cidade");
 
-		System.out.println(cidade);
-
 		Storage.apagarCidade(cidade);
-		
-		System.out.println(cidade);
 		
 		PrintWriter out = response.getWriter();
 		out.println(new HeadHtml().getHead());
