@@ -29,13 +29,16 @@ public class Update extends HttpServlet {
 		out.println("<div class=\"container-fluid\">");
 		out.println("<div clas=\"row-fluid\">");
 		out.println("<div clas=\"span12\">");
+		
 		out.println("<h1>Academia Java</h1>");
 		out.println("<h2>Agenda Digital</h2>");
+		
 		out.println("</div>");
 		out.println("</div>");
 		
 		out.println("<div clas=\"row-fluid\">");
 		out.println("<div clas=\"offset4 span8\">");
+		
 		out.println("<form action=\"/agenda-digital-web/editar/cidade\">");
 		out.println("<fieldset>");
 		out.println("<legend>Editar Cidade</legend>");
@@ -46,8 +49,10 @@ public class Update extends HttpServlet {
 		out.println("<input type=\"submit\" value=\"Enviar\"/>");
 		out.println("</fieldset>");
 		out.println("</form>");
+		
 		out.println("</div>");
 		out.println("</div>");
+		
 		out.println("</body>");
 		out.println("</html>");
 		

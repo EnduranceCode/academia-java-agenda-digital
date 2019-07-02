@@ -21,7 +21,7 @@ public class NovaCidade extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obt�m o nome da cidade inserido no formul�rio */
+		/* Obtêm o nome da cidade inserido no formulário */
 		String cidade = request.getParameter("cidade");
 		
 		/* Valida os dados recebidos*/
