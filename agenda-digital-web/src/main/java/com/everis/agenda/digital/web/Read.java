@@ -55,7 +55,7 @@ public class Read extends HttpServlet {
 		out.println("</tbody>");
 		out.println("</table>");
 		
-		out.println("<p><a class=\"btn\" href=\"/agenda-digital-web/create\">Inserir nova cidade</a></p>");
+		out.println("<p><a class=\"btn\" href=\"/agenda-digital-web/create/cidade\">Inserir nova cidade</a></p>");
 		
 		out.println("</div>");
 		out.println("</div>");

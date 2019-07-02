@@ -11,12 +11,15 @@ public class Storage {
 	
 	private static Set<Cidade> cidades = new HashSet<>();
 	
-	/*
-	 * Adicionamos algumas cidades à lista para para ter dados para usar como exemplo
-	 */
+	/* Inicializar um contador para o código da cidade */
+	private static Integer contadorCodigo = 0;
+	
+	/* Adicionamos algumas cidades à lista para para ter dados para usar como exemplo */
 	static {
 		cidades.add(new Cidade(1,"Lisboa"));
 		cidades.add(new Cidade(2, "Porto"));
+		
+		contadorCodigo = 3;
 	}
 	
 	/**
@@ -52,10 +55,12 @@ public class Storage {
 	 * @param cidade
 	 */
 	public static Cidade inserirCidade(String cidade) {
-		Integer codigo = cidades.size() + 1;
-		cidades.add(new Cidade(codigo, cidade));
 		
-		Cidade cidadeNova = new Cidade(codigo, cidade);
+		Cidade cidadeNova = new Cidade(contadorCodigo, cidade);
+		cidades.add(cidadeNova);
+		
+		/* Incrementa o contador do código para ser usado na inserção seguinte */
+		contadorCodigo++;
 		
 		return cidadeNova;
 	}
