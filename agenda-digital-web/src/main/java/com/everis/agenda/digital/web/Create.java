@@ -20,8 +20,8 @@ public class Create extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		PrintWriter out = response.getWriter();
-		out.println(new HeadHtml().getHead());
 		out.println("<html>");
+		out.println(new HeadHtml().getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		out.println("<div clas=\"row-fluid\">");

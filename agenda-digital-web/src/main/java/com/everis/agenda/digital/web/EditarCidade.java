@@ -21,12 +21,12 @@ public class EditarCidade extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obtêm os dados da cidade a editar */
+		/* Obtï¿½m os dados da cidade a editar */
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 		String cidade = request.getParameter("cidade");
 		String cidadeAntiga = request.getParameter("cidade-antiga");
 		
-		/* Só validamos os dados se a cidade foi alterada */
+		/* Sï¿½ validamos os dados se a cidade foi alterada */
 		if (! cidade.equals(cidadeAntiga)) {
 			
 			/* Valida os dados recebidos*/
@@ -37,8 +37,8 @@ public class EditarCidade extends HttpServlet {
 		Storage.actualizarCidade(codigo, cidade);
 		
 		PrintWriter out = response.getWriter();
-		out.println(new HeadHtml().getHead());
 		out.println("<html>");
+		out.println(new HeadHtml().getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		out.println("<div clas=\"row-fluid\">");

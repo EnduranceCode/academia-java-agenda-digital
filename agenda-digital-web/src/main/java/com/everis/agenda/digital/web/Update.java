@@ -18,13 +18,13 @@ public class Update extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obtêm os dados da cidade a editar */
+		/* Obtï¿½m os dados da cidade a editar */
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 		String cidade = request.getParameter("cidade");
 		
 		PrintWriter out = response.getWriter();
-		out.println(new HeadHtml().getHead());
 		out.println("<html>");
+		out.println(new HeadHtml().getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		out.println("<div clas=\"row-fluid\">");

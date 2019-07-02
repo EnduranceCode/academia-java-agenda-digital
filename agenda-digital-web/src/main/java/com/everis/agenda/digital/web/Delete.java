@@ -21,14 +21,14 @@ public class Delete extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obtêm o nome da cidade a eliminar */
+		/* Obtï¿½m o nome da cidade a eliminar */
 		String cidade = request.getParameter("cidade");
 
 		Storage.apagarCidade(cidade);
 		
 		PrintWriter out = response.getWriter();
-		out.println(new HeadHtml().getHead());
 		out.println("<html>");
+		out.println(new HeadHtml().getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		out.println("<div clas=\"row-fluid\">");
