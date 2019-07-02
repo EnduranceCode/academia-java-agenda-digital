@@ -26,6 +26,8 @@ public class Delete extends HttpServlet{
 		
 		Storage.apagarCidade(cidade);
 		
+		System.out.println(cidade);
+		
 		PrintWriter out = response.getWriter();
 		out.println(new HeadHtml().getHead());
 		out.println("<html>");

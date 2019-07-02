@@ -41,6 +41,17 @@ public class Storage {
 		return cidadeNova;
 	}
 	
+	public static void actualizarCidade(Integer codigo, String cidade) {
+		
+		for (Cidade cidadeActual : cidades) {
+			
+			if (cidadeActual.getCodigo() == codigo) {
+				
+				cidadeActual.setNome(cidade);
+			}
+		}
+	}
+	
 	public static void apagarCidade(String cidade) {
 		
 		for (Cidade cidadeActual : cidades) {
