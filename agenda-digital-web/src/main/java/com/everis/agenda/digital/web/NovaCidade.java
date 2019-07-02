@@ -50,7 +50,14 @@ public class NovaCidade extends HttpServlet {
 		out.println("</tbody>");
 		out.println("</table>");
 		
-		out.println("<p><a class=\"btn\" style=\"margin-right: 10px;\" href=\"/agenda-digital-web/create\">Inserir nova cidade</a><a class=\"btn btn-primary\" href=\"/agenda-digital-web/read\">Ver todas as cidades</a></p>");
+		out.println("<p>"
+						+ "<a href=\"/agenda-digital-web/create/cidade\""
+							+ "class=\"btn\" style=\"margin-right: 10px;\">Inserir nova cidade"
+							+ "</a>"
+						+ "<a href=\"/agenda-digital-web/read\""
+							+ "class=\"btn btn-primary\">Ver todas as cidades"
+						+ "</a>"
+					+ "</p>");
 		
 		out.println("</div>");
 		out.println("</div>");

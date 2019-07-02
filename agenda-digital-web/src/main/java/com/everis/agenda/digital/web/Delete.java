@@ -23,7 +23,9 @@ public class Delete extends HttpServlet{
 		
 		/* Obtêm o nome da cidade a eliminar */
 		String cidade = request.getParameter("cidade");
-		
+
+		System.out.println(cidade);
+
 		Storage.apagarCidade(cidade);
 		
 		System.out.println(cidade);
@@ -51,7 +53,16 @@ public class Delete extends HttpServlet{
 		out.println("<tbody>");
 
 		for (Cidade cidadeActual : Storage.getCidades()) {
-			out.println("<tr><td>" + cidadeActual.getCodigo() + "</td><td>"+ cidadeActual.getNome() + "</td><td><a style=\"margin-right: 10px;\" class=\"btn btn-small btn-success\">Editar</a><a class=\"btn btn-small btn-danger\" href=\"/agenda-digital-web/delete?cidade=" + cidadeActual.getNome() + "\">Eliminar</a></td></tr>");
+			out.println("<tr>"
+							+ "<td>" + cidadeActual.getCodigo() + "</td>"
+							+ "<td>"+ cidadeActual.getNome() + "</td>"
+							+ "<td>"
+								+ "<a style=\"margin-right: 10px;\" class=\"btn btn-small btn-success\">Editar</a>"
+								+ "<a href=\"/agenda-digital-web/delete?cidade=" + cidadeActual.getNome() + "\""
+										+ "class=\"btn btn-small btn-danger\">Eliminar"
+								+ "</a>"
+							+ "</td>"
+						+ "</tr>");
 		}
 		
 		out.println("</tbody>");

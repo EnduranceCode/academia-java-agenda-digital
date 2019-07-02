@@ -7,6 +7,11 @@ import javax.servlet.ServletException;
 
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
+/*
+ * TODO: Implementar o método apagarCidade() usando o código da cidade
+ *
+ */
+
 public class Storage {
 	
 	private static Set<Cidade> cidades = new HashSet<>();
@@ -94,6 +99,7 @@ public class Storage {
 			if (cidadeActual.getNome().equals(cidade)) {
 				
 				cidades.remove(cidadeActual);
+				break;
 			}
 		}
 	}
