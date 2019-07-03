@@ -23,6 +23,7 @@ public class HeadHtml {
 					"\t" + CHARSET_TAG + "\n" +
 					"\t" + VIEWPORT_TAG + "\n" +
 					"\t<title>" + title + "</title>\n" +
+					"\t" + CSS_TAG + "\n" +
 					"</head>";
 	}
 

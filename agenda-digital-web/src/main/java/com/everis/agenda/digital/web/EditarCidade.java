@@ -38,7 +38,7 @@ public class EditarCidade extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println(new HeadHtml().getHead());
+		out.println(new HeadHtml("Cidade actualizada - Agenda Digital").getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		

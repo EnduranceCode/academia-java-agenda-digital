@@ -28,7 +28,7 @@ public class Delete extends HttpServlet{
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println(new HeadHtml().getHead());
+		out.println(new HeadHtml("Cidade eliminada - Agenda Digital").getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		
