@@ -9,20 +9,24 @@
     <artifactId>agenda-digital-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+
   <artifactId>agenda-digital-web</artifactId>
   <packaging>war</packaging>
   <name>agenda-digital-web Maven Webapp</name>
   
   <dependencies>
+	<dependency>
+		<groupId>com.everis.academia.java</groupId>
+		<artifactId>agenda-digital-entity</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.everis.academia.java</groupId>
+		<artifactId>agenda-digital-business</artifactId>
+	</dependency>
   	<dependency>
     	<groupId>javax.servlet</groupId>
     	<artifactId>javax.servlet-api</artifactId>
     	<scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>com.everis.academia.java</groupId>
-		<artifactId>agenda-digital-entity</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
   </dependencies>
 
