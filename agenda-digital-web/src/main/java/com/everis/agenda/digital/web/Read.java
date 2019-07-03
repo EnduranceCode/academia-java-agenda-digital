@@ -25,6 +25,7 @@ public class Read extends HttpServlet {
 		out.println(new HeadHtml().getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
+		
 		out.println("<div clas=\"row-fluid\">");
 		out.println("<div clas=\"span12\">");
 		
@@ -45,6 +46,7 @@ public class Read extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
+		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");
 	}

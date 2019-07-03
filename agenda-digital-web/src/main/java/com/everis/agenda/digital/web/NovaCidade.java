@@ -35,6 +35,7 @@ public class NovaCidade extends HttpServlet {
 		out.println(new HeadHtml().getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
+		
 		out.println("<div clas=\"row-fluid\">");
 		out.println("<div clas=\"span12\">");
 		out.println("<h1>Academia Java</h1>");
@@ -62,6 +63,7 @@ public class NovaCidade extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
+		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");
 	}
