@@ -6,7 +6,7 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 public interface ICidadeBusiness {
 
-	Boolean create(Cidade cidade);
+	Cidade create(Cidade cidade) throws BusinessException;
 	
 	Collection<Cidade> read();
 	
