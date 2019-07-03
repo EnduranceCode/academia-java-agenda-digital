@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 
 @WebServlet(name = "error-cidade", urlPatterns = "/error/cidade")
@@ -19,7 +20,7 @@ public class CotrollerErro extends HttpServlet {
 	
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ServletException servletException = (ServletException) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+		BusinessException servletException = (BusinessException) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
