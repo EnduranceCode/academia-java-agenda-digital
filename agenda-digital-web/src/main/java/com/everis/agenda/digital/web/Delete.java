@@ -21,7 +21,7 @@ public class Delete extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obt�m o nome da cidade a eliminar */
+		/* Obtêm o nome da cidade a eliminar */
 		String cidade = request.getParameter("cidade");
 
 		Storage.apagarCidade(cidade);

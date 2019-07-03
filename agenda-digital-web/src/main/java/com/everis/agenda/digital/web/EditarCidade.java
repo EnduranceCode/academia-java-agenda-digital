@@ -21,12 +21,12 @@ public class EditarCidade extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obt�m os dados da cidade a editar */
+		/* Obtêm os dados da cidade a editar */
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 		String cidade = request.getParameter("cidade");
 		String cidadeAntiga = request.getParameter("cidade-antiga");
 		
-		/* S� validamos os dados se a cidade foi alterada */
+		/* Só validamos os dados se a cidade foi alterada */
 		if (! cidade.equals(cidadeAntiga)) {
 			
 			/* Valida os dados recebidos*/

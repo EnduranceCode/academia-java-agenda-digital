@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 /*
- * TODO: Implementar o método apagarCidade() usando o código da cidade
+ * TODO: Implementar o mÃ©todo apagarCidade() usando o cÃ³digo da cidade
  *
  */
 
@@ -16,10 +16,10 @@ public class Storage {
 	
 	private static Set<Cidade> cidades = new HashSet<>();
 	
-	/* Inicializar um contador para o código da cidade */
+	/* Inicializar um contador para o cÃ³digo da cidade */
 	private static Integer contadorCodigo = 0;
 	
-	/* Adicionamos algumas cidades à lista para para ter dados para usar como exemplo */
+	/* Adicionamos algumas cidades Ã  lista para para ter dados para usar como exemplo */
 	static {
 		cidades.add(new Cidade(1,"Lisboa"));
 		cidades.add(new Cidade(2, "Porto"));
@@ -38,17 +38,17 @@ public class Storage {
 	
 	public static void validarCidade(String cidade) throws ServletException {
 		
-		/* Verifica se os dados recebidos não estão vazios */
+		/* Verifica se os dados recebidos nÃ£o estÃ£o vazios */
 		if (cidade.isEmpty()) {
 			
-			throw new ServletException("Não foram recebidos dados");
+			throw new ServletException("Nï¿½o foram recebidos dados");
 		}
 		
 		for (Cidade cidadeActual : cidades) {
 			
 			if (cidadeActual.getNome().equals(cidade)) {
 				
-				throw new ServletException("A cidade já existe");
+				throw new ServletException("A cidade jï¿½ existe");
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public class Storage {
 		Cidade cidadeNova = new Cidade(contadorCodigo, cidade);
 		cidades.add(cidadeNova);
 		
-		/* Incrementa o contador do código para ser usado na inserção seguinte */
+		/* Incrementa o contador do cÃ³digo para ser usado na inserÃ§Ã£o seguinte */
 		contadorCodigo++;
 		
 		return cidadeNova;
