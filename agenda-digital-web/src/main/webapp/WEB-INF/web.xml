@@ -16,4 +16,9 @@
    	<url-pattern>/hello</url-pattern>
    </servlet-mapping>
    -->
+   
+   <error-page>
+   	<exception-type>javax.servlet.ServletException</exception-type>
+   	<location>/error/cidade</location>
+   </error-page>
 </web-app>

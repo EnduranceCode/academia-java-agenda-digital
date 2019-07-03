@@ -41,14 +41,14 @@ public class Storage {
 		/* Verifica se os dados recebidos não estão vazios */
 		if (cidade.isEmpty()) {
 			
-			throw new ServletException("N�o foram recebidos dados");
+			throw new ServletException("Não foram recebidos dados");
 		}
 		
 		for (Cidade cidadeActual : cidades) {
 			
 			if (cidadeActual.getNome().equals(cidade)) {
 				
-				throw new ServletException("A cidade j� existe");
+				throw new ServletException("A cidade já existe");
 			}
 		}
 	}

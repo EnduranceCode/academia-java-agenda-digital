@@ -26,8 +26,8 @@ public class Read extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		
-		out.println("<div clas=\"row-fluid\">");
-		out.println("<div clas=\"span12\">");
+		out.println("<div class=\"row-fluid\">");
+		out.println("<div class=\"span12\">");
 		
 		out.println("<h1>Academia Java</h1>");
 		out.println("<h2>Agenda Digital</h2>");
@@ -38,8 +38,8 @@ public class Read extends HttpServlet {
 		out.println(new ListaCidadesHtml().getHtmlListaCidades());
 		
 		out.println("<div class=\"container-fluid\">");
-		out.println("<div clas=\"row-fluid\">");
-		out.println("<div clas=\"span12\">");
+		out.println("<div class=\"row-fluid\">");
+		out.println("<div class=\"span12\">");
 
 		out.println("<p><a class=\"btn\" href=\"/agenda-digital-web/create/cidade\">Inserir nova cidade</a></p>");
 		

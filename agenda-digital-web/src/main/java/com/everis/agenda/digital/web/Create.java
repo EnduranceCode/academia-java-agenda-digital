@@ -27,8 +27,8 @@ public class Create extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		
-		out.println("<div clas=\"row-fluid\">");
-		out.println("<div clas=\"span12\">");
+		out.println("<div class=\"row-fluid\">");
+		out.println("<div class=\"span12\">");
 		
 		out.println("<h1>Academia Java</h1>");
 		out.println("<h2>Agenda Digital</h2>");
@@ -36,15 +36,15 @@ public class Create extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
-		out.println("<div clas=\"row-fluid\">");
-		out.println("<div clas=\"span6 offset3\">");
+		out.println("<div class=\"row-fluid\">");
+		out.println("<div class=\"span4 offset4\">");
 		
 		out.println("<form action=\"/agenda-digital-web/nova-cidade\">");
 		out.println("<fieldset>");
 		out.println("<legend>Inserir Cidade</legend>");
 		out.println("<label>Cidade</label>");
-		out.println("<input type=\"text\" name=\"cidade\"/>");
-		out.println("<input type=\"submit\" value=\"Enviar\"/ class=\"btn btn-small btn-primary\"/>");
+		out.println("<input type=\"text\" name=\"cidade\" class=\"input-xlarge\" style=\"height: 30px\"/>");
+		out.println("<input type=\"submit\" value=\"Enviar\"/ class=\"btn btn-primary pull-right\"/>");
 		out.println("</fieldset>");
 		out.println("</form>");
 		

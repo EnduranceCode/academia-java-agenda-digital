@@ -28,8 +28,8 @@ public class Update extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 
-		out.println("<div clas=\"row-fluid\">");
-		out.println("<div clas=\"span12\">");
+		out.println("<div class=\"row-fluid\">");
+		out.println("<div class=\"span12\">");
 		
 		out.println("<h1>Academia Java</h1>");
 		out.println("<h2>Agenda Digital</h2>");
@@ -37,8 +37,8 @@ public class Update extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
-		out.println("<div clas=\"row-fluid\">");
-		out.println("<div clas=\"offset4 span8\">");
+		out.println("<div class=\"row-fluid\">");
+		out.println("<div class=\"offset4 span4\">");
 		
 		out.println("<form action=\"/agenda-digital-web/editar/cidade\">");
 		out.println("<fieldset>");
@@ -46,8 +46,8 @@ public class Update extends HttpServlet {
 		out.println("<input type=\"hidden\" name=\"codigo\"/ value=\"" + codigo + "\">");
 		out.println("<label>Cidade</label>");
 		out.println("<input type=\"hidden\" name=\"cidade-antiga\"/ value=\"" + cidade + "\">");
-		out.println("<input type=\"text\" name=\"cidade\"/ value=\"" + cidade + "\">");
-		out.println("<input type=\"submit\" value=\"Enviar\"/>");
+		out.println("<input type=\"text\" name=\"cidade\"/ value=\"" + cidade + "\" class=\"input-xlarge\" style=\"height: 30px\" />");
+		out.println("<input type=\"submit\" value=\"Enviar\"/ class=\"btn btn-primary pull-right\">");
 		out.println("</fieldset>");
 		out.println("</form>");
 		
