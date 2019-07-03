@@ -49,8 +49,8 @@ public class CidadeDAO implements ICidadeDAO {
 
 	@Override
 	public Collection<Cidade> read() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return cidades;
 	}
 
 	@Override

@@ -33,8 +33,8 @@ public class CidadeBusiness implements ICidadeBusiness {
 
 	@Override
 	public Collection<Cidade> read() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return cidadeDAO.read();
 	}
 
 	@Override

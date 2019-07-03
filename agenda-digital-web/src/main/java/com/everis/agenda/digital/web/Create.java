@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 import com.everis.agenda.digital.web.blocks.ListaCidadesHtml;
 
@@ -16,6 +17,8 @@ import com.everis.agenda.digital.web.blocks.ListaCidadesHtml;
 public class Create extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
+	private CidadeBusiness cidadeBusiness = new CidadeBusiness();
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,7 +54,7 @@ public class Create extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
-		out.println(new ListaCidadesHtml().getHtmlListaCidades());
+		out.println(new ListaCidadesHtml(cidadeBusiness.read()).getHtmlListaCidades());
 		
 		out.println("</div>");
 		out.println("</body>");

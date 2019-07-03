@@ -1,13 +1,15 @@
 package com.everis.agenda.digital.web.blocks;
 
-import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO;
+import java.util.Collection;
+
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 public class ListaCidadesHtml {
 	
 	private String htmlListaCidades = "";
 	
-	public ListaCidadesHtml() {
+	
+	public ListaCidadesHtml(Collection<Cidade> cidades) {
 		super();
 		this.htmlListaCidades += "<div class=\"row-fluid\">";
 		this.htmlListaCidades += "<div class=\"span12\">";
@@ -18,7 +20,7 @@ public class ListaCidadesHtml {
 		this.htmlListaCidades += "</thead>";
 		this.htmlListaCidades += "<tbody>";
 		
-		for (Cidade cidadeActual : CidadeDAO.getCidades()) {
+		for (Cidade cidadeActual : cidades) {
 			this.htmlListaCidades 	+= "<tr>"
 									+ "<td>" + cidadeActual.getCodigo() + "</td>"
 									+ "<td>" + cidadeActual.getNome() + "</td>"
