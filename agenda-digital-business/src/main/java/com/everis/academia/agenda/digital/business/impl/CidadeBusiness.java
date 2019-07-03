@@ -38,15 +38,36 @@ public class CidadeBusiness implements ICidadeBusiness {
 	}
 
 	@Override
-	public Boolean update(Cidade cidade) {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(Cidade cidade) throws BusinessException {
+		
+		/* Verificamos se os dados recebidos não estão vazios */
+		if (cidade.getNome() == null ||  cidade.getNome().trim().isEmpty()) {
+			
+			throw new BusinessException("Não foram recebidos dados");
+		}
+		
+		// TODO: Verificar se o nome da cidade foi realmente alterado;
+		for (Cidade cidadeActual : cidadeDAO.read()) {
+			
+			if (cidadeActual.getCodigo() == cidade.getCodigo() && cidadeActual.getNome().equals(cidade.getNome())) {
+				
+				return;
+			}
+		}
+		
+		/* Verificamos se a cidade já existe */
+		if (cidadeDAO.jaExisteCidadeComNome(cidade.getNome())) {
+			
+			throw new BusinessException("A cidade já existe");
+		}
+
+		/* Feita a validação dos dados recebidos, actualizamos a cidade */
+		cidadeDAO.update(cidade);
 	}
 
 	@Override
-	public Boolean delete(Cidade cidade) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Integer codigo) {
+		
+		cidadeDAO.delete(codigo);
 	}
-
 }

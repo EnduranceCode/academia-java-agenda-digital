@@ -10,9 +10,9 @@ public interface ICidadeDAO {
 	
 	Collection<Cidade> read();
 	
-	Boolean delete(Cidade cidade);
+	void update(Cidade cidade);
 	
-	Boolean update(Cidade cidade);
+	void delete(Integer codigo);
 	
 	Boolean jaExisteCidadeComNome(String nome);
 }

@@ -54,17 +54,29 @@ public class CidadeDAO implements ICidadeDAO {
 	}
 
 	@Override
-	public Boolean delete(Cidade cidade) {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(Cidade cidade) {
+		
+		for (Cidade cidadeActual : cidades) {
+			
+			if (cidadeActual.getCodigo() == cidade.getCodigo()) {
+				
+				cidadeActual.setNome(cidade.getNome());
+			}
+		}
 	}
 
 	@Override
-	public Boolean update(Cidade cidade) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Integer codigo) {
+		
+		for (Cidade cidadeActual : cidades) {
+			
+			if (cidadeActual.getCodigo() == codigo) {
+				
+				cidades.remove(cidadeActual);
+				break;
+			}
+		}
 	}
-
 	
 	@Override
 	public Boolean jaExisteCidadeComNome(String nome) {

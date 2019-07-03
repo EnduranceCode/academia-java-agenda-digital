@@ -10,7 +10,7 @@ public interface ICidadeBusiness {
 	
 	Collection<Cidade> read();
 	
-	Boolean update(Cidade cidade);
+	void update(Cidade cidade) throws BusinessException;
 	
-	Boolean delete(Cidade cidade);
+	void delete(Integer codigo);
 }

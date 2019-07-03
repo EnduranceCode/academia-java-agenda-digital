@@ -45,7 +45,6 @@ public class Update extends HttpServlet {
 		out.println("<legend>Editar Cidade</legend>");
 		out.println("<input type=\"hidden\" name=\"codigo\"/ value=\"" + codigo + "\">");
 		out.println("<label>Cidade</label>");
-		out.println("<input type=\"hidden\" name=\"cidade-antiga\"/ value=\"" + cidade + "\">");
 		out.println("<input type=\"text\" name=\"cidade\"/ value=\"" + cidade + "\" class=\"input-xlarge\" style=\"height: 30px\" />");
 		out.println("<input type=\"submit\" value=\"Enviar\"/ class=\"btn btn-primary pull-right\">");
 		out.println("</fieldset>");

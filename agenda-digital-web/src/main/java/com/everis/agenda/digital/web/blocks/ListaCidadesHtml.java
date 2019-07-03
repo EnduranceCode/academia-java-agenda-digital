@@ -28,7 +28,7 @@ public class ListaCidadesHtml {
 										+ "<a href=\"/agenda-digital-web/update/cidade?codigo=" + cidadeActual.getCodigo() + "&cidade=" + cidadeActual.getNome() + "\""
 												+ "class=\"btn btn-small btn-success\""
 												+ "style=\"margin-right: 10px\">Editar</a>"
-										+ "<a href=\"/agenda-digital-web/delete?cidade=" + cidadeActual.getNome() + "\""
+										+ "<a href=\"/agenda-digital-web/delete?codigo=" + cidadeActual.getCodigo() + "\""
 												+ "class=\"btn btn-small btn-danger\">Eliminar</a>"
 									+ "</td>"
 								+ "</tr>";

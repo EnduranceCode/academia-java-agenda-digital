@@ -12,48 +12,36 @@ import javax.servlet.http.HttpServletResponse;
 import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 import com.everis.agenda.digital.web.blocks.ListaCidadesHtml;
-import com.everis.agenda.digital.web.storage.Storage;
 
-@WebServlet(name = "editar-cidade", urlPatterns = "/editar/cidade")
-public class EditarCidade extends HttpServlet {
+@WebServlet(name = "delete", urlPatterns = "/delete")
+public class ControllerDelete extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
 	private CidadeBusiness cidadeBusiness = new CidadeBusiness();
-	
+
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obtêm os dados da cidade a editar */
+		/* Obtemos o código da cidade a eliminar */
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
-		String cidade = request.getParameter("cidade");
-		String cidadeAntiga = request.getParameter("cidade-antiga");
 		
-		/* Só validamos os dados se a cidade foi alterada */
-		if (! cidade.equals(cidadeAntiga)) {
-			
-			/* Valida os dados recebidos*/
-			Storage.validarCidade(cidade);
-		}
+		cidadeBusiness.delete(codigo);
 
-		/* Insere a nova cidade na lista de armazenamento*/
-		Storage.actualizarCidade(codigo, cidade);
-		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println(new HeadHtml("Cidade actualizada - Agenda Digital").getHead());
+		out.println(new HeadHtml("Cidade eliminada - Agenda Digital").getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		
 		out.println("<div class=\"row-fluid\">");
 		out.println("<div class=\"span12\">");
-		
 		out.println("<h1>Academia Java</h1>");
 		out.println("<h2>Agenda Digital</h2>");
 		  
 		out.println("<div class=\"alert alert-success\">");
 		out.println("<p><strong>Sucesso!</strong></p>");
-		out.println("<p>A cidade foi actualizada.</p>");
+		out.println("<p>A cidade foi eliminada</p>");
 		out.println("</div>");
 		
 		out.println("</div>");
