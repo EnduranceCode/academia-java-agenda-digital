@@ -5,13 +5,13 @@ import java.util.Collection;
 import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
-import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.impl.CidadeDAO2;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 public class CidadeBusiness implements ICidadeBusiness {
 	
-	/* Instanciamos um novo objecto CidadeDAO */
-	private ICidadeDAO cidadeDAO = new CidadeDAO();
+	/* Instanciamos um novo objecto CidadeDAO2 (Para testar o desacoplamento do código) */
+	private ICidadeDAO cidadeDAO = new CidadeDAO2();
 
 	@Override
 	public Cidade create(Cidade cidade) throws BusinessException {
