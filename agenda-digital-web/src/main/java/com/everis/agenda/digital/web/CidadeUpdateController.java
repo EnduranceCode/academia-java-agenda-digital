@@ -16,7 +16,7 @@ import com.everis.agenda.digital.web.blocks.HeadHtml;
 import com.everis.agenda.digital.web.blocks.ListaCidadesHtml;
 
 @WebServlet(name = "editar-cidade", urlPatterns = "/editar/cidade")
-public class ControllerUpdate extends HttpServlet {
+public class CidadeUpdateController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	

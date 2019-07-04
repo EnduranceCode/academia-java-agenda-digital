@@ -15,7 +15,7 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 
 @WebServlet(name = "nova-cidade", urlPatterns = "/nova-cidade")
-public class ControllerCreate extends HttpServlet {
+public class CidadeCreateController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	

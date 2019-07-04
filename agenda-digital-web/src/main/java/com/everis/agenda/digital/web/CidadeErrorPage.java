@@ -14,7 +14,7 @@ import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 
 @WebServlet(name = "error-cidade", urlPatterns = "/error/cidade")
-public class CotrollerErro extends HttpServlet {
+public class CidadeErrorPage extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
