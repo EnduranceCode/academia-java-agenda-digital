@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 
 @WebServlet(name = "error-cidade", urlPatterns = "/error/cidade")
@@ -20,11 +19,11 @@ public class CidadeErrorPage extends HttpServlet {
 	
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		BusinessException servletException = (BusinessException) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
+		Exception exception = (Exception) request.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println(new HeadHtml(servletException.getLocalizedMessage() + " - Agenda Digital").getHead());
+		out.println(new HeadHtml(exception.getLocalizedMessage() + " - Agenda Digital").getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		
@@ -42,7 +41,7 @@ public class CidadeErrorPage extends HttpServlet {
 		  
 		out.println("<div class=\"alert alert-danger\">");
 		out.println("<p><strong>Ocorreu um erro!</strong></p>");
-		out.println("<p>" + servletException.getLocalizedMessage() + "</p>");
+		out.println("<p>" + exception.getLocalizedMessage() + "</p>");
 		out.println("</div>");
 		
 		out.println("</div>");

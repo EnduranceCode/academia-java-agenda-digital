@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
@@ -71,9 +70,6 @@ public class CidadeUpdateController extends HttpServlet {
 			out.println("</div>");
 			out.println("</body>");
 			out.println("</html>");
-		} catch (BusinessException e) {
-
-			throw new ServletException(e);
 		} catch (Exception e) {
 
 			throw new ServletException(e);
