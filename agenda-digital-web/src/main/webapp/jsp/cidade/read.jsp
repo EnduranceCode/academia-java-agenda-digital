@@ -10,29 +10,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inserir nova cidade - Agenda Digital</title>
+<title>Listagem de cidades - Agenda Digital</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
 </head>
 <body>
 	<div class="container-fluid">
+
 		<div class="row-fluid">
 			<div class="span12">
 				<h1>Academia Java</h1>
 				<h2>Agenda Digital</h2>
-			</div>
-		</div>
-
-		<div class="row-fluid">
-			<div class="span4 offset4">
-				<form action="<%=request.getContextPath()%>/nova-cidade">
-					<fieldset>
-						<legend>Inserir Cidade</legend>
-						<label>Cidade</label> <input type="text" name="cidade"
-							class="input-xlarge" style="height: 30px" /> <input
-							type="submit" value="Enviar" class="btn btn-primary pull-right" />
-					</fieldset>
-				</form>
 			</div>
 		</div>
 
@@ -56,8 +44,8 @@
 							<td><%=cidadeActual.getNome()%></td>
 							<td><a
 								href="<%=request.getContextPath()%>/update/cidade?codigo=<%=cidadeActual.getCodigo()%>&cidade=<%=cidadeActual.getNome()%>"
-								class="btn btn-small btn-success" style="margin-right: 10px">Editar</a>
-								<a href="<%=request.getContextPath()%>/delete?codigo=1"
+								class="btn btn-small btn-success" style="margin-right: 10px">Editar</a><a
+								href="<%=request.getContextPath()%>/delete?codigo=1"
 								class="btn btn-small btn-danger">Eliminar</a></td>
 						</tr>
 						<%
@@ -72,7 +60,8 @@
 			<div class="span12">
 				<p>
 					<a class="btn"
-						href="<%=request.getContextPath()%>/jsp/cidade/read.jsp">Ver todas as cidades existentes</a>
+						href="<%=request.getContextPath()%>/jsp/cidade/create.jsp">Inserir
+						nova cidade</a>
 				</p>
 			</div>
 		</div>

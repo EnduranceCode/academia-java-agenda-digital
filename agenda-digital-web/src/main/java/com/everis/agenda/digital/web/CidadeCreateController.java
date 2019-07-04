@@ -63,7 +63,7 @@ public class CidadeCreateController extends HttpServlet {
 							+ "<a href=\"" + request.getContextPath() + "/jsp/cidade/create.jsp\""
 								+ "class=\"btn\" style=\"margin-right: 10px;\">Inserir nova cidade"
 								+ "</a>"
-							+ "<a href=\"" + request.getContextPath() + "/read\""
+							+ "<a href=\"" + request.getContextPath() + "/jsp/cidade/read.jsp\""
 								+ "class=\"btn btn-primary\">Ver todas as cidades"
 							+ "</a>"
 						+ "</p>");
