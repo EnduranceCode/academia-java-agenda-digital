@@ -10,6 +10,7 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 public class CidadeBusiness implements ICidadeBusiness {
 	
+	/* Instanciamos um novo objecto CidadeDAO */
 	private ICidadeDAO cidadeDAO = new CidadeDAO();
 
 	@Override
@@ -46,11 +47,12 @@ public class CidadeBusiness implements ICidadeBusiness {
 			throw new BusinessException("Não foram recebidos dados");
 		}
 		
-		// TODO: Verificar se o nome da cidade foi realmente alterado;
+		/* Verificamos se a cidade já existe */
 		for (Cidade cidadeActual : cidadeDAO.read()) {
 			
 			if (cidadeActual.getCodigo() == cidade.getCodigo() && cidadeActual.getNome().equals(cidade.getNome())) {
 				
+				/* Não foram introduzidas alterações aos dados pré-existentes e assim retornamos à origem */
 				return;
 			}
 		}

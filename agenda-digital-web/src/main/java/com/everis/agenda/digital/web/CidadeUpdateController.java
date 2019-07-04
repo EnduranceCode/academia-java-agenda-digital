@@ -20,6 +20,7 @@ public class CidadeUpdateController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
+	/* Instanciamos um novo objecto CidadeBusiness */
 	private CidadeBusiness cidadeBusiness = new CidadeBusiness();
 	
 	@Override
@@ -34,6 +35,7 @@ public class CidadeUpdateController extends HttpServlet {
 		
 		try {
 			
+			/* Executamos o método update() */
 			cidadeBusiness.update(cidadeNova);
 			
 			PrintWriter out = response.getWriter();

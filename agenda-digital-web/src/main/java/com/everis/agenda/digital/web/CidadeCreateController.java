@@ -19,6 +19,7 @@ public class CidadeCreateController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
+	/* Instanciamos um novo objecto CidadeBusiness */
 	private CidadeBusiness cidadeBusiness = new CidadeBusiness();
 	
 	@Override
@@ -33,7 +34,7 @@ public class CidadeCreateController extends HttpServlet {
 		
 		try {
 			
-			/* Criamos um novo objecto cidade com os dados recebidos */
+			/* Executamos o método create() e actualizamos a variável com os dados retornados pelo método */
 			cidadeNova = cidadeBusiness.create(cidadeNova);
 			
 			PrintWriter out = response.getWriter();

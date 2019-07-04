@@ -18,6 +18,7 @@ public class CidadeDeleteController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
+	/* Instanciamos um novo objecto CidadeBusiness */
 	private CidadeBusiness cidadeBusiness = new CidadeBusiness();
 
 	@Override
@@ -26,6 +27,7 @@ public class CidadeDeleteController extends HttpServlet{
 		/* Obtemos o código da cidade a eliminar */
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 		
+		/* Executamos o método delete() para eliminar a cidade com o código recebido*/
 		cidadeBusiness.delete(codigo);
 
 		PrintWriter out = response.getWriter();

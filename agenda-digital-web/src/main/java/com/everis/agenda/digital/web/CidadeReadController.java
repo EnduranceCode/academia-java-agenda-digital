@@ -17,6 +17,7 @@ public class CidadeReadController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
+	/* Instanciamos um novo objecto CidadeBusiness */
 	private CidadeBusiness cidadeBusiness = new CidadeBusiness();
 	
 	@Override
@@ -37,6 +38,7 @@ public class CidadeReadController extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
+		/* Listamos as cidades existentes executando o método read() */
 		out.println(new ListaCidadesHtml(cidadeBusiness.read()).getHtmlListaCidades());
 		
 		out.println("<div class=\"container-fluid\">");

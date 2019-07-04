@@ -11,7 +11,7 @@ public class CidadeDAO implements ICidadeDAO {
 	
 	private static Set<Cidade> cidades = new HashSet<>();
 	
-	/* Inicializar um contador para o código da cidade */
+	/* Inicializamos um contador para o código da cidade */
 	private static Integer contadorCodigo = 0;
 	
 	/* Adicionamos algumas cidades à lista para para ter dados para usar como exemplo */

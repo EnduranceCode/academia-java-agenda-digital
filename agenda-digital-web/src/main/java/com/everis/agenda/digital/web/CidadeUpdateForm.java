@@ -18,7 +18,7 @@ public class CidadeUpdateForm extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obtêm os dados da cidade a editar */
+		/* Obtemos os dados da cidade a editar */
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 		String cidade = request.getParameter("cidade");
 		

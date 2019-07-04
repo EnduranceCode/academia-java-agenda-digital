@@ -18,6 +18,7 @@ public class CidadeCreateForm extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
+	/* Instanciamos um novo objecto CidadeBusiness */
 	private CidadeBusiness cidadeBusiness = new CidadeBusiness();
 	
 	@Override
