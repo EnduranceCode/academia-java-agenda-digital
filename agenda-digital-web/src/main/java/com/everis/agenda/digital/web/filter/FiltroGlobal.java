@@ -10,8 +10,10 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+@WebFilter(filterName = "FiltroGlobal", urlPatterns = "/*")
 public class FiltroGlobal implements Filter {
 	
 	private String parametrosString = "";
