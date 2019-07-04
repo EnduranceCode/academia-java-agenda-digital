@@ -25,7 +25,7 @@ public class ListaCidadesHtml {
 									+ "<td>" + cidadeActual.getCodigo() + "</td>"
 									+ "<td>" + cidadeActual.getNome() + "</td>"
 									+ "<td>"
-										+ "<a href=\"/agenda-digital-web/update/cidade?codigo=" + cidadeActual.getCodigo() + "&cidade=" + cidadeActual.getNome() + "\""
+										+ "<a href=\"/agenda-digital-web/jsp/cidade/update.jsp?codigo=" + cidadeActual.getCodigo() + "&cidade=" + cidadeActual.getNome() + "\""
 												+ "class=\"btn btn-small btn-success\""
 												+ "style=\"margin-right: 10px\">Editar</a>"
 										+ "<a href=\"/agenda-digital-web/delete?codigo=" + cidadeActual.getCodigo() + "\""

@@ -43,7 +43,7 @@
 							<td><%=cidadeActual.getCodigo()%></td>
 							<td><%=cidadeActual.getNome()%></td>
 							<td><a
-								href="<%=request.getContextPath()%>/update/cidade?codigo=<%=cidadeActual.getCodigo()%>&cidade=<%=cidadeActual.getNome()%>"
+								href="<%=request.getContextPath()%>/jsp/cidade/update.jsp?codigo=<%=cidadeActual.getCodigo()%>&cidade=<%=cidadeActual.getNome()%>"
 								class="btn btn-small btn-success" style="margin-right: 10px">Editar</a><a
 								href="<%=request.getContextPath()%>/delete?codigo=1"
 								class="btn btn-small btn-danger">Eliminar</a></td>
