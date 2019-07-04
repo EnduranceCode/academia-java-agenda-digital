@@ -57,11 +57,13 @@ public class CidadeCreateController extends HttpServlet {
 			out.println("</tbody>");
 			out.println("</table>");
 			
+			
+			
 			out.println("<p>"
-							+ "<a href=\"/agenda-digital-web/create/cidade\""
+							+ "<a href=\"" + request.getContextPath() + "/jsp/cidade/create.jsp\""
 								+ "class=\"btn\" style=\"margin-right: 10px;\">Inserir nova cidade"
 								+ "</a>"
-							+ "<a href=\"/agenda-digital-web/read\""
+							+ "<a href=\"" + request.getContextPath() + "/read\""
 								+ "class=\"btn btn-primary\">Ver todas as cidades"
 							+ "</a>"
 						+ "</p>");
