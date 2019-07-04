@@ -17,7 +17,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 	public Cidade create(Cidade cidade) throws BusinessException {
 		
 		/* Verificamos se os dados recebidos não estão vazios */
-		if (cidade.getNome() == null ||  cidade.getNome().trim().isEmpty()) {
+		if (dadosNulos(cidade)) {
 			
 			throw new BusinessException("Não foram recebidos dados");
 		}
@@ -42,7 +42,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 	public void update(Cidade cidade) throws BusinessException {
 		
 		/* Verificamos se os dados recebidos não estão vazios */
-		if (cidade.getNome() == null ||  cidade.getNome().trim().isEmpty()) {
+		if (dadosNulos(cidade)) {
 			
 			throw new BusinessException("Não foram recebidos dados");
 		}
@@ -71,5 +71,22 @@ public class CidadeBusiness implements ICidadeBusiness {
 	public void delete(Integer codigo) {
 		
 		cidadeDAO.delete(codigo);
+	}
+	
+	/**
+	 * Verifica se os dados recebidos são nulos ou vazios
+	 * 
+	 * @param cidade
+	 * @return
+	 */
+	private boolean dadosNulos(Cidade cidade) {
+		
+		if (cidade.getNome() == null ||  cidade.getNome().trim().isEmpty()) {
+			
+			return true;
+		} else {
+			
+			return false;
+		}
 	}
 }
