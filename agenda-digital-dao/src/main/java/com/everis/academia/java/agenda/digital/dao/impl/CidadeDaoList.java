@@ -1,15 +1,14 @@
 package com.everis.academia.java.agenda.digital.dao.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.List;
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
-public class CidadeDAO implements ICidadeDAO {
+public class CidadeDaoList implements ICidadeDAO {
 	
-	private static Set<Cidade> cidades = new HashSet<>();
+	private static List<Cidade> cidades = new ArrayList<>();
 	
 	/* Inicializamos um contador para o código da cidade */
 	private static Integer contadorCodigo = 0;
@@ -28,7 +27,7 @@ public class CidadeDAO implements ICidadeDAO {
 	 * 
 	 * @return
 	 */
-	public static Set<Cidade> getCidades() {
+	public static List<Cidade> getCidades() {
 		return cidades;
 	}
 
