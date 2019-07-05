@@ -29,7 +29,9 @@
 				<h:inputText id="nome" value="#{helloJSF.nome}" type="text"
 					styleClass="input-large" style="margin-right: 20px" />
 				<h:commandButton value="Ok" action="#{helloJSF.digaOi}"
-					type="submit" styleClass="btn btn-primary" />
+					type="submit" styleClass="btn btn-primary" 
+					style="margin-right: 20px"/>
+				<h:outputLabel for="nome" value="#{helloJSF.nome}" />
 			</fieldset>
 		</h:form>
 
