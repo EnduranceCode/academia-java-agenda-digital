@@ -51,10 +51,20 @@ public class CidadeCreateController extends HttpServlet {
 			
 			out.println("<table class=\"table\">");
 			out.println("<thead>");
-			out.println("<tr><th>Codigo</th><th>Cidade</th></tr>");
+			out.println("<tr><th>Codigo</th><th>Cidade</th><th></th></tr>");
 			out.println("</thead>");
 			out.println("<tbody>");
-			out.println("<tr><td>" + cidadeNova.getCodigo() + "</td><td>"+ cidadeNova.getNome() + "</td></tr>");
+			out.println("<tr>"
+							+ "<td>" + cidadeNova.getCodigo() + "</td>"
+							+ "<td>" + cidadeNova.getNome() + "</td>"
+							+ "<td>"
+							+ "<a href=\"" + request.getContextPath() + "/jsp/cidade/update.jsp?codigo=" + cidadeNova.getCodigo() + "&cidade=" + cidadeNova.getNome() + "\""
+									+ "class=\"btn btn-small btn-success\""
+									+ "style=\"margin-right: 10px\">Editar</a>"
+							+ "<a href=\"" + request.getContextPath() + "/delete?codigo=" + cidadeNova.getCodigo() + "\""
+									+ "class=\"btn btn-small btn-danger\">Eliminar</a>"
+						+ "</td>"
+						+ "</tr>");
 			out.println("</tbody>");
 			out.println("</table>");
 			
