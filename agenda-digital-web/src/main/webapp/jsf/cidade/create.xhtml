@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inserir nova cidade - Agenda Digital</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+</h:head>
+<h:body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<h1>Academia Java</h1>
+				<h2>Agenda Digital</h2>
+			</div>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span4 offset4">
+
+				<h:form>
+					<fieldset>
+						<legend>Inserir Cidade</legend>
+						<h:outputLabel for="cidade" value="Cidade" />
+						<h:inputText id="cidade" value="#{cidadeManagedBean.nomeCidade}" styleClass="input-xlarge"
+							style="height: 30px;" />
+						<h:commandButton value="Submeter" action="#{cidadeManagedBean.submeterCidade}" styleClass="btn btn-primary pull-right" />
+					</fieldset>
+				</h:form>
+			</div>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<p>
+					<a class="btn" href="/agenda-digital-web/jsp/cidade/read.jsp">Ver
+						todas as cidades existentes</a>
+				</p>
+			</div>
+		</div>
+
+	</div>
+</h:body>
+
+</html>
