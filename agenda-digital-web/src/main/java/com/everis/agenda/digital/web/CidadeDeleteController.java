@@ -50,12 +50,12 @@ public class CidadeDeleteController extends HttpServlet{
 		out.println("</div>");
 		out.println("</div>");
 		
-		out.println(new ListaCidadesHtml(cidadeBusiness.read()).getHtmlListaCidades());
+		out.println(new ListaCidadesHtml(cidadeBusiness.read(), request).getHtmlListaCidades());
 		
 		out.println("<div class=\"row-fluid\">");
 		out.println("<div class=\"span12\">");
 		
-		out.println("<p><a class=\"btn\" href=\"/agenda-digital-web/create/cidade\">Inserir nova cidade</a></p>");
+		out.println("<p><a class=\"btn\" href=\"" + request.getContextPath() + "/create/cidade\">Inserir nova cidade</a></p>");
 		
 		out.println("</div>");
 		out.println("</div>");

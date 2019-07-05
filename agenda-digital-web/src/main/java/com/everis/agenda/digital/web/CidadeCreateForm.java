@@ -44,7 +44,9 @@ public class CidadeCreateForm extends HttpServlet {
 		out.println("<div class=\"row-fluid\">");
 		out.println("<div class=\"span4 offset4\">");
 		
-		out.println("<form action=\"/agenda-digital-web/nova-cidade\">");
+		
+		
+		out.println("<form action=\"" + request.getContextPath() + "/nova-cidade\">");
 		out.println("<fieldset>");
 		out.println("<legend>Inserir Cidade</legend>");
 		out.println("<label>Cidade</label>");
@@ -56,7 +58,7 @@ public class CidadeCreateForm extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
-		out.println(new ListaCidadesHtml(cidadeBusiness.read()).getHtmlListaCidades());
+		out.println(new ListaCidadesHtml(cidadeBusiness.read(), request).getHtmlListaCidades());
 		
 		out.println("</div>");
 		out.println("</body>");

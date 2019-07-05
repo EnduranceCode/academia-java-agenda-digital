@@ -40,7 +40,7 @@ public class CidadeUpdateForm extends HttpServlet {
 		out.println("<div class=\"row-fluid\">");
 		out.println("<div class=\"offset4 span4\">");
 		
-		out.println("<form action=\"/agenda-digital-web/editar/cidade\">");
+		out.println("<form action=\"" + request.getContextPath() + "/editar/cidade\">");
 		out.println("<fieldset>");
 		out.println("<legend>Editar Cidade</legend>");
 		out.println("<input type=\"hidden\" name=\"codigo\"/ value=\"" + codigo + "\">");

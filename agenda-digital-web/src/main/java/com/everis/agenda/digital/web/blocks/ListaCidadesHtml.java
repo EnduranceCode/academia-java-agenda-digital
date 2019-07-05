@@ -2,14 +2,15 @@ package com.everis.agenda.digital.web.blocks;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 public class ListaCidadesHtml {
 	
 	private String htmlListaCidades = "";
 	
-	
-	public ListaCidadesHtml(Collection<Cidade> cidades) {
+	public ListaCidadesHtml(Collection<Cidade> cidades, HttpServletRequest request) {
 		super();
 		this.htmlListaCidades += "<div class=\"row-fluid\">";
 		this.htmlListaCidades += "<div class=\"span12\">";
@@ -25,10 +26,10 @@ public class ListaCidadesHtml {
 									+ "<td>" + cidadeActual.getCodigo() + "</td>"
 									+ "<td>" + cidadeActual.getNome() + "</td>"
 									+ "<td>"
-										+ "<a href=\"/agenda-digital-web/jsp/cidade/update.jsp?codigo=" + cidadeActual.getCodigo() + "&cidade=" + cidadeActual.getNome() + "\""
+										+ "<a href=\"" + request.getContextPath() + "/jsp/cidade/update.jsp?codigo=" + cidadeActual.getCodigo() + "&cidade=" + cidadeActual.getNome() + "\""
 												+ "class=\"btn btn-small btn-success\""
 												+ "style=\"margin-right: 10px\">Editar</a>"
-										+ "<a href=\"/agenda-digital-web/delete?codigo=" + cidadeActual.getCodigo() + "\""
+										+ "<a href=\"" + request.getContextPath() + "/delete?codigo=" + cidadeActual.getCodigo() + "\""
 												+ "class=\"btn btn-small btn-danger\">Eliminar</a>"
 									+ "</td>"
 								+ "</tr>";
