@@ -3,13 +3,36 @@
 
 <h:head>
 	<title>Academia Java 2019</title>
+	<link type="text/css" rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
 </h:head>
 <h:body>
-	<h:outputLabel value="Hello World para JSF" />
 
-	<br />
-	<br />
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<h1>Academia Java</h1>
+				<h2>Hello world JSF</h2>
+			</div>
+		</div>
 
-	<h:button value="O meu primeiro botão JSF"></h:button>
+		<div class="row">
+			<div class="span12">
+				<h:outputLabel value="Hello #{helloJSF.mensagem}" />
+			</div>
+		</div>
+
+		<h:form styleClass="form-inline">
+			<fieldset>
+				<h:outputLabel for="nome" value="Digite o seu nome"
+					style="margin-right: 20px" />
+				<h:inputText id="nome" value="#{helloJSF.nome}" type="text"
+					styleClass="input-large" style="margin-right: 20px" />
+				<h:commandButton value="Ok" action="#{helloJSF.digaOi}"
+					type="submit" styleClass="btn btn-primary" />
+			</fieldset>
+		</h:form>
+
+	</div>
 </h:body>
 </html>
