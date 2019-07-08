@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,26 +20,27 @@
 		<div class="row-fluid">
 			<div class="span12">
 
-				<h:dataTable value="cidadeManagedBean.listaCidades" var="cidade">
-				
-				<h:column>
-				 #{cidade.codigo}
-				</h:column>
-					
-				
-				<h:column>
-				 #{cidade.nome}
-				</h:column>
-
+				<h:dataTable value="#{cidadeManagedBean.listaCidades}"
+					var="cidadeActual" styleClass="table">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Código"/>
+						</f:facet>
+						#{cidadeActual.codigo}
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Cidade"/>
+						</f:facet>
+						#{cidadeActual.nome}
+					</h:column>
+					<h:column>
+						<h:commandButton value="Editar" styleClass="btn btn-small btn-success" style="margin-right: 10px;"></h:commandButton>
+						<h:commandButton value="Eliminar" styleClass="btn btn-small btn-danger"></h:commandButton>
+					</h:column>
 				</h:dataTable>
-
-
 			</div>
 		</div>
-
-
-
-
 	</div>
 </h:body>
 </html>
