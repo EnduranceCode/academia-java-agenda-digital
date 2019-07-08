@@ -4,7 +4,7 @@
 <h:head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Editare Cidade - Agenda Digital</title>
+	<title>Editar Cidade - Agenda Digital</title>
 	<link rel="stylesheet"
 		href="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
 </h:head>
@@ -28,6 +28,7 @@
 						<h:inputText id="cidade" value="#{cidadeUpdateManagedBean.cidadeActual.nome}" styleClass="input-xlarge"
 							style="height: 30px;" />
 						<h:commandButton value="Submeter" action="#{cidadeUpdateManagedBean.actualizarCidade}" styleClass="btn btn-primary pull-right" />
+						<h:messages showSummary="true" showDetail="true" layout="table" infoClass="info" warnClass="warning" errorClass="error" styleClass="table table-bordered"/>
 					</fieldset>
 				</h:form>
 			</div>

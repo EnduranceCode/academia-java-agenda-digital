@@ -12,13 +12,18 @@ public class CidadeDeleteManagedBean {
 	/* Instanciamos um novo objecto CidadeBusiness */
 	private ICidadeBusiness cidadeBusiness = new CidadeBusiness();
 	
-	/* Instanciamos um novo objecto Cidade */
+	/* Instanciamos um novo objecto Cidade para receber os dados do Frontend */
 	private Cidade cidadeActual = new Cidade();
 
 	public Cidade getCidadeActual() {
 		return cidadeActual;
 	}
 
+	/**
+	 * Apaga a cidade seleccionada no Frontend
+	 * 
+	 * @param cidadeActual
+	 */
 	public void setCidadeActual(Cidade cidadeActual) {
 		this.cidadeActual = cidadeActual;
 	}

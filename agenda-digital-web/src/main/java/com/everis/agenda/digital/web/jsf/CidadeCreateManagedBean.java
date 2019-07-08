@@ -1,7 +1,10 @@
 package com.everis.agenda.digital.web.jsf;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
+import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
@@ -12,7 +15,7 @@ public class CidadeCreateManagedBean {
 	/* Instanciamos um novo objecto CidadeBusiness */
 	private ICidadeBusiness cidadeBusiness = new CidadeBusiness();
 	
-	/* Instanciamos um novo objecto Cidade */
+	/* Instanciamos um novo objecto Cidade para receber os dados do Frontend */
 	private Cidade cidadeNova = new Cidade();
 
 	public Cidade getCidadeNova() {
@@ -23,9 +26,20 @@ public class CidadeCreateManagedBean {
 		this.cidadeNova = cidadeNova;
 	}
 	
-	public String submeterCidade() throws Exception {
+	/**
+	 * Insere uma nova cidades na lista de cidades existenetes
+	 * 
+	 * @return
+	 */
+	public String submeterCidade() {
 
-		cidadeNova = cidadeBusiness.create(cidadeNova);
+		try {
+			cidadeNova = cidadeBusiness.create(cidadeNova);
+		} catch (BusinessException e) {
+			
+			String messageDetails = e.getLocalizedMessage();
+			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
 		
 		cidadeNova = new Cidade();
 		
