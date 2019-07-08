@@ -23,23 +23,18 @@
 					<fieldset>
 						<legend>Inserir Cidade</legend>
 						<h:outputLabel for="cidade" value="Cidade" />
-						<h:inputText id="cidade" value="#{cidadeManagedBean.nomeCidade}" styleClass="input-xlarge"
+						<h:inputText id="cidade" value="#{cidadeCreateManagedBean.cidadeNova.nome}" styleClass="input-xlarge"
 							style="height: 30px;" />
-						<h:commandButton value="Submeter" action="#{cidadeManagedBean.submeterCidade}" styleClass="btn btn-primary pull-right" />
+						<h:commandButton value="Submeter" action="#{cidadeCreateManagedBean.submeterCidade}" styleClass="btn btn-primary pull-right" />
 					</fieldset>
 				</h:form>
-			</div>
-		</div>
-
-		<div class="row-fluid">
-			<div class="span12">
+				
 				<p>
-					<a class="btn" href="/agenda-digital-web/jss/cidade/read.xhtml">Ver
+					<a class="btn" href="/agenda-digital-web/jsf/cidade/read.xhtml">Ver
 						todas as cidades existentes</a>
 				</p>
 			</div>
 		</div>
-
 	</div>
 </h:body>
 

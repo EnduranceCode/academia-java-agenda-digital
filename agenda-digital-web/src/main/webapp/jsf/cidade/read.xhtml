@@ -19,8 +19,11 @@
 
 		<div class="row-fluid">
 			<div class="span12">
+			
+				<h3>Listagem de Cidades</h3>
 
-				<h:dataTable value="#{cidadeManagedBean.listaCidades}"
+				<h:form>
+				<h:dataTable value="#{cidadeReadManagedBean.listaCidades}"
 					var="cidadeActual" styleClass="table">
 					<h:column>
 						<f:facet name="header">
@@ -35,10 +38,15 @@
 						#{cidadeActual.nome}
 					</h:column>
 					<h:column>
-						<h:commandButton value="Editar" styleClass="btn btn-small btn-success" style="margin-right: 10px;"></h:commandButton>
+						<h:commandButton action="#{cidadeUpdateManagedBean.obterCidade(cidadeActual)}" value="Editar" styleClass="btn btn-small btn-success" style="margin-right: 10px;"></h:commandButton>
 						<h:commandButton value="Eliminar" styleClass="btn btn-small btn-danger"></h:commandButton>
 					</h:column>
 				</h:dataTable>
+				</h:form>
+				
+				<p>
+					<a class="btn btn-primary" href="/agenda-digital-web/jsf/cidade/create.xhtml">Inserir nova cidade</a>
+				</p>
 			</div>
 		</div>
 	</div>
