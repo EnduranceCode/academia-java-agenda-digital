@@ -14,6 +14,6 @@ public class PrestadorServicoBean {
 	 */
 	public String verPrestadorServico() {
 
-		return "prestadores/ver-prestador";
+		return "prestador/read";
 	}
 }
