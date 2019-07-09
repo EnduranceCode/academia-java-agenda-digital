@@ -1,8 +1,9 @@
 package com.everis.agenda.digital.web.soap;
 
+import java.util.Collection;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javax.jws.WebParam.Mode;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
@@ -14,15 +15,34 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 @WebService()
 public class CidadeSOAP {
 
-	private ICidadeBusiness business = new CidadeBusiness();
+	private ICidadeBusiness cidadeBusiness = new CidadeBusiness();
 
 	@WebMethod(operationName = "create")
 	@WebResult(name = "cidade")
 	public Cidade create(
-			@WebParam(name = "cidade", mode = Mode.IN) Cidade cidade)
+			@WebParam(name = "cidade") Cidade cidade)
 			throws BusinessException {
 
-		business.create(cidade);
+		cidadeBusiness.create(cidade);
 		return cidade;
+	}
+	
+	@WebMethod(operationName = "read")
+	@WebResult(name = "cidades")
+	public Collection<Cidade> read() {
+
+		return cidadeBusiness.read();
+	}
+	
+	@WebMethod(operationName = "update")
+	public void update(@WebParam(name = "cidade") Cidade cidade) throws BusinessException {
+		
+		cidadeBusiness.update(cidade);
+	}
+	
+	@WebMethod(operationName = "delete")
+	public void delete(@WebParam(name = "codigo") Integer codigo) {
+		
+		cidadeBusiness.delete(codigo);
 	}
 }
