@@ -1,4 +1,5 @@
 /target/
 /.settings/
 .classpath
-.project/src/main/java/com/everis/academia/java/agenda/digital/web/soap/generated/
+.project
+/src/main/java/com/everis/academia/java/agenda/digital/web/soap/generated/
