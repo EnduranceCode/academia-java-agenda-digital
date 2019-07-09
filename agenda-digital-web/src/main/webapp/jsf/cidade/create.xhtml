@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,11 +23,11 @@
 				<h:form>
 					<fieldset>
 						<legend>Inserir Cidade</legend>
-						<h:outputLabel for="cidade" value="Cidade" />
-						<h:inputText id="cidade" value="#{cidadeCreateManagedBean.cidadeNova.nome}" styleClass="input-xlarge"
+						<p:outputLabel for="cidade" value="Cidade" />
+						<p:inputText id="cidade" value="#{cidadeCreateManagedBean.cidadeNova.nome}" styleClass="input-xlarge"
 							style="height: 30px;" />
-						<h:commandButton value="Submeter" action="#{cidadeCreateManagedBean.submeterCidade}" styleClass="btn btn-primary pull-right" />
-						<h:messages showSummary="true" showDetail="true" layout="table" infoClass="info" warnClass="warning" errorClass="error" styleClass="table table-bordered"/>
+						<p:commandButton value="Submeter" action="#{cidadeCreateManagedBean.submeterCidade}" update="@form" styleClass="btn btn-primary pull-right" />
+						<p:messages showSummary="true" showDetail="true" layout="table" infoClass="info" warnClass="warning" errorClass="error" styleClass="table table-bordered"/>
 					</fieldset>
 				</h:form>
 				
