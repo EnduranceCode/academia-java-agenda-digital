@@ -83,8 +83,12 @@
 						<div class="controls">
 							<!-- Usar <p:selectOneMenu> -->
 							<!-- https://www.primefaces.org/primefaces-selectonemenu -->
-							<p:inputText id="cidade" value=""
-								styleClass="span8 control-label" />
+							<!-- https://www.primefaces.org/showcase/ui/ajax/dropdown.xhtml -->
+							<p:selectOneMenu id="cidade" value="" styleClass="span3 control-label">
+								<f:selectItem itemLabel="Select City" itemValue=""
+									noSelectionOption="true" />
+								<f:selectItems value="#{prestadorServicoBean.listaCidades}" />
+							</p:selectOneMenu>
 						</div>
 					</div>
 
