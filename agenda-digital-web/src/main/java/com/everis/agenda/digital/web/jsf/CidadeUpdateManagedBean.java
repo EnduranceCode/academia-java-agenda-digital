@@ -2,18 +2,24 @@ package com.everis.agenda.digital.web.jsf;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.ICidadeBusiness;
-import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 @ManagedBean(name = "cidadeUpdateManagedBean")
+@Component
+@RequestScoped
 public class CidadeUpdateManagedBean {
 	
 	/* Instanciamos um novo objecto CidadeBusiness */
-	private ICidadeBusiness cidadeBusiness = new CidadeBusiness();
+	@Autowired
+	private ICidadeBusiness cidadeBusiness;
 	
 	/* Instanciamos um novo objecto Cidade para receber os dados do Frontend */
 	private Cidade cidadeActual = new Cidade();

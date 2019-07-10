@@ -4,15 +4,22 @@ import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.everis.academia.agenda.digital.business.ICidadeBusiness;
-import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 @ManagedBean(name = "cidadeReadManagedBean")
+@Component
+@RequestScoped
 public class CidadeReadManagedBean {
 	
 	/* Instanciamos um novo objecto CidadeBusiness */
-	private ICidadeBusiness cidadeBusiness = new CidadeBusiness();
+	@Autowired
+	private ICidadeBusiness cidadeBusiness;
 
 	private Collection<Cidade> listaCidades = null;
 	

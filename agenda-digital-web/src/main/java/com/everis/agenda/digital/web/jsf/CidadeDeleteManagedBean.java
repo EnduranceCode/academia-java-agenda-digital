@@ -1,16 +1,22 @@
 package com.everis.agenda.digital.web.jsf;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.everis.academia.agenda.digital.business.ICidadeBusiness;
-import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 @ManagedBean(name = "cidadeDeleteManagedBean")
+@Component
+@RequestScoped
 public class CidadeDeleteManagedBean {
 
 	/* Instanciamos um novo objecto CidadeBusiness */
-	private ICidadeBusiness cidadeBusiness = new CidadeBusiness();
+	@Autowired
+	private ICidadeBusiness cidadeBusiness;
 	
 	/* Instanciamos um novo objecto Cidade para receber os dados do Frontend */
 	private Cidade cidadeActual = new Cidade();
