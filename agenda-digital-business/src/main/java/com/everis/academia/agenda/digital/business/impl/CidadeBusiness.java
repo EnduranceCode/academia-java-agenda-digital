@@ -8,14 +8,14 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.everis.academia.agenda.digital.business.BusinessException;
-import com.everis.academia.agenda.digital.business.ICidadeBusiness;
-import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
+import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
+import com.everis.academia.java.agenda.digital.dao.inter.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 @Service
 public class CidadeBusiness implements ICidadeBusiness {
 	
-	/* Instanciamos um novo objecto CidadeDaoList */
+	/* Instanciamos um novo objecto CidadeDAO */
 	@Autowired
 	private ICidadeDAO cidadeDAO;
 

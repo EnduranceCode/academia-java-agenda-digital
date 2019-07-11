@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.everis.academia.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
+import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 import com.everis.agenda.digital.web.blocks.ListaCidadesHtml;
 

@@ -5,8 +5,8 @@ import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
-import com.everis.academia.agenda.digital.business.ICidadeBusiness;
 import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
+import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 @ManagedBean(name = "prestadorServicoBean")

@@ -2,22 +2,35 @@ package com.everis.academia.java.agenda.digital.entity;
 
 import java.util.Set;
 
+import javax.persistence.Transient;
+
 import com.everis.academia.java.agenda.digital.enumerator.TipoLogradouro;
 
 public class PrestadorServico {
 	
 	private Integer codigo;
 	private String nome;
+	@Transient
 	private Cidade cidade;
+	@Transient
 	private String bairro;
+	@Transient
 	private String cep;
+	@Transient
 	private TipoLogradouro tipoLogradouro;
+	@Transient
 	private String logradouro;
+	@Transient
 	private String complemento;
+	@Transient
 	private String numero;
+	@Transient
 	private String email;
+	@Transient
 	private Set<Telefone> telefones;
+	@Transient
 	private Set<PrestacaoServico> prestacoesServicos;
+	@Transient
 	private Set<TipoServico> servicosCredenciados;
 	
 	public PrestadorServico() {

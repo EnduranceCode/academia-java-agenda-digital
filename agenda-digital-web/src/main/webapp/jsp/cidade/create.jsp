@@ -2,7 +2,7 @@
 <%@page
 	import="com.everis.academia.agenda.digital.business.impl.CidadeBusiness"%>
 <%@page
-	import="com.everis.academia.agenda.digital.business.ICidadeBusiness"%>
+	import="com.everis.academia.agenda.digital.business.inter.ICidadeBusiness"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%!ICidadeBusiness cidadeBusiness = new CidadeBusiness();%>

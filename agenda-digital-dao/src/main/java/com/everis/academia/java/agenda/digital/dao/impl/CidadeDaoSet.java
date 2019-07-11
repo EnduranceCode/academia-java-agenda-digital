@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.inter.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 public class CidadeDaoSet implements ICidadeDAO {

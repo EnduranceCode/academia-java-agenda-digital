@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.inter.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 @Repository

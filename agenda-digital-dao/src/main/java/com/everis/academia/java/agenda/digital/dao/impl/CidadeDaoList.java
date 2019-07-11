@@ -4,13 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/*
- * Substituimos esta camada pela camada do Hibernate
- * 
-import org.springframework.stereotype.Repository;
-*/
-
-import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
+import com.everis.academia.java.agenda.digital.dao.inter.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 /*

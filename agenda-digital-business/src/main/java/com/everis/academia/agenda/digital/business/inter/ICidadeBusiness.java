@@ -1,18 +1,20 @@
-package com.everis.academia.java.agenda.digital.dao;
+package com.everis.academia.agenda.digital.business.inter;
 
 import java.util.Collection;
 
+import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
-public interface ICidadeDAO {
+public interface ICidadeBusiness {
 
 	/**
 	 * Cria e adiciona uma nova cidade à lista de cidades
 	 *  
 	 * @param cidade
 	 * @return
+	 * @throws BusinessException
 	 */
-	Cidade create(Cidade cidade);
+	Cidade create(Cidade cidade) throws BusinessException;
 	
 	/**
 	 * Lê a lista de cidades
@@ -25,8 +27,9 @@ public interface ICidadeDAO {
 	 * Actualiza uma cidade pré-existente na lista de cidades
 	 * 
 	 * @param cidade
+	 * @throws BusinessException
 	 */
-	void update(Cidade cidade);
+	void update(Cidade cidade) throws BusinessException;
 	
 	/**
 	 * Elimina uma cidade na lista de cidades
@@ -34,12 +37,4 @@ public interface ICidadeDAO {
 	 * @param codigo
 	 */
 	void delete(Integer codigo);
-	
-	/**
-	 * Verifica se já existe na lista de cidades uma cidade com o nome fornecido
-	 * 
-	 * @param nome
-	 * @return
-	 */
-	Boolean jaExisteCidadeComNome(Cidade cidade);
 }

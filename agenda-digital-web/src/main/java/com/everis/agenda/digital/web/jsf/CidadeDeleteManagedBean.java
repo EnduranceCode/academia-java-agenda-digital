@@ -6,7 +6,7 @@ import javax.faces.bean.RequestScoped;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.everis.academia.agenda.digital.business.ICidadeBusiness;
+import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 @ManagedBean(name = "cidadeDeleteManagedBean")
