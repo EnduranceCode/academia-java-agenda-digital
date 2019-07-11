@@ -31,7 +31,7 @@
 						</p:column>
 							
 						<p:column width="200" style="text-align: end;">
-							<p:commandLink value="Editar" styleClass="btn btn-small btn-success" style="margin-right: 10px; color: #ffffff" />
+							<p:commandLink value="Editar" action="#{telefoneUpdateBean.obterTelefone(telefoneActual)}" styleClass="btn btn-small btn-success" style="margin-right: 10px; color: #ffffff" />
 							<p:commandLink value="Eliminar" styleClass="btn btn-small btn-danger" style="color: #ffffff"/>
 						</p:column>
 					</p:dataTable>

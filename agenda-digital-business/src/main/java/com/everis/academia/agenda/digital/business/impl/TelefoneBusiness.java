@@ -51,7 +51,7 @@ public class TelefoneBusiness implements ITelefoneBusiness {
 			throw new BusinessException("Não foram recebidos dados");
 		}
 
-		/* Verificamos se o telefone já existe */
+		/* Verificamos se foram introduzidas alterações */
 		for (Telefone telefoneActual : telefoneDAO.read()) {
 
 			if (telefoneActual.getCodigo() == telefone.getCodigo()

@@ -7,7 +7,36 @@
 
 <ui:composition template="/WEB-INF/template/template.xhtml">
 	<ui:define name="content">
+		<h:form>
+			<div class="row-fluid">
+				<div class="offset4 span4">
 
+					<fieldset style="margin-bottom: 30px;">
+						<legend>Actualizar registo de Telefone</legend>
+						<p:outputLabel for="telefone" value="Telefone" />
+						<h:inputHidden value="#{telefoneUpdateBean.telefoneActual.codigo}" />
+						<p:inputText id="telefone"
+							value="#{telefoneUpdateBean.telefoneActual.numero}"
+							styleClass="span12" style="height: 30px;" />
+						<p:messages showSummary="true" showDetail="true" layout="table"
+							infoClass="info" warnClass="warning" errorClass="error" />
+						<div>
+							<p:commandButton value="Submeter"
+								action="#{telefoneUpdateBean.actualizarTelefone}" update="@form"
+								styleClass="btn btn-primary pull-right" />
+							<p:commandButton value="Cancelar"
+								action="#{telefoneUpdateBean.cancelarFormulario}" update="@form"
+								styleClass="btn pull-right" style="margin-right: 10px;" />
+						</div>
+					</fieldset>
+
+					<p:commandButton value="Ver Lista de Telefones"
+						action="#{telefoneCreateBean.navegarReadTelefone}"
+						styleClass="btn btn-block" />
+
+				</div>
+			</div>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>
