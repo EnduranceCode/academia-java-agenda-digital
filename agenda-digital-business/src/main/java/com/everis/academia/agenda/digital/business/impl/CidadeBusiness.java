@@ -4,6 +4,8 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.ICidadeBusiness;
@@ -18,6 +20,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 	private ICidadeDAO cidadeDAO;
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Cidade create(Cidade cidade) throws BusinessException {
 		
 		/* Verificamos se os dados recebidos não estão vazios */
@@ -27,7 +30,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 		}
 		
 		/* Verificamos se a cidade já existe */
-		if (cidadeDAO.jaExisteCidadeComNome(cidade.getNome())) {
+		if (cidadeDAO.jaExisteCidadeComNome(cidade)) {
 			
 			throw new BusinessException("A cidade já existe");
 		}
@@ -37,12 +40,14 @@ public class CidadeBusiness implements ICidadeBusiness {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Collection<Cidade> read() {
 		
 		return cidadeDAO.read();
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(Cidade cidade) throws BusinessException {
 		
 		/* Verificamos se os dados recebidos não estão vazios */
@@ -52,17 +57,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 		}
 		
 		/* Verificamos se a cidade já existe */
-		for (Cidade cidadeActual : cidadeDAO.read()) {
-			
-			if (cidadeActual.getCodigo() == cidade.getCodigo() && cidadeActual.getNome().equals(cidade.getNome())) {
-				
-				/* Não foram introduzidas alterações aos dados pré-existentes e assim retornamos à origem */
-				return;
-			}
-		}
-		
-		/* Verificamos se a cidade já existe */
-		if (cidadeDAO.jaExisteCidadeComNome(cidade.getNome())) {
+		if (cidadeDAO.jaExisteCidadeComNome(cidade)) {
 			
 			throw new BusinessException("A cidade já existe");
 		}
@@ -72,6 +67,7 @@ public class CidadeBusiness implements ICidadeBusiness {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void delete(Integer codigo) {
 		
 		cidadeDAO.delete(codigo);

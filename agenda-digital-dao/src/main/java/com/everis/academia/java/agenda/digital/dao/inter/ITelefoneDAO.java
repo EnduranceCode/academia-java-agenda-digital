@@ -7,7 +7,7 @@ import com.everis.academia.java.agenda.digital.entity.Telefone;
 public interface ITelefoneDAO {
 
 	/**
-	 * Cria um novo objecto Telefone e devolve-o numa lista
+	 * Cria um novo objecto Telefone e devolve-o
 	 * 
 	 * @param telefone
 	 * @return

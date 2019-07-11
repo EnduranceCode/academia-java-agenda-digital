@@ -4,12 +4,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/*
+ * Substituimos esta camada pela camada do Hibernate
+ * 
 import org.springframework.stereotype.Repository;
+*/
 
 import com.everis.academia.java.agenda.digital.dao.ICidadeDAO;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
+/*
+ * Substituimos esta camada pela camada do Hibernate
+ * 
 @Repository
+*/
 public class CidadeDaoList implements ICidadeDAO {
 	
 	private static List<Cidade> cidades = new ArrayList<>();
@@ -82,11 +90,11 @@ public class CidadeDaoList implements ICidadeDAO {
 	}
 	
 	@Override
-	public Boolean jaExisteCidadeComNome(String nome) {
+	public Boolean jaExisteCidadeComNome(Cidade cidade) {
 		
 		for (Cidade cidadeActual : cidades) {
 			
-			if (cidadeActual.getNome().equalsIgnoreCase(nome)) {
+			if (cidadeActual.getNome().equalsIgnoreCase(cidade.getNome())) {
 				
 				return true;
 			}

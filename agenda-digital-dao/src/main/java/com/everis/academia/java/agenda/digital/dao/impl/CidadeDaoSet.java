@@ -79,11 +79,11 @@ public class CidadeDaoSet implements ICidadeDAO {
 	}
 	
 	@Override
-	public Boolean jaExisteCidadeComNome(String nome) {
+	public Boolean jaExisteCidadeComNome(Cidade cidade) {
 		
 		for (Cidade cidadeActual : cidades) {
 			
-			if (cidadeActual.getNome().equalsIgnoreCase(nome)) {
+			if (cidadeActual.getNome().equalsIgnoreCase(cidade.getNome())) {
 				
 				return true;
 			}

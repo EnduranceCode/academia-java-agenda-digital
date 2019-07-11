@@ -41,5 +41,5 @@ public interface ICidadeDAO {
 	 * @param nome
 	 * @return
 	 */
-	Boolean jaExisteCidadeComNome(String nome);
+	Boolean jaExisteCidadeComNome(Cidade cidade);
 }
