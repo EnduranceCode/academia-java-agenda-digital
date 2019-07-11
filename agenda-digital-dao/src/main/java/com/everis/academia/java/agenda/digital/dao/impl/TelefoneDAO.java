@@ -20,9 +20,9 @@ public class TelefoneDAO implements ITelefoneDAO {
 	/* Adicionamos alguns telefones à lista para para ter dados para usar como exemplo */
 	/* TODO: Eliminar depois de adicionada a Base de Dados*/
 	static {
-		telefones.add(new Telefone(1, 90000001));
-		telefones.add(new Telefone(2, 90000002));
-		telefones.add(new Telefone(3, 90000003));
+		telefones.add(new Telefone(1, 900000001));
+		telefones.add(new Telefone(2, 900000002));
+		telefones.add(new Telefone(3, 900000003));
 		
 		contadorCodigo = 3;
 	}

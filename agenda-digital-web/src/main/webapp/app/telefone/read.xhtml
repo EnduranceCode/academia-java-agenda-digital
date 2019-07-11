@@ -7,7 +7,40 @@
 
 <ui:composition template="/WEB-INF/template/template.xhtml">
 	<ui:define name="content">
+		<h:form>
+			<div class="row-fluid">
+				<div class="span12">
 
+					<h3>Listagem de Telefones</h3>
+
+					<p:dataTable value="#{telefoneReadBean.listaTelefones}"
+						var="telefoneActual" paginator="true" rows="20"
+						paginatorPosition="bottom" style="margin-bottom: 20px;">
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Código" />
+							</f:facet>
+							#{telefoneActual.codigo}
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Número" />
+							</f:facet>
+							#{telefoneActual.numero}
+						</p:column>
+							
+						<p:column width="200" style="text-align: end;">
+							<p:commandLink value="Editar" styleClass="btn btn-small btn-success" style="margin-right: 10px; color: #ffffff" />
+							<p:commandLink value="Eliminar" styleClass="btn btn-small btn-danger" style="color: #ffffff"/>
+						</p:column>
+					</p:dataTable>
+					
+					<p:commandButton value="Adicionar Telefone" action="#{telefoneReadBean.navegarCreateTelefone}" styleClass="btn btn-primary" />
+
+				</div>
+			</div>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

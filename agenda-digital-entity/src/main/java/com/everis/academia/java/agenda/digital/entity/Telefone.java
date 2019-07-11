@@ -39,7 +39,7 @@ public class Telefone implements Serializable {
 	public Telefone(Integer codigo, Integer numero) {
 
 		this(codigo);
-		this.numero = codigo;
+		this.numero = numero;
 	}
 
 	public Integer getCodigo() {

@@ -64,4 +64,9 @@ public class TelefoneCreateBean {
 		
 		return null;
 	}
+	
+	public String navegarReadTelefone() {
+		
+		return "read";
+	}
 }
