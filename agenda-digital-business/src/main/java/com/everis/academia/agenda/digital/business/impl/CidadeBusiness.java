@@ -15,7 +15,7 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 @Service
 public class CidadeBusiness implements ICidadeBusiness {
 	
-	/* Instanciamos um novo objecto CidadeDaoList (Para testar o desacoplamento do código) */
+	/* Instanciamos um novo objecto CidadeDaoList */
 	@Autowired
 	private ICidadeDAO cidadeDAO;
 
