@@ -53,7 +53,6 @@ public class CidadeHibernateDAO implements ICidadeDAO {
 	public Boolean jaExisteCidadeComNome(Cidade cidade) {
 
 		Session session = sessionFactory.getCurrentSession();
-		@SuppressWarnings("deprecation")
 		Criteria criteria = session.createCriteria(Cidade.class);
 
 		criteria.add(Restrictions.and(Restrictions.eq("nome", cidade.getNome()).ignoreCase()));

@@ -7,7 +7,7 @@ import com.everis.academia.java.agenda.digital.entity.PrestadorServico;
 public interface IPrestadorServicoDAO {
 	
 	/**
-	 * Cria um novo objecto PrestadorServico e devolve-o à invocação
+	 * Cria um novo objecto PrestadorServico e devolve-o
 	 * 
 	 * @param prestadorServico
 	 * @return
@@ -34,12 +34,4 @@ public interface IPrestadorServicoDAO {
 	 * @param codigo
 	 */
 	void delete(Integer codigo);
-	
-	/**
-	 * Verifica se já existe um objecto PrestadorServico com o mesmo nome
-	 * 
-	 * @param prestadorServico
-	 * @return
-	 */
-	Boolean jaExistePrestadorComNome(PrestadorServico prestadorServico);
 }
