@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.inter.IPrestadorServicoBusiness;
 import com.everis.academia.java.agenda.digital.entity.PrestadorServico;
+import com.everis.academia.java.agenda.digital.enumerator.TipoLogradouro;
 
 @ManagedBean(name = "prestadorServicoBean")
 @Component
@@ -26,7 +27,9 @@ public class PrestadorServicoBean {
 	 * Frontend
 	 */
 	private PrestadorServico prestadorServico = new PrestadorServico();
-
+	
+	
+	
 	public PrestadorServico getPrestadorServico() {
 
 		return prestadorServico;
@@ -36,7 +39,12 @@ public class PrestadorServicoBean {
 
 		this.prestadorServico = prestadorServico;
 	}
-
+	
+	public TipoLogradouro[] getTiposLogradouro() {
+		
+		return TipoLogradouro.values();
+	}
+	
 	/**
 	 * Cria e insere um novo Prestador de Serviço
 	 * 

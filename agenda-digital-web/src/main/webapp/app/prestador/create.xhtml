@@ -14,13 +14,24 @@
 
 				<h:form>
 
-					<fieldset>
+					<fieldset style="margin-bottom: 20px;">
 						<div class="control-group">
 							<p:outputLabel for="nome" value="Nome" styleClass="control-label" />
 							<div class="controls">
 								<p:inputText id="nome"
 									value="#{prestadorServicoBean.prestadorServico.nome}"
 									styleClass="span6 control-label" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<p:outputLabel for="tipoLogradouro" value="Tipo de Logradouro"
+								styleClass="control-label" />
+							<div class="controls">
+								<p:selectOneMenu id="tipoLogradouro" value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}">
+									<f:selectItem itemLabel="Seleccionar..." itemValue="" />
+									<f:selectItems value="#{prestadorServicoBean.tiposLogradouro}" />
+								</p:selectOneMenu>
 							</div>
 						</div>
 					</fieldset>
@@ -32,8 +43,7 @@
 						<p:commandButton value="cancelar" styleClass="btn"
 							style="margin-right: 10px;" />
 						<p:commandButton value="Submeter"
-							action="#{prestadorServicoBean.submterPrestador}"
-							update="@form"
+							action="#{prestadorServicoBean.submterPrestador}" update="@form"
 							styleClass="btn btn-primary" />
 					</p>
 				</h:form>
