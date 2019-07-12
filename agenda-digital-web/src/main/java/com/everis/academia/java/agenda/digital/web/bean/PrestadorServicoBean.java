@@ -1,45 +1,61 @@
 package com.everis.academia.java.agenda.digital.web.bean;
 
-import java.util.Collection;
-
-import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
-import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
-import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
-import com.everis.academia.java.agenda.digital.entity.Cidade;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.everis.academia.agenda.digital.business.BusinessException;
+import com.everis.academia.agenda.digital.business.inter.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.entity.PrestadorServico;
 
 @ManagedBean(name = "prestadorServicoBean")
+@Component
+@RequestScoped
 public class PrestadorServicoBean {
-	
-	/* Instanciamos um novo objecto CidadeBusiness */
-	private ICidadeBusiness cidadeBusiness = new CidadeBusiness();
 
-	private Collection<Cidade> listaCidades = null;
-	
-	@PostConstruct
-	public void init() {
-		
-		this.listaCidades = cidadeBusiness.read();
+	/* Instanciamos um novo objecto PrestadorServicoBusiness */
+	@Autowired
+	private IPrestadorServicoBusiness prestadorServicoBusiness;
+
+	/*
+	 * Instanciamos um novo objecto PrestadorServico para receber os dados do
+	 * Frontend
+	 */
+	private PrestadorServico prestadorServico = new PrestadorServico();
+
+	public PrestadorServico getPrestadorServico() {
+
+		return prestadorServico;
 	}
 
-	public Collection<Cidade> getListaCidades() {
-		return listaCidades;
+	public void setPrestadorServico(PrestadorServico prestadorServico) {
+
+		this.prestadorServico = prestadorServico;
 	}
 
-	public void setListaCidades(Collection<Cidade> listaCidades) {
-		this.listaCidades = listaCidades;
-	}
-	
-	/* TODO: Implementar o método para ter como parametro um PrestadorServiço */
 	/**
-	 * Recebe um objecto Prestador de Servico e redirecciona para a página
-	 * respectiva
+	 * Cria e insere um novo Prestador de Serviço
 	 * 
+	 * @param prestadorServico
 	 * @return
 	 */
-	public String verPrestadorServico() {
+	public String submterPrestador() {
+		
+		try {
+			
+			prestadorServico = prestadorServicoBusiness.create(prestadorServico);
+		} catch (BusinessException e) {
+			
+			String messageDetails = e.getLocalizedMessage();
+			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+		
+		prestadorServico = new PrestadorServico();
 
-		return "prestador/read";
+		return null;
 	}
 }

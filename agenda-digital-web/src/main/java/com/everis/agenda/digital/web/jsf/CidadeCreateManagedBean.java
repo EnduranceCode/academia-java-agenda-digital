@@ -33,13 +33,14 @@ public class CidadeCreateManagedBean {
 	}
 	
 	/**
-	 * Insere uma nova cidades na lista de cidades existenetes
+	 * Insere um nova cidades na lista de cidades existenetes
 	 * 
 	 * @return
 	 */
 	public String submeterCidade() {
 
 		try {
+			
 			cidadeNova = cidadeBusiness.create(cidadeNova);
 		} catch (BusinessException e) {
 			
