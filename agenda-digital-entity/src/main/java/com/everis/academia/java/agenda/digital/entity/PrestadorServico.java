@@ -3,13 +3,17 @@ package com.everis.academia.java.agenda.digital.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -28,11 +32,11 @@ public class PrestadorServico implements Serializable {
 	@Column(name = "COD_PRESTADOR_SERVICO")
 	private Integer codigo;
 	
-	
 	@Column(name = "NOME_PRESTADOR_SERVICO")
 	private String nome;
 	
-	@Transient
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Cidade.class)
+	@JoinColumn(name = "COD_CIDADE", nullable = false)
 	private Cidade cidade;
 	
 	@Transient
@@ -179,5 +183,30 @@ public class PrestadorServico implements Serializable {
 
 	public void setServicosCredenciados(Set<TipoServico> servicosCredenciados) {
 		this.servicosCredenciados = servicosCredenciados;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PrestadorServico other = (PrestadorServico) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
 	}
 }

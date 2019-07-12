@@ -1,5 +1,6 @@
 package com.everis.academia.java.agenda.digital.web.bean;
 
+import java.util.Collection;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.everis.academia.agenda.digital.business.BusinessException;
+import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.academia.agenda.digital.business.inter.IPrestadorServicoBusiness;
+import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.academia.java.agenda.digital.entity.PrestadorServico;
 import com.everis.academia.java.agenda.digital.enumerator.TipoLogradouro;
 
@@ -21,14 +24,15 @@ public class PrestadorServicoBean {
 	/* Instanciamos um novo objecto PrestadorServicoBusiness */
 	@Autowired
 	private IPrestadorServicoBusiness prestadorServicoBusiness;
+	
+	@Autowired
+	private ICidadeBusiness cidadeBusiness;
 
 	/*
 	 * Instanciamos um novo objecto PrestadorServico para receber os dados do
 	 * Frontend
 	 */
 	private PrestadorServico prestadorServico = new PrestadorServico();
-	
-	
 	
 	public PrestadorServico getPrestadorServico() {
 
@@ -43,6 +47,11 @@ public class PrestadorServicoBean {
 	public TipoLogradouro[] getTiposLogradouro() {
 		
 		return TipoLogradouro.values();
+	}
+	
+	public Collection<Cidade> getListaCidades() {
+		
+		return cidadeBusiness.read();
 	}
 	
 	/**

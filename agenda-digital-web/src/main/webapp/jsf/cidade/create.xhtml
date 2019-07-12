@@ -24,9 +24,9 @@
 					<fieldset>
 						<legend>Inserir Cidade</legend>
 						<p:outputLabel for="cidade" value="Cidade" />
-						<p:inputText id="cidade" value="#{cidadeCreateManagedBean.cidadeNova.nome}" styleClass="input-xlarge"
+						<p:inputText id="cidade" value="#{cidadeBean.cidadeNova.nome}" styleClass="input-xlarge"
 							style="height: 30px;" />
-						<p:commandButton value="Submeter" action="#{cidadeCreateManagedBean.submeterCidade}" update="@form" styleClass="btn btn-primary pull-right" />
+						<p:commandButton value="Submeter" action="#{cidadeBean.submeterCidade}" update="@form" styleClass="btn btn-primary pull-right" />
 						<p:messages showSummary="true" showDetail="true" layout="table" infoClass="info" warnClass="warning" errorClass="error" styleClass="table table-bordered"/>
 					</fieldset>
 				</h:form>

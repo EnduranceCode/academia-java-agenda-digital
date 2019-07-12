@@ -23,14 +23,38 @@
 									styleClass="span6 control-label" />
 							</div>
 						</div>
+					</fieldset>
 
+						<p>
+							<strong>Morada</strong>
+						</p>
+
+					<fieldset style="margin-bottom: 20px;">
 						<div class="control-group">
 							<p:outputLabel for="tipoLogradouro" value="Tipo de Logradouro"
 								styleClass="control-label" />
 							<div class="controls">
-								<p:selectOneMenu id="tipoLogradouro" value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}">
+								<p:selectOneMenu id="tipoLogradouro"
+									value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}"
+									styleClass="span2">
 									<f:selectItem itemLabel="Seleccionar..." itemValue="" />
 									<f:selectItems value="#{prestadorServicoBean.tiposLogradouro}" />
+								</p:selectOneMenu>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset style="margin-bottom: 20px;">
+						<div class="control-group">
+							<p:outputLabel for="cidade" value="Cidade"
+								styleClass="control-label" />
+							<div class="controls">
+								<p:selectOneMenu id="cidade"
+									value="#{prestadorServicoBean.prestadorServico.cidade}"
+									converter="CidadeConverter"
+									styleClass="span6">
+									<f:selectItem itemLabel="Seleccionar..." itemValue="" />
+									<f:selectItems value="#{prestadorServicoBean.listaCidades}" var="cidadeActual" itemLabel="#{cidadeActual.nome}" />
 								</p:selectOneMenu>
 							</div>
 						</div>

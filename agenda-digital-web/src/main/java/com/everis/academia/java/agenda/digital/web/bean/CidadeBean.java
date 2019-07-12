@@ -1,4 +1,6 @@
-package com.everis.agenda.digital.web.jsf;
+package com.everis.academia.java.agenda.digital.web.bean;
+
+import java.util.Collection;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -12,10 +14,10 @@ import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
-@ManagedBean(name="cidadeCreateManagedBean")
+@ManagedBean(name="cidadeBean")
 @Component
 @RequestScoped
-public class CidadeCreateManagedBean {
+public class CidadeBean {
 	
 	/* Instanciamos um novo objecto CidadeBusiness */
 	@Autowired
@@ -33,7 +35,7 @@ public class CidadeCreateManagedBean {
 	}
 	
 	/**
-	 * Insere um nova cidades na lista de cidades existenetes
+	 * Insere um nova cidades na lista de cidades existentes
 	 * 
 	 * @return
 	 */
@@ -51,5 +53,15 @@ public class CidadeCreateManagedBean {
 		cidadeNova = new Cidade();
 		
 		return null;
+	}
+
+	/**
+	 * Lê e devolve a lista de cidades existentes
+	 * 
+	 * @return
+	 */
+	public Collection<Cidade> getListaCidades() {
+		
+		return cidadeBusiness.read();
 	}
 }
