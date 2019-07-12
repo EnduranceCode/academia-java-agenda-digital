@@ -70,6 +70,15 @@ public class CidadeBusiness implements ICidadeBusiness {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void delete(Integer codigo) {
 		
+		/* Verificamos se o código recebido é válido */
+		/**
+		 * TODO: Verificar se o código recebido é válido
+		 * 
+		 * if(codigoValido(codigo) {
+		 * 		throw new BusinessException("O código recebido não é válido");
+		 * }
+		 */
+		
 		cidadeDAO.delete(codigo);
 	}
 	
