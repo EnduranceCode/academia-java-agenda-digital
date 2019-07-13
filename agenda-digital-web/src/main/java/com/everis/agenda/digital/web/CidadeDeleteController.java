@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
@@ -29,39 +30,45 @@ public class CidadeDeleteController extends HttpServlet{
 		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 		
 		/* Executamos o método delete() para eliminar a cidade com o código recebido*/
-		cidadeBusiness.delete(codigo);
+		try {
+			
+			cidadeBusiness.delete(codigo);
 
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println(new HeadHtml("Cidade eliminada - Agenda Digital").getHead());
-		out.println("<body>");
-		out.println("<div class=\"container-fluid\">");
-		
-		out.println("<div class=\"row-fluid\">");
-		out.println("<div class=\"span12\">");
-		out.println("<h1>Academia Java</h1>");
-		out.println("<h2>Agenda Digital</h2>");
-		  
-		out.println("<div class=\"alert alert-success\">");
-		out.println("<p><strong>Sucesso!</strong></p>");
-		out.println("<p>A cidade foi eliminada</p>");
-		out.println("</div>");
-		
-		out.println("</div>");
-		out.println("</div>");
-		
-		out.println(new ListaCidadesHtml(cidadeBusiness.read(), request).getHtmlListaCidades());
-		
-		out.println("<div class=\"row-fluid\">");
-		out.println("<div class=\"span12\">");
-		
-		out.println("<p><a class=\"btn\" href=\"" + request.getContextPath() + "/create/cidade\">Inserir nova cidade</a></p>");
-		
-		out.println("</div>");
-		out.println("</div>");
-		
-		out.println("</div>");
-		out.println("</body>");
-		out.println("</html>");
+			PrintWriter out = response.getWriter();
+			out.println("<html>");
+			out.println(new HeadHtml("Cidade eliminada - Agenda Digital").getHead());
+			out.println("<body>");
+			out.println("<div class=\"container-fluid\">");
+			
+			out.println("<div class=\"row-fluid\">");
+			out.println("<div class=\"span12\">");
+			out.println("<h1>Academia Java</h1>");
+			out.println("<h2>Agenda Digital</h2>");
+			  
+			out.println("<div class=\"alert alert-success\">");
+			out.println("<p><strong>Sucesso!</strong></p>");
+			out.println("<p>A cidade foi eliminada</p>");
+			out.println("</div>");
+			
+			out.println("</div>");
+			out.println("</div>");
+			
+			out.println(new ListaCidadesHtml(cidadeBusiness.read(), request).getHtmlListaCidades());
+			
+			out.println("<div class=\"row-fluid\">");
+			out.println("<div class=\"span12\">");
+			
+			out.println("<p><a class=\"btn\" href=\"" + request.getContextPath() + "/create/cidade\">Inserir nova cidade</a></p>");
+			
+			out.println("</div>");
+			out.println("</div>");
+			
+			out.println("</div>");
+			out.println("</body>");
+			out.println("</html>");
+		} catch (BusinessException e) {
+			
+			throw new ServletException(e);
+		}
 	}
 }

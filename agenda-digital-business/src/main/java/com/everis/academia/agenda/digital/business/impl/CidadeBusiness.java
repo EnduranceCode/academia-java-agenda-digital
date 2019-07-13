@@ -14,7 +14,7 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 
 @Service
 public class CidadeBusiness implements ICidadeBusiness {
-	
+
 	/* Instanciamos um novo objecto CidadeDAO */
 	@Autowired
 	private ICidadeDAO cidadeDAO;
@@ -22,19 +22,19 @@ public class CidadeBusiness implements ICidadeBusiness {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Cidade create(Cidade cidade) throws BusinessException {
-		
+
 		/* Verificamos se os dados recebidos não estão vazios */
 		if (dadosNulos(cidade)) {
-			
+
 			throw new BusinessException("Não foram recebidos dados");
 		}
-		
+
 		/* Verificamos se a cidade já existe */
 		if (cidadeDAO.jaExisteCidadeComNome(cidade)) {
-			
+
 			throw new BusinessException("A cidade já existe");
 		}
-		
+
 		/* Feita a validação dos dados recebidos, criamos uma nova cidade */
 		return cidadeDAO.create(cidade);
 	}
@@ -42,23 +42,23 @@ public class CidadeBusiness implements ICidadeBusiness {
 	@Override
 	@Transactional(readOnly = true)
 	public Collection<Cidade> read() {
-		
+
 		return cidadeDAO.read();
 	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(Cidade cidade) throws BusinessException {
-		
+
 		/* Verificamos se os dados recebidos não estão vazios */
 		if (dadosNulos(cidade)) {
-			
+
 			throw new BusinessException("Não foram recebidos dados");
 		}
-		
+
 		/* Verificamos se a cidade já existe */
 		if (cidadeDAO.jaExisteCidadeComNome(cidade)) {
-			
+
 			throw new BusinessException("A cidade já existe");
 		}
 
@@ -68,20 +68,16 @@ public class CidadeBusiness implements ICidadeBusiness {
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void delete(Integer codigo) {
+	public void delete(Integer codigo) throws BusinessException {
 		
-		/* Verificamos se o código recebido é válido */
-		/**
-		 * TODO: Verificar se o código recebido é válido
-		 * 
-		 * if(codigoValido(codigo) {
-		 * 		throw new BusinessException("O código recebido não é válido");
-		 * }
-		 */
+		 if(codigoInvalido(codigo)) {
+			 
+			 throw new BusinessException("O código recebido não é válido");
+		 }
 		
 		cidadeDAO.delete(codigo);
 	}
-	
+
 	/**
 	 * Verifica se os dados recebidos são nulos ou vazios
 	 * 
@@ -89,12 +85,22 @@ public class CidadeBusiness implements ICidadeBusiness {
 	 * @return
 	 */
 	private boolean dadosNulos(Cidade cidade) {
-		
-		if (cidade.getNome() == null ||  cidade.getNome().trim().isEmpty()) {
-			
+
+		if (cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
+
 			return true;
 		} else {
-			
+
+			return false;
+		}
+	}
+
+	private Boolean codigoInvalido(Integer codigo) {
+		if (codigo == null || codigo == 0) {
+
+			return true;
+		} else {
+
 			return false;
 		}
 	}

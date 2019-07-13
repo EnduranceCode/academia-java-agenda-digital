@@ -41,7 +41,7 @@ public class CidadeSOAP {
 	}
 	
 	@WebMethod(operationName = "delete")
-	public void delete(@WebParam(name = "codigo") Integer codigo) {
+	public void delete(@WebParam(name = "codigo") Integer codigo) throws BusinessException {
 		
 		cidadeBusiness.delete(codigo);
 	}

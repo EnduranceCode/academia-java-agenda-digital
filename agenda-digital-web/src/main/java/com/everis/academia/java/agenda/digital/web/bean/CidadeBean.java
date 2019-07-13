@@ -48,7 +48,7 @@ public class CidadeBean {
 			/* Re-instanciamos a variavel para limpar o formulário no Frontend */
 			cidade = new Cidade();
 
-			return "create-read";
+			return "create-read?faces-redirect=true";
 		} catch (BusinessException e) {
 
 			String messageDetails = e.getLocalizedMessage();
@@ -124,7 +124,16 @@ public class CidadeBean {
 	 */
 	public String apagarCidade(Cidade cidade) {
 		
-		cidadeBusiness.delete(cidade.getCodigo());
+		try {
+			
+			cidadeBusiness.delete(cidade.getCodigo());
+		} catch (BusinessException e) {
+			
+			String messageDetails = e.getLocalizedMessage();
+
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
 		
 		return "create-read?faces-redirect=true";
 	}
