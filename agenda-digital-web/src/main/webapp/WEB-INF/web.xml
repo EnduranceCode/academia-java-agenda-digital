@@ -7,7 +7,7 @@
 	
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
-		<param-value>cupertino</param-value>
+		<param-value>bootstrap</param-value>
 	</context-param>
 
 	<!-- <filter> <filter-name>FiltroGlobal</filter-name> <filter-class>com.everis.agenda.digital.web.filter.FiltroGlobal</filter-class> 
