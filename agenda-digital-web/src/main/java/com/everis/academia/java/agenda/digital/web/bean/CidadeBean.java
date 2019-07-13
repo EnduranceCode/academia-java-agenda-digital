@@ -14,15 +14,15 @@ import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
 
-@ManagedBean(name="cidadeBean")
+@ManagedBean(name = "cidadeBean")
 @Component
 @RequestScoped
 public class CidadeBean {
-	
+
 	/* Instanciamos um novo objecto CidadeBusiness */
 	@Autowired
 	private ICidadeBusiness cidadeBusiness;
-	
+
 	/* Instanciamos um novo objecto Cidade para receber os dados do Frontend */
 	private Cidade cidadeNova = new Cidade();
 
@@ -33,7 +33,7 @@ public class CidadeBean {
 	public void setCidadeNova(Cidade cidadeNova) {
 		this.cidadeNova = cidadeNova;
 	}
-	
+
 	/**
 	 * Insere um nova cidades na lista de cidades existentes
 	 * 
@@ -42,17 +42,33 @@ public class CidadeBean {
 	public String submeterCidade() {
 
 		try {
-			
+
 			cidadeNova = cidadeBusiness.create(cidadeNova);
+
+			/* Re-instanciamos a variavel para limpar o formulário no Frontend */
+			cidadeNova = new Cidade();
+
+			return "create";
 		} catch (BusinessException e) {
-			
+
 			String messageDetails = e.getLocalizedMessage();
-			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
 		}
-		
-		cidadeNova = new Cidade();
-		
+
 		return null;
+	}
+	
+	/**
+	 * Limpa o formulário de submissão de uma nova cidade 
+	 * @return
+	 */
+	public String cancelarCidadeNova() {
+
+		/* Re-instanciamos a variavel para limpar o formulário no Frontend */
+		cidadeNova = new Cidade();
+
+		return "create";
 	}
 
 	/**
@@ -61,7 +77,7 @@ public class CidadeBean {
 	 * @return
 	 */
 	public Collection<Cidade> getListaCidades() {
-		
+
 		return cidadeBusiness.read();
 	}
 }
