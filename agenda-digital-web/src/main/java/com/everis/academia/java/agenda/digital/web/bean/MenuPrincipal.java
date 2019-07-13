@@ -22,7 +22,7 @@ public class MenuPrincipal {
 	
 	public String navegarTiposServico() {
 		
-		return "/app/tipo/create?faces-redirect=true";
+		return "/app/tipo/create-read?faces-redirect=true";
 	}
 	
 	public String navegarCidades() {

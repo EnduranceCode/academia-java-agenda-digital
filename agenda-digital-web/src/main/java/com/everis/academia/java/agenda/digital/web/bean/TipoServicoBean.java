@@ -1,5 +1,7 @@
 package com.everis.academia.java.agenda.digital.web.bean;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -55,5 +57,15 @@ public class TipoServicoBean {
 		}
 
 		return null;
+	}
+	
+	/**
+	 * Lê e devolve a lista de Tipos de Serviço existentes
+	 * 
+	 * @return
+	 */
+	public List<TipoServico> getListaTiposServico() {
+
+		return tipoServicoBusiness.read();
 	}
 }
