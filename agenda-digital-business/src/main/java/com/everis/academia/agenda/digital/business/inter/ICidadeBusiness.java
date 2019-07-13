@@ -8,7 +8,7 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 public interface ICidadeBusiness {
 
 	/**
-	 * Cria e adiciona uma nova cidade
+	 * Cria e adiciona uma nova Cidade
 	 *  
 	 * @param cidade
 	 * @return
@@ -17,14 +17,14 @@ public interface ICidadeBusiness {
 	Cidade create(Cidade cidade) throws BusinessException;
 	
 	/**
-	 * Lê a lista de cidades
+	 * Lê a lista de Cidades
 	 * 
 	 * @return
 	 */
 	Collection<Cidade> read();
 	
 	/**
-	 * Actualiza uma cidade pré-existente
+	 * Actualiza uma Cidade pré-existente
 	 * 
 	 * @param cidade
 	 * @throws BusinessException
@@ -32,7 +32,7 @@ public interface ICidadeBusiness {
 	void update(Cidade cidade) throws BusinessException;
 	
 	/**
-	 * Elimina uma cidade referenciada pelo código
+	 * Elimina uma Cidade referenciada pelo código
 	 * 
 	 * @param codigo
 	 */

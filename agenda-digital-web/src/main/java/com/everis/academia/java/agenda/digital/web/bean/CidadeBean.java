@@ -35,7 +35,7 @@ public class CidadeBean {
 	}
 
 	/**
-	 * Insere um nova cidades na lista de cidades existentes
+	 * Insere uma nova Cidade na lista de cidades existentes
 	 * 
 	 * @return
 	 */
@@ -60,7 +60,7 @@ public class CidadeBean {
 	}
 
 	/**
-	 * Lê e devolve a lista de cidades existentes
+	 * Lê e devolve a lista de Cidades existentes
 	 * 
 	 * @return
 	 */
@@ -70,7 +70,7 @@ public class CidadeBean {
 	}
 
 	/**
-	 * Carrega a página para actualizar a cidade com os dados recebidos no Frontend
+	 * Carrega a página para actualizar a Cidade com os dados recebidos no Frontend
 	 * 
 	 * @param cidade
 	 * @return
@@ -83,8 +83,8 @@ public class CidadeBean {
 	}
 
 	/**
-	 * Cancela a actualização da cidade e retorna à página de criação e leitura de
-	 * cidades
+	 * Cancela a actualização da Cidade e retorna à página de criação e leitura de
+	 * Cidades
 	 * 
 	 * @return
 	 */
@@ -97,7 +97,7 @@ public class CidadeBean {
 	}
 
 	/**
-	 * Actualiza os dados da cidade
+	 * Actualiza os dados da Cidade
 	 * 
 	 * @return
 	 */
@@ -123,7 +123,7 @@ public class CidadeBean {
 	}
 
 	/**
-	 * Apaga a cidade referenciada no Frontend
+	 * Apaga a Cidade referenciada no Frontend
 	 * 
 	 * @param cidade
 	 * @return

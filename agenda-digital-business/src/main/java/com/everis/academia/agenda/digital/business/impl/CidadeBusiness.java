@@ -29,13 +29,13 @@ public class CidadeBusiness implements ICidadeBusiness {
 			throw new BusinessException("Não foram recebidos dados");
 		}
 
-		/* Verificamos se a cidade já existe */
+		/* Verificamos se a Cidade já existe */
 		if (cidadeDAO.jaExisteCidadeComNome(cidade)) {
 
 			throw new BusinessException("A cidade já existe");
 		}
 
-		/* Feita a validação dos dados recebidos, criamos uma nova cidade */
+		/* Feita a validação dos dados recebidos, criamos uma nova Cidade */
 		return cidadeDAO.create(cidade);
 	}
 
@@ -56,13 +56,13 @@ public class CidadeBusiness implements ICidadeBusiness {
 			throw new BusinessException("Não foram recebidos dados");
 		}
 
-		/* Verificamos se a cidade já existe */
+		/* Verificamos se a Cidade já existe */
 		if (cidadeDAO.jaExisteCidadeComNome(cidade)) {
 
 			throw new BusinessException("A cidade já existe");
 		}
 
-		/* Feita a validação dos dados recebidos, actualizamos a cidade */
+		/* Feita a validação dos dados recebidos, actualizamos a Cidade */
 		cidadeDAO.update(cidade);
 	}
 

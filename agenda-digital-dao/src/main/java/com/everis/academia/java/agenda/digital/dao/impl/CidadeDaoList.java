@@ -16,10 +16,10 @@ public class CidadeDaoList implements ICidadeDAO {
 	
 	private static List<Cidade> cidades = new ArrayList<>();
 	
-	/* Inicializamos um contador para o código da cidade */
+	/* Inicializamos um contador para o código da Cidade */
 	private static Integer contadorCodigo = 0;
 	
-	/* Adicionamos algumas cidades à lista para para ter dados para usar como exemplo */
+	/* Adicionamos algumas Cidades à lista para para ter dados para usar como exemplo */
 	static {
 		cidades.add(new Cidade(1,"Lisboa"));
 		cidades.add(new Cidade(2, "Porto"));
@@ -29,7 +29,7 @@ public class CidadeDaoList implements ICidadeDAO {
 	
 	
 	/**
-	 * Devolve a lista de cidades
+	 * Devolve a lista de Cidades
 	 * 
 	 * @return
 	 */
@@ -40,13 +40,13 @@ public class CidadeDaoList implements ICidadeDAO {
 	@Override
 	public Cidade create(Cidade cidade) {
 		
-		/* Incrementamos o contador do código da cidade */
+		/* Incrementamos o contador do código da Cidade */
 		contadorCodigo++;
 		
-		/* Adicionamos o código da cidade ao objecto cidade */
+		/* Adicionamos o código da cidade ao objecto Cidade */
 		cidade.setCodigo(contadorCodigo);
 		
-		/* Adicionamos a nova cidade à lista de cidades */
+		/* Adicionamos a nova cidade à lista de Cidades */
 		cidades.add(cidade);
 		
 		return cidade;

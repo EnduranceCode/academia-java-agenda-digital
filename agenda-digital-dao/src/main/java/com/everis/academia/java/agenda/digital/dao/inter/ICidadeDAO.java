@@ -7,7 +7,7 @@ import com.everis.academia.java.agenda.digital.entity.Cidade;
 public interface ICidadeDAO {
 
 	/**
-	 * Cria e adiciona uma nova cidade à lista de cidades
+	 * Cria e adiciona uma nova Cidade à lista de Cidades
 	 *  
 	 * @param cidade
 	 * @return
@@ -15,28 +15,28 @@ public interface ICidadeDAO {
 	Cidade create(Cidade cidade);
 	
 	/**
-	 * Lê a lista de cidades
+	 * Lê a lista de Cidades
 	 * 
 	 * @return
 	 */
 	Collection<Cidade> read();
 	
 	/**
-	 * Actualiza uma cidade pré-existente na lista de cidades
+	 * Actualiza uma Cidade pré-existente na lista de Cidades
 	 * 
 	 * @param cidade
 	 */
 	void update(Cidade cidade);
 	
 	/**
-	 * Elimina uma cidade na lista de cidades
+	 * Elimina uma cidade na lista de Cidades
 	 * 
 	 * @param codigo
 	 */
 	void delete(Integer codigo);
 	
 	/**
-	 * Verifica se já existe na lista de cidades uma cidade com o nome fornecido
+	 * Verifica se já existe na lista de Cidades uma Cidade com o nome fornecido
 	 * 
 	 * @param nome
 	 * @return
