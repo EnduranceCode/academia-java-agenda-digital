@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.inter.ITipoServicoBusiness;
+import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
 @ManagedBean(name = "tipoServicoBean")
@@ -58,7 +59,7 @@ public class TipoServicoBean {
 
 		return null;
 	}
-	
+
 	/**
 	 * Lê e devolve a lista de Tipos de Serviço existentes
 	 * 
@@ -67,5 +68,58 @@ public class TipoServicoBean {
 	public List<TipoServico> getListaTiposServico() {
 
 		return tipoServicoBusiness.read();
+	}
+
+	/**
+	 * Carrega a página para actualizar o Tipo de Serviço escolhido no Frontend
+	 * 
+	 * @param tipoServico
+	 * @return
+	 */
+	public String navegarUpdateTipoServico(TipoServico tipoServico) {
+
+		this.tipoServico = tipoServico;
+
+		return "update?faces-redirect=true";
+	}
+
+	/**
+	 * Cancela a actualização do Tipo de Servico e retorna à página de criação e
+	 * leitura de Tipos de Servico
+	 * 
+	 * @return
+	 */
+	public String cancelarActualizarTipoServico() {
+
+		/* Re-instanciamos a variavel para limpar o formulário no Frontend */
+		tipoServico = new TipoServico();
+
+		return "create-read?faces-redirect=true";
+	}
+
+	/**
+	 * Actualiza os dados do Tipo de Serviço
+	 * 
+	 * @return
+	 */
+	public String actualizarTipoServico() {
+
+		try {
+
+			tipoServicoBusiness.update(tipoServico);
+
+			/* Re-instanciamos a variavel para limpar o formulário no Frontend */
+			tipoServico = new TipoServico();
+
+			return "create-read?faces-redirect=true";
+		} catch (BusinessException e) {
+
+			String messageDetails = e.getLocalizedMessage();
+
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+
+		return null;
 	}
 }
