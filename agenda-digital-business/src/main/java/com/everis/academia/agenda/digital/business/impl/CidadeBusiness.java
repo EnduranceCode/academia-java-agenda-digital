@@ -70,7 +70,8 @@ public class CidadeBusiness implements ICidadeBusiness {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void delete(Integer codigo) throws BusinessException {
 		
-		 if(codigoInvalido(codigo)) {
+		/* Verificamos se o código recebido é invalido */ 
+		if(codigoInvalido(codigo)) {
 			 
 			 throw new BusinessException("O código recebido não é válido");
 		 }
@@ -95,6 +96,13 @@ public class CidadeBusiness implements ICidadeBusiness {
 		}
 	}
 
+
+	/**
+	 * Verifica se o código é invalido
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	private Boolean codigoInvalido(Integer codigo) {
 		if (codigo == null || codigo == 0) {
 
