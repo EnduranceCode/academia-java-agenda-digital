@@ -24,14 +24,14 @@ public class CidadeBean {
 	private ICidadeBusiness cidadeBusiness;
 
 	/* Instanciamos um novo objecto Cidade para receber os dados do Frontend */
-	private Cidade cidadeNova = new Cidade();
+	private Cidade cidade = new Cidade();
 
-	public Cidade getCidadeNova() {
-		return cidadeNova;
+	public Cidade getCidade() {
+		return cidade;
 	}
 
-	public void setCidadeNova(Cidade cidadeNova) {
-		this.cidadeNova = cidadeNova;
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 	/**
@@ -43,10 +43,10 @@ public class CidadeBean {
 
 		try {
 
-			cidadeNova = cidadeBusiness.create(cidadeNova);
+			cidade = cidadeBusiness.create(cidade);
 
 			/* Re-instanciamos a variavel para limpar o formulário no Frontend */
-			cidadeNova = new Cidade();
+			cidade = new Cidade();
 
 			return "create-read";
 		} catch (BusinessException e) {
@@ -60,18 +60,6 @@ public class CidadeBean {
 	}
 	
 	/**
-	 * Limpa o formulário de submissão de uma nova cidade 
-	 * @return
-	 */
-	public String cancelarCidadeNova() {
-
-		/* Re-instanciamos a variavel para limpar o formulário no Frontend */
-		cidadeNova = new Cidade();
-
-		return "create-read";
-	}
-
-	/**
 	 * Lê e devolve a lista de cidades existentes
 	 * 
 	 * @return
@@ -79,5 +67,52 @@ public class CidadeBean {
 	public Collection<Cidade> getListaCidades() {
 
 		return cidadeBusiness.read();
+	}
+	
+	/**
+	 * Carrega a página para actualizar a cidade com os dados recebidos no Frontend
+	 * 
+	 * @param cidade
+	 * @return
+	 */
+	public String navegarUpdateCidade(Cidade cidade) {
+		
+		this.cidade = cidade;
+		
+		return "update?faces-redirect=true";
+	}
+	
+	public String cancelarActualizarCidade() {
+
+		/* Re-instanciamos a variavel para limpar o formulário no Frontend */
+		cidade = new Cidade();
+		
+		return "create-read?faces-redirect=true";
+	}
+	
+	/**
+	 * Actualiza os dados da cidade
+	 * 
+	 * @return
+	 */
+	public String actualizarCidade() {
+		
+		try {
+			
+			cidadeBusiness.update(cidade);
+
+			/* Re-instanciamos a variavel para limpar o formulário no Frontend */
+			cidade = new Cidade();
+
+			return "create-read?faces-redirect=true";
+		} catch (BusinessException e) {
+			
+			String messageDetails = e.getLocalizedMessage();
+
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+		
+		return null;
 	}
 }
