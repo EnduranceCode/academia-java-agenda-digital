@@ -46,6 +46,37 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="row-fluid">
+			<div class="span12">
+
+				<h:form>
+					<p:dataTable value="#{cidadeBean.listaCidades}" var="cidadeActual"
+						paginator="true" paginatorPosition="bottom" rows="10">
+
+						<p:column headerText="Código" style="width:80px;">
+							<h:outputText value="#{cidadeActual.codigo}" />
+						</p:column>
+
+						<p:column headerText="Cidade">
+							<h:outputText value="#{cidadeActual.nome}" />
+						</p:column>
+
+						<p:column headerText="Acções" style="width:160px;">
+							<div class="pull-right">
+								<h:commandButton
+									action="#{cidadeUpdateManagedBean.obterCidade(cidadeActual)}"
+									value="Editar" styleClass="btn btn-mini btn-success"
+									style="margin-right: 10px;" />
+								<h:commandButton
+									action="#{cidadeDeleteManagedBean.apagarCidade(cidadeActual)}"
+									value="Eliminar" styleClass="btn btn-mini btn-danger" />
+							</div>
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</div>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>

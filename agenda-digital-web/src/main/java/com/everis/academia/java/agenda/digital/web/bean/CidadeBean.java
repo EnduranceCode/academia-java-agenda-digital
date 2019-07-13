@@ -48,7 +48,7 @@ public class CidadeBean {
 			/* Re-instanciamos a variavel para limpar o formulário no Frontend */
 			cidadeNova = new Cidade();
 
-			return "create";
+			return "create-read";
 		} catch (BusinessException e) {
 
 			String messageDetails = e.getLocalizedMessage();
@@ -68,7 +68,7 @@ public class CidadeBean {
 		/* Re-instanciamos a variavel para limpar o formulário no Frontend */
 		cidadeNova = new Cidade();
 
-		return "create";
+		return "create-read";
 	}
 
 	/**
