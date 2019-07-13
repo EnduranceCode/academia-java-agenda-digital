@@ -122,4 +122,26 @@ public class TipoServicoBean {
 
 		return null;
 	}
+
+	/**
+	 * Apaga o Tipo de Serviço referenciada no Frontend
+	 * 
+	 * @param tipoServico
+	 * @return
+	 */
+	public String apagarTipoServico(TipoServico tipoServico) {
+
+		try {
+
+			tipoServicoBusiness.delete(tipoServico.getCodigo());
+		} catch (BusinessException e) {
+
+			String messageDetails = e.getLocalizedMessage();
+
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+
+		return "create-read?faces-redirect=true";
+	}
 }
