@@ -35,8 +35,8 @@
 										<p:commandButton value="Cancelar" type="reset"
 											styleClass="btn" />
 										<p:commandButton value="Submeter Cidade"
-											action="#{cidadeBean.submeterCidade}" update="@form, lista-cidades"
-											styleClass="btn btn-primary" />
+											action="#{cidadeBean.submeterCidade}"
+											update="@form, lista-cidades" styleClass="btn btn-primary" />
 									</div>
 								</div>
 							</div>
@@ -63,12 +63,14 @@
 
 						<p:column headerText="Acções" style="width:135px;">
 							<div class="pull-right">
-								<h:commandButton action="#{cidadeBean.navegarUpdateCidade(cidadeActual)}"
+								<h:commandButton
+									action="#{cidadeBean.navegarUpdateCidade(cidadeActual)}"
 									value="Editar" styleClass="btn btn-mini btn-success"
 									style="margin-right: 10px;" />
 								<h:commandButton
-									action="#{cidadeDeleteManagedBean.apagarCidade(cidadeActual)}"
-									value="Eliminar" styleClass="btn btn-mini btn-danger" />
+									action="#{cidadeBean.apagarCidade(cidadeActual)}"
+									value="Eliminar" update="@form"
+									styleClass="btn btn-mini btn-danger" />
 							</div>
 						</p:column>
 					</p:dataTable>

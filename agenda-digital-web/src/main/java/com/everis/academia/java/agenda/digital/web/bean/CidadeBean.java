@@ -115,4 +115,17 @@ public class CidadeBean {
 		
 		return null;
 	}
+	
+	/**
+	 * Apaga a cidade referenciada no Frontend
+	 * 
+	 * @param cidade
+	 * @return
+	 */
+	public String apagarCidade(Cidade cidade) {
+		
+		cidadeBusiness.delete(cidade.getCodigo());
+		
+		return "create-read?faces-redirect=true";
+	}
 }
