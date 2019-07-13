@@ -68,7 +68,12 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void delete(Integer codigo) {
+	public void delete(Short codigo) throws BusinessException {
+		
+		 if(codigoInvalido(codigo)) {
+			 
+			 throw new BusinessException("O código recebido não é válido");
+		 }
 		
 		tipoServicoDAO.delete(codigo);
 	}
@@ -86,6 +91,22 @@ public class TipoServicoBusiness implements ITipoServicoBusiness {
 			return true;
 		} else {
 			
+			return false;
+		}
+	}
+
+	/**
+	 * Verifica se o código é invalido
+	 * 
+	 * @param codigo
+	 * @return
+	 */
+	private Boolean codigoInvalido(Short codigo) {
+		if (codigo == null || codigo == 0) {
+
+			return true;
+		} else {
+
 			return false;
 		}
 	}

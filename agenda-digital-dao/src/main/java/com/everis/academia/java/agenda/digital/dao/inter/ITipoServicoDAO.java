@@ -33,7 +33,7 @@ public interface ITipoServicoDAO {
 	 * 
 	 * @param codigo
 	 */
-	void delete(Integer codigo);
+	void delete(Short codigo);
 	
 	/**
 	 * Verifica se já existe um Tipo de Serviço

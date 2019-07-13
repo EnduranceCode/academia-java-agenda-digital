@@ -34,5 +34,5 @@ public interface ITipoServicoBusiness {
 	 * 
 	 * @param codigo
 	 */
-	void delete(Integer codigo);
+	void delete(Short codigo) throws BusinessException;
 }

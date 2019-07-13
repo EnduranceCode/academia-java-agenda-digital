@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.everis.academia.java.agenda.digital.dao.inter.ITipoServicoDAO;
-import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
 @Repository
@@ -44,7 +43,7 @@ public class TipoServicoHibernateDAO implements ITipoServicoDAO {
 	}
 
 	@Override
-	public void delete(Integer codigo) {
+	public void delete(Short codigo) {
 		Session session = sessionFactory.getCurrentSession();
 		TipoServico tipoServico = session.get(TipoServico.class, codigo);
 		session.delete(tipoServico);
@@ -55,9 +54,9 @@ public class TipoServicoHibernateDAO implements ITipoServicoDAO {
 
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("deprecation")
-		Criteria criteria = session.createCriteria(Cidade.class);
+		Criteria criteria = session.createCriteria(TipoServico.class);
 
-		criteria.add(Restrictions.and(Restrictions.eq("descricao", tipoServico.getDescricao()).ignoreCase()));
+		criteria.add(Restrictions.and(Restrictions.eq("descricao", tipoServico.getDescricao().trim()).ignoreCase()));
 		
 		if(tipoServico.getCodigo() != null) {
 			criteria.add(Restrictions.ne("codigo", tipoServico.getCodigo()));
