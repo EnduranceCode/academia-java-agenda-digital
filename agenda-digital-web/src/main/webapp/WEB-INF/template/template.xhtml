@@ -20,20 +20,29 @@
 	<div class="navbar navbar-static-top navbar-inverse">
 		<div class="navbar-inner">
 			<div>
+
 				<a class="btn btn-navbar" data-toggle="collapse"
 					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
 				</a>
 
-				<p:link styleClass="brand">Academia Java</p:link>
-				
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li class="active"><a href="#">Prestadores de Serviço</a></li>
-						<li><a href="#">Tipos de Serviço</a></li>
-						<li><a href="#">Cidades</a></li>
-					</ul>
-				</div>
+				<h:form style="margin-bottom: 0;">
+					<p:commandLink action="#{menuPrincipal.navegarEntrada}"
+						styleClass="brand">Academia Java</p:commandLink>
+
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li><p:commandLink
+									action="#{menuPrincipal.navegarPrestadoresServico}">Prestadores de Serviço</p:commandLink>
+							</li>
+							<li><p:commandLink
+									action="#{menuPrincipal.navegarTiposServico}">Tipos de Serviço</p:commandLink>
+							</li>
+							<li><p:commandLink action="#{menuPrincipal.navegarCidades}">Cidades</p:commandLink>
+							</li>
+						</ul>
+					</div>
+				</h:form>
 			</div>
 		</div>
 	</div>
