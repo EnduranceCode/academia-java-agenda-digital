@@ -58,7 +58,7 @@ public class CidadeBean {
 
 		return null;
 	}
-	
+
 	/**
 	 * Lê e devolve a lista de cidades existentes
 	 * 
@@ -68,7 +68,7 @@ public class CidadeBean {
 
 		return cidadeBusiness.read();
 	}
-	
+
 	/**
 	 * Carrega a página para actualizar a cidade com os dados recebidos no Frontend
 	 * 
@@ -76,29 +76,35 @@ public class CidadeBean {
 	 * @return
 	 */
 	public String navegarUpdateCidade(Cidade cidade) {
-		
+
 		this.cidade = cidade;
-		
+
 		return "update?faces-redirect=true";
 	}
-	
+
+	/**
+	 * Cancela a actualização da cidade e retorna à página de criação e leitura de
+	 * cidades
+	 * 
+	 * @return
+	 */
 	public String cancelarActualizarCidade() {
 
 		/* Re-instanciamos a variavel para limpar o formulário no Frontend */
 		cidade = new Cidade();
-		
+
 		return "create-read?faces-redirect=true";
 	}
-	
+
 	/**
 	 * Actualiza os dados da cidade
 	 * 
 	 * @return
 	 */
 	public String actualizarCidade() {
-		
+
 		try {
-			
+
 			cidadeBusiness.update(cidade);
 
 			/* Re-instanciamos a variavel para limpar o formulário no Frontend */
@@ -106,16 +112,16 @@ public class CidadeBean {
 
 			return "create-read?faces-redirect=true";
 		} catch (BusinessException e) {
-			
+
 			String messageDetails = e.getLocalizedMessage();
 
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	 * Apaga a cidade referenciada no Frontend
 	 * 
@@ -123,18 +129,18 @@ public class CidadeBean {
 	 * @return
 	 */
 	public String apagarCidade(Cidade cidade) {
-		
+
 		try {
-			
+
 			cidadeBusiness.delete(cidade.getCodigo());
 		} catch (BusinessException e) {
-			
+
 			String messageDetails = e.getLocalizedMessage();
 
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
 		}
-		
+
 		return "create-read?faces-redirect=true";
 	}
 }
