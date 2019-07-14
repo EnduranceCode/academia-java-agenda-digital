@@ -3,7 +3,6 @@ package com.everis.academia.java.agenda.digital.entity;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -58,7 +57,7 @@ public class PrestadorServico implements Serializable {
 	@JoinColumn(name = "COD_CIDADE", nullable = false)
 	private Cidade cidade;
 	
-	@Transient
+	@Column(name = "EMAIL")
 	private String email;
 	
 	@Transient

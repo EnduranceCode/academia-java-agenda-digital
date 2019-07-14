@@ -108,6 +108,20 @@
 						</div>
 					</fieldset>
 
+					<fieldset>
+						<legend>Correio Electrónico</legend>
+
+						<div class="control-group">
+							<p:outputLabel for="email" styleClass="control-label">e-mail</p:outputLabel>
+							<div class="controls">
+								<p:inputText id="email"
+									value="#{prestadorServicoBean.prestadorServico.email}"
+									placeholder="e-mail do Prestador de Serviço" type="text"
+									styleClass="span12" />
+							</div>
+						</div>
+					</fieldset>
+
 					<div class="form-actions" style="border: 1px solid #e5e5e5;">
 						<p:messages showSummary="true" showDetail="true" layout="table"
 							infoClass="info" warnClass="warning" errorClass="error" />
@@ -132,6 +146,7 @@
 					aria-hidden="true">×</button>
 				<h3>Adicionar Cidade</h3>
 			</div>
+			
 			<h:form id="formCidade" style="margin-bottom: 0;">
 				<div class="modal-body">
 					<fieldset>
@@ -149,6 +164,7 @@
 						</div>
 					</fieldset>
 				</div>
+				
 				<div class="modal-footer">
 
 					<p:commandButton value="Cancelar" type="reset"
