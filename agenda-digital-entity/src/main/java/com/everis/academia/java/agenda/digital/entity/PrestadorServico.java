@@ -28,22 +28,12 @@ public class PrestadorServico implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(generator = "SQ_PRESTADORE", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "SQ_PRESTADOR", strategy = GenerationType.SEQUENCE)
 	@Column(name = "COD_PRESTADOR_SERVICO")
 	private Integer codigo;
 	
 	@Column(name = "NOME_PRESTADOR_SERVICO")
 	private String nome;
-	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Cidade.class)
-	@JoinColumn(name = "COD_CIDADE", nullable = false)
-	private Cidade cidade;
-	
-	@Transient
-	private String bairro;
-	
-	@Transient
-	private String cep;
 	
 	@Column(name = "TIPO_LOGRADOURO")
 	@Enumerated(EnumType.STRING)
@@ -53,10 +43,20 @@ public class PrestadorServico implements Serializable {
 	private String logradouro;
 	
 	@Transient
+	private String numero;
+	
+	@Transient
+	private String bairro;
+	
+	@Transient
 	private String complemento;
 	
 	@Transient
-	private String numero;
+	private String cep;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Cidade.class)
+	@JoinColumn(name = "COD_CIDADE", nullable = false)
+	private Cidade cidade;
 	
 	@Transient
 	private String email;
@@ -65,10 +65,10 @@ public class PrestadorServico implements Serializable {
 	private Set<Telefone> telefones;
 	
 	@Transient
-	private Set<PrestacaoServico> prestacoesServicos;
+	private Set<TipoServico> servicosCredenciados;
 	
 	@Transient
-	private Set<TipoServico> servicosCredenciados;
+	private Set<PrestacaoServico> prestacoesServicos;
 	
 	public PrestadorServico() {
 		
@@ -80,13 +80,13 @@ public class PrestadorServico implements Serializable {
 		super();
 		this.codigo = codigo;
 	}
-
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
 	
 	public Integer getCodigo() {
 		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -95,30 +95,6 @@ public class PrestadorServico implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Cidade getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
 	}
 
 	public TipoLogradouro getTipoLogradouro() {
@@ -137,6 +113,22 @@ public class PrestadorServico implements Serializable {
 		this.logradouro = logradouro;
 	}
 
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
 	public String getComplemento() {
 		return complemento;
 	}
@@ -145,12 +137,19 @@ public class PrestadorServico implements Serializable {
 		this.complemento = complemento;
 	}
 
-	public String getNumero() {
-		return numero;
+	public String getCep() {
+		return cep;
 	}
 
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 	public String getEmail() {
@@ -169,20 +168,20 @@ public class PrestadorServico implements Serializable {
 		this.telefones = telefone;
 	}
 
-	public Set<PrestacaoServico> getPrestacaoServico() {
-		return prestacoesServicos;
-	}
-
-	public void setPrestacaoServico(Set<PrestacaoServico> prestacaoServico) {
-		this.prestacoesServicos = prestacaoServico;
-	}
-
 	public Set<TipoServico> getServicosCredenciados() {
 		return servicosCredenciados;
 	}
 
 	public void setServicosCredenciados(Set<TipoServico> servicosCredenciados) {
 		this.servicosCredenciados = servicosCredenciados;
+	}
+
+	public Set<PrestacaoServico> getPrestacaoServico() {
+		return prestacoesServicos;
+	}
+
+	public void setPrestacaoServico(Set<PrestacaoServico> prestacaoServico) {
+		this.prestacoesServicos = prestacaoServico;
 	}
 
 	@Override
