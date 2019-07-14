@@ -1,6 +1,7 @@
 package com.everis.academia.java.agenda.digital.dao.impl;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -64,5 +65,17 @@ public class CidadeHibernateDAO implements ICidadeDAO {
 		criteria.setProjection(Projections.count("codigo"));
 
 		return (Long) criteria.uniqueResult() > 0;
+	}
+
+	@Override
+	public String getNomeCidade(Integer codigo) {
+
+		Session session = sessionFactory.getCurrentSession();
+		Criteria criteria = session.createCriteria(Cidade.class);
+		
+		criteria.add(Restrictions.eq("codigo", codigo));
+		List<Cidade> results = criteria.list();
+		
+		return results.get(0).getNome();
 	}
 }

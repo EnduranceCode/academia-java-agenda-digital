@@ -96,4 +96,13 @@ public class CidadeDaoList implements ICidadeDAO {
 		
 		return false;
 	}
+
+	@Override
+	public String getNomeCidade(Integer codigo) {
+		/*
+		 * Não é necessário implementear este método com a persitência em memória porque
+		 * a aplicação não é concluída com esta opção
+		 */
+		return null;
+	}
 }

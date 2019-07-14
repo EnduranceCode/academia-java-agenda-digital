@@ -37,4 +37,12 @@ public interface ICidadeBusiness {
 	 * @param codigo
 	 */
 	void delete(Integer codigo) throws BusinessException;
+	
+	/**
+	 * Devolve o nome da cidade com o código fornecido
+	 * 
+	 * @param codigo
+	 * @return
+	 */
+	String getNomeCidade(Integer codigo) throws BusinessException;
 }

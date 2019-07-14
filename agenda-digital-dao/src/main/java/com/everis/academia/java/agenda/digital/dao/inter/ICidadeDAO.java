@@ -42,4 +42,12 @@ public interface ICidadeDAO {
 	 * @return
 	 */
 	Boolean jaExisteCidadeComNome(Cidade cidade);
+	
+	/**
+	 * Devolve o nome da cidade com o código fornecido
+	 * 
+	 * @param codigo
+	 * @return
+	 */
+	String getNomeCidade(Integer codigo);
 }

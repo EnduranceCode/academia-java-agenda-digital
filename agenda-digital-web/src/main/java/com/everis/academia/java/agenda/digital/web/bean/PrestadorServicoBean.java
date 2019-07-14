@@ -68,6 +68,21 @@ public class PrestadorServicoBean {
 
 		return cidadeBusiness.read();
 	}
+	
+	public String getNomeCidade() {
+		
+		try {
+			
+			return cidadeBusiness.getNomeCidade(prestadorServico.getCidade().getCodigo());
+		} catch (BusinessException e) {
+
+			String messageDetails = e.getLocalizedMessage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+		
+		return null;
+	}
 
 	/**
 	 * Insere uma nova Cidade na lista de cidades existentes
@@ -105,6 +120,8 @@ public class PrestadorServicoBean {
 		try {
 
 			prestadorServico = prestadorServicoBusiness.create(prestadorServico);
+			
+			return "read?faces-redirect=true";
 		} catch (BusinessException e) {
 
 			String messageDetails = e.getLocalizedMessage();

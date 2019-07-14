@@ -79,6 +79,19 @@ public class CidadeBusiness implements ICidadeBusiness {
 		cidadeDAO.delete(codigo);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public String getNomeCidade(Integer codigo) throws BusinessException {
+		
+		/* Verificamos se o código recebido é invalido */ 
+		if(codigoInvalido(codigo)) {
+			 
+			 throw new BusinessException("O código recebido não é válido");
+		 }
+		
+		return cidadeDAO.getNomeCidade(codigo);
+	}
+
 	/**
 	 * Verifica se os dados recebidos são nulos ou vazios
 	 * 
@@ -95,7 +108,6 @@ public class CidadeBusiness implements ICidadeBusiness {
 			return false;
 		}
 	}
-
 
 	/**
 	 * Verifica se o código é invalido
