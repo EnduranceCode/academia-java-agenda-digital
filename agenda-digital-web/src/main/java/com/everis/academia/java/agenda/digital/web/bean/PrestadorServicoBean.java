@@ -115,7 +115,7 @@ public class PrestadorServicoBean {
 	 * @param prestadorServico
 	 * @return
 	 */
-	public String submterPrestador() {
+	public String submterPrestadorServico() {
 
 		try {
 
@@ -131,6 +131,36 @@ public class PrestadorServicoBean {
 
 		prestadorServico = new PrestadorServico();
 
+		return null;
+	}
+
+	/**
+	 * Carrega a página para actualizar o Prestador de Serviços escolhido no Frontend
+	 * 
+	 * @param cidade
+	 * @return
+	 */
+	public String navegarUpdatePrestadorServico(PrestadorServico prestadorServico) {
+
+		this.prestadorServico = prestadorServico;
+
+		return "update?faces-redirect=true";
+	}
+	
+	public String actualizarPrestadorServico(PrestadorServico prestadorServico) {
+		
+		try {
+
+			prestadorServicoBusiness.update(prestadorServico);
+			
+			return "read?faces-redirect=true";
+		} catch (BusinessException e) {
+
+			String messageDetails = e.getLocalizedMessage();
+			FacesContext.getCurrentInstance().addMessage("formPrestador:submeterCidade",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+		
 		return null;
 	}
 }

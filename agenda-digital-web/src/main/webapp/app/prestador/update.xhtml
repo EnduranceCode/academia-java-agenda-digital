@@ -7,7 +7,179 @@
 
 <ui:composition template="/WEB-INF/template/template.xhtml">
 	<ui:define name="content">
+		<div class="row-fluid">
+			<div class="span12">
 
+				<h3>Dados do novo Prestador de Serviços</h3>
+
+				<h:form id="formPrestador">
+
+					<fieldset>
+						<legend>Identificação</legend>
+
+						<div class="control-group">
+							<p:outputLabel for="nome" styleClass="control-label">Nome</p:outputLabel>
+							<div class="controls">
+								<h:inputHidden id="codigo" value="#{prestadorServicoBean.prestadorServico.codigo}" />
+								<p:inputText id="nome"
+									value="#{prestadorServicoBean.prestadorServico.nome}"
+									placeholder="Nome do Prestador de Serviços" type="text"
+									styleClass="span12" />
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Morada</legend>
+
+						<div class="control-group">
+
+							<div class="controls controls-row">
+								<p:outputLabel for="tipoLogradouro"
+									styleClass="span3 control-label">Tipo de Logradouro</p:outputLabel>
+								<p:outputLabel for="logradouro" styleClass="span7 control-label">Logradouro</p:outputLabel>
+								<p:outputLabel for="numero" styleClass="span2 control-label">Número</p:outputLabel>
+							</div>
+
+							<div class="controls controls-row">
+								<p:selectOneMenu id="tipoLogradouro"
+									value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}"
+									styleClass="span3">
+									<f:selectItem itemLabel="Tipo de Logradouro..." itemValue="" />
+									<f:selectItems value="#{prestadorServicoBean.tiposLogradouro}" />
+								</p:selectOneMenu>
+
+								<p:inputText id="logradouro"
+									value="#{prestadorServicoBean.prestadorServico.logradouro}"
+									placeholder="Nome do logradouro" styleClass="span7" />
+
+								<p:inputText id="numero"
+									value="#{prestadorServicoBean.prestadorServico.numero}"
+									placeholder="Número" styleClass="span2" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<p:outputLabel for="bairro" styleClass="control-label">Bairro</p:outputLabel>
+							<div class="controls">
+								<p:inputText id="bairro"
+									value="#{prestadorServicoBean.prestadorServico.bairro}"
+									placeholder="Bairro" type="text" styleClass="span12" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<p:outputLabel for="complemento" styleClass="control-label">Complemento</p:outputLabel>
+							<div class="controls">
+								<p:inputText id="complemento"
+									value="#{prestadorServicoBean.prestadorServico.complemento}"
+									placeholder="Complemento de morada" type="text"
+									styleClass="span12" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<div class="controls controls-row">
+								<p:outputLabel for="cep" styleClass="span2 control-label">CEP</p:outputLabel>
+								<p:outputLabel for="cidade" styleClass="span9 control-label">Cidade</p:outputLabel>
+							</div>
+
+							<div class="controls controls-row">
+								<p:inputText id="cep"
+									value="#{prestadorServicoBean.prestadorServico.cep}"
+									placeholder="CEP" type="text" styleClass="span2" />
+
+								<p:selectOneMenu id="cidade"
+									value="#{prestadorServicoBean.prestadorServico.cidade}"
+									converter="CidadeConverter" styleClass="span8">
+									<f:selectItem itemLabel="Cidade..." itemValue="" />
+									<f:selectItems id="listaCidades"
+										value="#{prestadorServicoBean.listaCidades}"
+										var="cidadeActual" itemLabel="#{cidadeActual.nome}" />
+								</p:selectOneMenu>
+
+								<a href="#modalAdicionarCidade" role="button" class="span2 btn"
+									data-toggle="modal">Adicionar Cidade</a>
+							</div>
+
+							<!-- TODO: Fazer com que as mensagens de erro do método prestadorServicoBean.submeterCidade sejam mostradas  -->
+							<p:messages for="submeterCidade" showSummary="true"
+								showDetail="true" layout="table" infoClass="info"
+								warnClass="warning" errorClass="error" />
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Correio Electrónico</legend>
+
+						<div class="control-group">
+							<p:outputLabel for="email" styleClass="control-label">e-mail</p:outputLabel>
+							<div class="controls">
+								<p:inputText id="email"
+									value="#{prestadorServicoBean.prestadorServico.email}"
+									placeholder="e-mail do Prestador de Serviço" type="text"
+									styleClass="span12" />
+							</div>
+						</div>
+					</fieldset>
+
+					<div class="form-actions" style="border: 1px solid #e5e5e5;">
+						<p:messages showSummary="true" showDetail="true" layout="table"
+							infoClass="info" warnClass="warning" errorClass="error" />
+
+						<div class="pull-right">
+							<p:commandButton value="Cancelar" type="reset" styleClass="btn"
+								style="margin-right: 10px;" />
+							<p:commandButton value="Submeter"
+								action="#{prestadorServicoBean.actualizarPrestadorServico(prestadorServicoBean.prestadorServico)}" update="@form"
+								styleClass="btn btn-primary" />
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</div>
+
+		<!-- Modal para adicionar uma cidade à lista -->
+		<div id="modalAdicionarCidade" class="modal hide fade" tabindex="-1"
+			role="dialog" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">×</button>
+				<h3>Adicionar Cidade</h3>
+			</div>
+
+			<h:form id="formCidade" style="margin-bottom: 0;">
+				<div class="modal-body">
+					<fieldset>
+
+						<div class="row-fluid">
+							<div class="span12">
+								<p:outputLabel for="cidadeModal">
+									<strong>Cidade</strong>
+								</p:outputLabel>
+								<p:inputText id="cidadeModal"
+									value="#{prestadorServicoBean.cidadeAdicional.nome}"
+									styleClass="input-append input-block-level"
+									placeholder="Inserir nome da cidade" />
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+				<div class="modal-footer">
+
+					<p:commandButton value="Cancelar" type="reset"
+						onclick="$('#modalAdicionarCidade').modal('hide')"
+						styleClass="btn" style="margin-right: 10px;" />
+					<p:commandButton value="Submeter Cidade"
+						action="#{prestadorServicoBean.submeterCidade}"
+						update="@form, formPrestador:cidade"
+						oncomplete="$('#modalAdicionarCidade').modal('hide')"
+						styleClass="btn btn-primary">
+					</p:commandButton>
+				</div>
+			</h:form>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>

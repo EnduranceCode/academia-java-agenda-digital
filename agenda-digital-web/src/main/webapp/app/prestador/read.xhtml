@@ -10,43 +10,58 @@
 		<div class="row-fluid">
 			<div class="span12">
 				<h3>Dados do Prestador de Serviços</h3>
-				
+
 				<h:form>
-				
+
 					<p:messages showSummary="true" showDetail="true" layout="table"
-								infoClass="info" warnClass="warning" errorClass="error" />
-					
+						infoClass="info" warnClass="warning" errorClass="error" />
+
 					<p class="lead">
-						<h:outputText value="#{prestadorServicoBean.prestadorServico.nome}" />
+						<h:outputText
+							value="#{prestadorServicoBean.prestadorServico.nome}" />
 					</p>
 
 					<h4>Morada</h4>
 					<address>
 						<span style="display: block;">
-							<h:outputText value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}" />
-							<h:outputText value=" #{prestadorServicoBean.prestadorServico.logradouro}" />
-							<h:outputText value=", #{prestadorServicoBean.prestadorServico.numero}" />
+							<h:outputText
+								value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}" />
+							<h:outputText
+								value=" #{prestadorServicoBean.prestadorServico.logradouro}" />
+							<h:outputText
+								value=", #{prestadorServicoBean.prestadorServico.numero}" />
 						</span>
-						
 						<span style="display: block;">
-							<h:outputText value="#{prestadorServicoBean.prestadorServico.bairro}" />
+							<h:outputText
+								value="#{prestadorServicoBean.prestadorServico.bairro}" />
 						</span>
-						
 						<span style="display: block;">
 							<h:outputText
 								value="#{prestadorServicoBean.prestadorServico.complemento}" />
 						</span>
-						
 						<span style="display: block;">
-							<h:outputText value="#{prestadorServicoBean.prestadorServico.cep}" />
-							<h:outputText value=" #{prestadorServicoBean.nomeCidade}" />
+							<h:outputText
+								value="#{prestadorServicoBean.prestadorServico.cep}" /> 
+							<h:outputText
+								value=" #{prestadorServicoBean.nomeCidade}" />
 						</span>
 					</address>
 
 					<h4>Correio electrónico</h4>
 					<address>
-						<h:outputText value="#{prestadorServicoBean.prestadorServico.email}" />
+						<h:outputText
+							value="#{prestadorServicoBean.prestadorServico.email}" />
 					</address>
+
+					<div class="row-fluid">
+						<div class="span12">
+							<div class="pull-right">
+								<p:commandButton value="Editar Prestador de Serviços"
+									action="#{prestadorServicoBean.navegarUpdatePrestadorServico(prestadorServicoBean.prestadorServico)}"
+									styleClass="btn btn-success" />
+							</div>
+						</div>
+					</div>
 				</h:form>
 			</div>
 		</div>
