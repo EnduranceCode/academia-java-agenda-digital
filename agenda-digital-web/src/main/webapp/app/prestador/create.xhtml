@@ -31,14 +31,14 @@
 						<legend>Morada</legend>
 
 						<div class="control-group">
-						
+
 							<div class="controls controls-row">
 								<p:outputLabel for="tipoLogradouro"
 									styleClass="span3 control-label">Tipo de Logradouro</p:outputLabel>
 								<p:outputLabel for="logradouro" styleClass="span7 control-label">Logradouro</p:outputLabel>
 								<p:outputLabel for="numero" styleClass="span2 control-label">Número</p:outputLabel>
 							</div>
-							
+
 							<div class="controls controls-row">
 								<p:selectOneMenu id="tipoLogradouro"
 									value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}"
@@ -63,6 +63,16 @@
 								<p:inputText id="bairro"
 									value="#{prestadorServicoBean.prestadorServico.bairro}"
 									type="text" styleClass="span12" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<p:outputLabel for="complemento" styleClass="control-label">Complemento</p:outputLabel>
+							<div class="controls">
+								<p:inputText id="complemento"
+									value="#{prestadorServicoBean.prestadorServico.complemento}"
+									placeholder="Complemento de morada" type="text"
+									styleClass="span12" />
 							</div>
 						</div>
 
