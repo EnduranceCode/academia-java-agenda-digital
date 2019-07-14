@@ -51,7 +51,7 @@ public class PrestadorServico implements Serializable {
 	@Column(name = "COMPLEMENTO")
 	private String complemento;
 	
-	@Transient
+	@Column(name = "CEP")
 	private String cep;
 	
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Cidade.class)

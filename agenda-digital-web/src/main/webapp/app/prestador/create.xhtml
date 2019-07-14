@@ -78,8 +78,17 @@
 						</div>
 
 						<div class="control-group">
-							<p:outputLabel for="cidade" styleClass="control-label">Cidade</p:outputLabel>
 							<div class="controls controls-row">
+								<p:outputLabel for="cep" styleClass="span2 control-label">CEP</p:outputLabel>
+								<p:outputLabel for="cidade" styleClass="span9 control-label">Cidade</p:outputLabel>
+							</div>
+
+							<div class="controls controls-row">
+								<p:inputText id="cep"
+									value="#{prestadorServicoBean.prestadorServico.cep}"
+									placeholder="CEP" type="text"
+									styleClass="span2" />
+
 								<p:selectOneMenu id="cidade"
 									value="#{prestadorServicoBean.prestadorServico.cidade}"
 									converter="CidadeConverter" styleClass="span9">
