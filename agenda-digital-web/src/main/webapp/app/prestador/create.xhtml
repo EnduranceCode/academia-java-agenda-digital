@@ -14,62 +14,60 @@
 
 				<h:form>
 
-					<fieldset style="margin-bottom: 20px;">
+					<fieldset>
+						<legend>Identificação</legend>
+
 						<div class="control-group">
-							<p:outputLabel for="nome" value="Nome" styleClass="control-label" />
+							<p:outputLabel for="nome" styleClass="control-label">Nome</p:outputLabel>
 							<div class="controls">
 								<p:inputText id="nome"
 									value="#{prestadorServicoBean.prestadorServico.nome}"
-									styleClass="span6 control-label" />
+									type="text" styleClass="span12" />
 							</div>
 						</div>
 					</fieldset>
 
-						<p>
-							<strong>Morada</strong>
-						</p>
+					<fieldset>
+						<legend>Morada</legend>
 
-					<fieldset style="margin-bottom: 20px;">
 						<div class="control-group">
-							<p:outputLabel for="tipoLogradouro" value="Tipo de Logradouro"
-								styleClass="control-label" />
-							<div class="controls">
+							<p:outputLabel for="tipoLogradouro" styleClass="control-label">Logradouro</p:outputLabel>
+							<div class="controls controls-row">
 								<p:selectOneMenu id="tipoLogradouro"
 									value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}"
-									styleClass="span2">
-									<f:selectItem itemLabel="Seleccionar..." itemValue="" />
+									styleClass="span3">
+									<f:selectItem itemLabel="Tipo de Logradouro ..." itemValue="" />
 									<f:selectItems value="#{prestadorServicoBean.tiposLogradouro}" />
 								</p:selectOneMenu>
 							</div>
 						</div>
-					</fieldset>
 
-					<fieldset style="margin-bottom: 20px;">
 						<div class="control-group">
-							<p:outputLabel for="cidade" value="Cidade"
-								styleClass="control-label" />
-							<div class="controls">
+							<p:outputLabel for="cidade" styleClass="control-label">Cidade</p:outputLabel>
+							<div class="controls controls-row">
 								<p:selectOneMenu id="cidade"
 									value="#{prestadorServicoBean.prestadorServico.cidade}"
-									converter="CidadeConverter"
-									styleClass="span6">
-									<f:selectItem itemLabel="Seleccionar..." itemValue="" />
-									<f:selectItems value="#{prestadorServicoBean.listaCidades}" var="cidadeActual" itemLabel="#{cidadeActual.nome}" />
+									converter="CidadeConverter" styleClass="span9">
+									<f:selectItem itemLabel="Cidade..." itemValue="" />
+									<f:selectItems value="#{prestadorServicoBean.listaCidades}"
+										var="cidadeActual" itemLabel="#{cidadeActual.nome}" />
 								</p:selectOneMenu>
 							</div>
 						</div>
 					</fieldset>
 
-					<p:messages showSummary="true" showDetail="true" layout="table"
-						infoClass="info" warnClass="warning" errorClass="error" />
+					<div class="form-actions" style="border: 1px solid #e5e5e5;">
+						<p:messages showSummary="true" showDetail="true" layout="table"
+							infoClass="info" warnClass="warning" errorClass="error" />
 
-					<p>
-						<p:commandButton value="cancelar" styleClass="btn"
-							style="margin-right: 10px;" />
-						<p:commandButton value="Submeter"
-							action="#{prestadorServicoBean.submterPrestador}" update="@form"
-							styleClass="btn btn-primary" />
-					</p>
+						<div class="pull-right">
+							<p:commandButton value="Cancelar" type="reset"
+								styleClass="btn" style="margin-right: 10px;" />
+							<p:commandButton value="Submeter"
+								action="#{prestadorServicoBean.submterPrestador}" update="@form"
+								styleClass="btn btn-primary" />
+						</div>
+					</div>
 				</h:form>
 			</div>
 		</div>
