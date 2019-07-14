@@ -24,7 +24,11 @@ public class PrestadorServicoBean {
 	/* Instanciamos um novo objecto PrestadorServicoBusiness */
 	@Autowired
 	private IPrestadorServicoBusiness prestadorServicoBusiness;
-	
+
+	/*
+	 * Instanciamos um novo objecto CidadeBusiness para poder acerder à lista de
+	 * Cidades existentes
+	 */
 	@Autowired
 	private ICidadeBusiness cidadeBusiness;
 
@@ -33,7 +37,10 @@ public class PrestadorServicoBean {
 	 * Frontend
 	 */
 	private PrestadorServico prestadorServico = new PrestadorServico();
-	
+
+	/* Instanciamos um novo objecto Cidade para receber os dados do Frontend */
+	private Cidade cidadeAdicional = new Cidade();
+
 	public PrestadorServico getPrestadorServico() {
 
 		return prestadorServico;
@@ -43,17 +50,50 @@ public class PrestadorServicoBean {
 
 		this.prestadorServico = prestadorServico;
 	}
-	
+
 	public TipoLogradouro[] getTiposLogradouro() {
-		
+
 		return TipoLogradouro.values();
 	}
 	
+	public Cidade getCidadeAdicional() {
+		return cidadeAdicional;
+	}
+
+	public void setCidadeAdicional(Cidade cidade) {
+		this.cidadeAdicional = cidade;
+	}
+
 	public Collection<Cidade> getListaCidades() {
-		
+
 		return cidadeBusiness.read();
 	}
-	
+
+	/**
+	 * Insere uma nova Cidade na lista de cidades existentes
+	 * 
+	 * @return
+	 */
+	public String submeterCidade() {
+
+		try {
+
+			cidadeAdicional = cidadeBusiness.create(cidadeAdicional);
+
+			/* Re-instanciamos a variavel para limpar o formulário no Frontend */
+			cidadeAdicional = new Cidade();
+
+			return "create";
+		} catch (BusinessException e) {
+
+			String messageDetails = e.getLocalizedMessage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+
+		return null;
+	}
+
 	/**
 	 * Cria e insere um novo Prestador de Serviço
 	 * 
@@ -61,16 +101,17 @@ public class PrestadorServicoBean {
 	 * @return
 	 */
 	public String submterPrestador() {
-		
+
 		try {
-			
+
 			prestadorServico = prestadorServicoBusiness.create(prestadorServico);
 		} catch (BusinessException e) {
-			
+
 			String messageDetails = e.getLocalizedMessage();
-			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+			FacesContext.getCurrentInstance().addMessage("formPrestador:submeterCidade",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
 		}
-		
+
 		prestadorServico = new PrestadorServico();
 
 		return null;
