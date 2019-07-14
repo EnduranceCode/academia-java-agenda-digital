@@ -39,7 +39,7 @@ public class PrestadorServico implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private TipoLogradouro tipoLogradouro;
 	
-	@Transient
+	@Column(name = "LOGRADOURO")
 	private String logradouro;
 	
 	@Transient
@@ -54,7 +54,7 @@ public class PrestadorServico implements Serializable {
 	@Transient
 	private String cep;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Cidade.class)
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Cidade.class)
 	@JoinColumn(name = "COD_CIDADE", nullable = false)
 	private Cidade cidade;
 	

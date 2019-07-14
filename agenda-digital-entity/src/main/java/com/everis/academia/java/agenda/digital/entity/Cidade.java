@@ -22,7 +22,7 @@ public class Cidade implements Serializable {
 	@Column(name = "COD_CIDADE")
 	private Integer codigo;
 	
-	@Column(name = "NOME_CIDADE", unique = true)
+	@Column(name = "NOME_CIDADE", nullable = false, unique = true)
 	private String nome;
 	
 	public Cidade() {
