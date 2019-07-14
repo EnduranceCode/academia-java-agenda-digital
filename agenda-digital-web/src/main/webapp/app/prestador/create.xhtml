@@ -31,7 +31,11 @@
 						<legend>Morada</legend>
 
 						<div class="control-group">
-							<p:outputLabel for="tipoLogradouro" styleClass="control-label">Logradouro</p:outputLabel>
+							<div class="controls controls-row">
+								<p:outputLabel for="tipoLogradouro"
+									styleClass="span3 control-label">Tipo de Logradouro</p:outputLabel>
+								<p:outputLabel for="logradouro" styleClass="span7 control-label">Logradouro</p:outputLabel>
+							</div>
 							<div class="controls controls-row">
 								<p:selectOneMenu id="tipoLogradouro"
 									value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}"
@@ -39,6 +43,10 @@
 									<f:selectItem itemLabel="Tipo de Logradouro ..." itemValue="" />
 									<f:selectItems value="#{prestadorServicoBean.tiposLogradouro}" />
 								</p:selectOneMenu>
+
+								<p:inputText id="logradouro"
+									value="#{prestadorServicoBean.prestadorServico.logradouro}"
+									placeholder="Nome do logradouro" styleClass="span7" />
 							</div>
 						</div>
 
@@ -61,8 +69,8 @@
 							infoClass="info" warnClass="warning" errorClass="error" />
 
 						<div class="pull-right">
-							<p:commandButton value="Cancelar" type="reset"
-								styleClass="btn" style="margin-right: 10px;" />
+							<p:commandButton value="Cancelar" type="reset" styleClass="btn"
+								style="margin-right: 10px;" />
 							<p:commandButton value="Submeter"
 								action="#{prestadorServicoBean.submterPrestador}" update="@form"
 								styleClass="btn btn-primary" />
