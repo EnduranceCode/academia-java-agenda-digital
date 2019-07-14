@@ -1,6 +1,8 @@
 package com.everis.academia.java.agenda.digital.web.bean;
 
 import java.util.Collection;
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -55,33 +57,13 @@ public class PrestadorServicoBean {
 
 		return TipoLogradouro.values();
 	}
-	
+
 	public Cidade getCidadeAdicional() {
 		return cidadeAdicional;
 	}
 
 	public void setCidadeAdicional(Cidade cidade) {
 		this.cidadeAdicional = cidade;
-	}
-
-	public Collection<Cidade> getListaCidades() {
-
-		return cidadeBusiness.read();
-	}
-	
-	public String getNomeCidade() {
-		
-		try {
-			
-			return cidadeBusiness.getNomeCidade(prestadorServico.getCidade().getCodigo());
-		} catch (BusinessException e) {
-
-			String messageDetails = e.getLocalizedMessage();
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
-		}
-		
-		return null;
 	}
 
 	/**
@@ -109,6 +91,31 @@ public class PrestadorServicoBean {
 		return null;
 	}
 
+	public Collection<Cidade> getListaCidades() {
+
+		return cidadeBusiness.read();
+	}
+
+	/**
+	 * Recupera da base de dados o nome da cidade do actual Prestador de Serviço
+	 * 
+	 * @return
+	 */
+	public String getNomeCidade() {
+
+		try {
+
+			return cidadeBusiness.getNomeCidade(prestadorServico.getCidade().getCodigo());
+		} catch (BusinessException e) {
+
+			String messageDetails = e.getLocalizedMessage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+
+		return null;
+	}
+
 	/**
 	 * Cria e insere um novo Prestador de Serviço
 	 * 
@@ -120,7 +127,7 @@ public class PrestadorServicoBean {
 		try {
 
 			prestadorServico = prestadorServicoBusiness.create(prestadorServico);
-			
+
 			return "read?faces-redirect=true";
 		} catch (BusinessException e) {
 
@@ -135,9 +142,34 @@ public class PrestadorServicoBean {
 	}
 
 	/**
-	 * Carrega a página para actualizar o Prestador de Serviços escolhido no Frontend
+	 * Lê e devolve a lista de Prestadores de Serviço registados
 	 * 
-	 * @param cidade
+	 * @return
+	 */
+	public List<PrestadorServico> getListaPrestadoresServico() {
+
+		return prestadorServicoBusiness.read();
+	}
+
+	/**
+	 * Carrega a página para visualizar o Prestador de Serviços escolhido no
+	 * Frontend
+	 * 
+	 * @param prestadorServico
+	 * @return
+	 */
+	public String navegarReadPrestadorServiço(PrestadorServico prestadorServico) {
+
+		this.prestadorServico = prestadorServico;
+
+		return "/app/prestador/read?faces-redirect=true";
+	}
+
+	/**
+	 * Carrega a página para actualizar o Prestador de Serviços escolhido no
+	 * Frontend
+	 * 
+	 * @param prestadorServico
 	 * @return
 	 */
 	public String navegarUpdatePrestadorServico(PrestadorServico prestadorServico) {
@@ -146,13 +178,18 @@ public class PrestadorServicoBean {
 
 		return "update?faces-redirect=true";
 	}
-	
+
+	/**
+	 * Actualiza os dados do Prestador de Serviço
+	 * 
+	 * @return
+	 */
 	public String actualizarPrestadorServico(PrestadorServico prestadorServico) {
-		
+
 		try {
 
 			prestadorServicoBusiness.update(prestadorServico);
-			
+
 			return "read?faces-redirect=true";
 		} catch (BusinessException e) {
 
@@ -160,7 +197,7 @@ public class PrestadorServicoBean {
 			FacesContext.getCurrentInstance().addMessage("formPrestador:submeterCidade",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
 		}
-		
+
 		return null;
 	}
 }

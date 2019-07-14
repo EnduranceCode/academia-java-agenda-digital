@@ -5,10 +5,10 @@ import javax.faces.bean.RequestScoped;
 
 import org.springframework.stereotype.Component;
 
-@ManagedBean(name = "menuPrincipal")
+@ManagedBean(name = "menuPrincipalBean")
 @Component
 @RequestScoped
-public class MenuPrincipal {
+public class MenuPrincipalBean {
 	
 	public String navegarEntrada() {
 		

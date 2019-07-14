@@ -8,6 +8,55 @@
 <ui:composition template="/WEB-INF/template/template.xhtml">
 	<ui:define name="content">
 
+		<div class="row-fluid">
+			<div class="span12">
+
+				<h3>Lista de Prestadores de Serviço</h3>
+				
+				<h:form id="lista-cidades">
+					<p:dataTable value="#{prestadorServicoBean.listaPrestadoresServico}" var="prestadorServicoActual"
+						paginator="true" paginatorPosition="bottom" rows="10">
+
+						<p:column headerText="Código" style="width:80px;">
+							<h:outputText value="#{prestadorServicoActual.codigo}" />
+						</p:column>
+
+						<p:column headerText="Prestador de Serviço">
+							<h:outputText value="#{prestadorServicoActual.nome}" />
+						</p:column>
+
+						<p:column headerText="Cidade">
+							<h:outputText value="#{prestadorServicoActual.cidade.nome}" />
+						</p:column>
+
+						<p:column headerText="Correio Electrónico">
+							<h:outputText value="#{prestadorServicoActual.email}" />
+						</p:column>
+
+						<p:column headerText="Acções" style="width:90px;">
+							<div class="pull-right">
+								<h:commandButton
+									action="#{prestadorServicoBean.navegarReadPrestadorServiço(prestadorServicoActual)}"
+									value="Visualizar" styleClass="btn btn-small" />
+							</div>
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			
+				<div class="well">
+					<h:form style="margin-bottom: 0;">
+						<fieldset>
+
+							<div class="row-fluid">
+								<div class="offset3 span6">
+									<p:commandButton value="Adicionar Prestador de Serviços" styleClass="btn btn-primary btn-block"/>
+								</div>
+							</div>
+						</fieldset>
+					</h:form>
+				</div>
+			</div>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>
