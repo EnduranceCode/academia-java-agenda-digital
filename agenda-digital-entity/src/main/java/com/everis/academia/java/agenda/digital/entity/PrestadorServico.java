@@ -45,7 +45,7 @@ public class PrestadorServico implements Serializable {
 	@Column(name = "NUMERO_PORTA")
 	private String numero;
 	
-	@Transient
+	@Column(name = "BAIRRO")
 	private String bairro;
 	
 	@Transient
