@@ -22,7 +22,8 @@
 							<div class="controls">
 								<p:inputText id="nome"
 									value="#{prestadorServicoBean.prestadorServico.nome}"
-									type="text" styleClass="span12" />
+									placeholder="Nome do Prestador de Serviços" type="text"
+									styleClass="span12" />
 							</div>
 						</div>
 					</fieldset>
@@ -43,7 +44,7 @@
 								<p:selectOneMenu id="tipoLogradouro"
 									value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}"
 									styleClass="span3">
-									<f:selectItem itemLabel="Tipo de Logradouro ..." itemValue="" />
+									<f:selectItem itemLabel="Tipo de Logradouro..." itemValue="" />
 									<f:selectItems value="#{prestadorServicoBean.tiposLogradouro}" />
 								</p:selectOneMenu>
 
@@ -62,7 +63,7 @@
 							<div class="controls">
 								<p:inputText id="bairro"
 									value="#{prestadorServicoBean.prestadorServico.bairro}"
-									type="text" styleClass="span12" />
+									placeholder="Bairro" type="text" styleClass="span12" />
 							</div>
 						</div>
 
