@@ -28,9 +28,8 @@
 										styleClass="input-append input-block-level"
 										placeholder="Inserir Tipo de Serviço"></p:inputText>
 
-									<h:messages showSummary="true" showDetail="true" layout="table"
-										infoClass="info" warnClass="warning" errorClass="error"
-										styleClass="table table-bordered" />
+									<p:messages showSummary="true" showDetail="true" layout="table"
+										infoClass="info" warnClass="warning" errorClass="error" />
 
 									<div class="pull-right">
 										<p:commandButton value="Cancelar" type="reset"
@@ -51,8 +50,9 @@
 			<div class="span12">
 
 				<h:form id="lista-tipos">
-					<p:dataTable value="#{tipoServicoBean.listaTiposServico}" var="tipoServicoActual"
-						paginator="true" paginatorPosition="bottom" rows="10">
+					<p:dataTable value="#{tipoServicoBean.listaTiposServico}"
+						var="tipoServicoActual" paginator="true"
+						paginatorPosition="bottom" rows="10">
 
 						<p:column headerText="Código" style="width:80px;">
 							<h:outputText value="#{tipoServicoActual.codigo}" />

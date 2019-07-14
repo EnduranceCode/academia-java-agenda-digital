@@ -25,21 +25,21 @@
 									</p:outputLabel>
 									<h:inputHidden id="codigo"
 										value="#{tipoServicoBean.tipoServico.codigo}" />
-									<p:inputText id="cidade" value="#{tipoServicoBean.tipoServico.descricao}"
+									<p:inputText id="cidade"
+										value="#{tipoServicoBean.tipoServico.descricao}"
 										styleClass="input-append input-block-level"
 										placeholder="Inserir desginação do Tipo de Serviço"></p:inputText>
 
-									<h:messages showSummary="true" showDetail="true" layout="table"
-										infoClass="info" warnClass="warning" errorClass="error"
-										styleClass="table table-bordered" />
+									<p:messages showSummary="true" showDetail="true" layout="table"
+										infoClass="info" warnClass="warning" errorClass="error" />
 
 									<div class="pull-right">
 										<p:commandButton value="Cancelar"
 											action="#{tipoServicoBean.cancelarActualizarTipoServico}"
 											update="@form" styleClass="btn" style="margin-right: 10px;" />
 										<p:commandButton value="Actualizar Tipo de Servico"
-											action="#{tipoServicoBean.actualizarTipoServico}" update="@form"
-											styleClass="btn btn-primary" />
+											action="#{tipoServicoBean.actualizarTipoServico}"
+											update="@form" styleClass="btn btn-primary" />
 									</div>
 								</div>
 							</div>
@@ -53,8 +53,9 @@
 			<div class="span12">
 
 				<h:form id="lista-tipos">
-					<p:dataTable value="#{tipoServicoBean.listaTiposServico}" var="tipoServicoActual"
-						paginator="true" paginatorPosition="bottom" rows="10">
+					<p:dataTable value="#{tipoServicoBean.listaTiposServico}"
+						var="tipoServicoActual" paginator="true"
+						paginatorPosition="bottom" rows="10">
 
 						<p:column headerText="Código" style="width:80px;">
 							<h:outputText value="#{tipoServicoActual.codigo}" />
