@@ -12,10 +12,12 @@
 			<div class="span12">
 
 				<h3>Lista de Prestadores de Serviço</h3>
-				
+
 				<h:form id="lista-cidades">
-					<p:dataTable value="#{prestadorServicoBean.listaPrestadoresServico}" var="prestadorServicoActual"
-						paginator="true" paginatorPosition="bottom" rows="10">
+					<p:dataTable
+						value="#{prestadorServicoBean.listaPrestadoresServico}"
+						var="prestadorServicoActual" paginator="true"
+						paginatorPosition="bottom" rows="10">
 
 						<p:column headerText="Código" style="width:80px;">
 							<h:outputText value="#{prestadorServicoActual.codigo}" />
@@ -42,14 +44,16 @@
 						</p:column>
 					</p:dataTable>
 				</h:form>
-			
+
 				<div class="well">
 					<h:form style="margin-bottom: 0;">
 						<fieldset>
 
 							<div class="row-fluid">
 								<div class="offset3 span6">
-									<p:commandButton value="Adicionar Prestador de Serviços" styleClass="btn btn-primary btn-block"/>
+									<p:commandButton value="Adicionar Prestador de Serviços"
+										action="#{prestadorServicoBean.navegarCreatePrestadorServiço}"
+										styleClass="btn btn-primary btn-block" />
 								</div>
 							</div>
 						</fieldset>

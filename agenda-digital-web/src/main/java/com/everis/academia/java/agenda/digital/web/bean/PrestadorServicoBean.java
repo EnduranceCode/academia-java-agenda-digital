@@ -158,6 +158,18 @@ public class PrestadorServicoBean {
 	 * @param prestadorServico
 	 * @return
 	 */
+	public String navegarCreatePrestadorServiço() {
+
+		return "/app/prestador/create?faces-redirect=true";
+	}
+
+	/**
+	 * Carrega a página para visualizar o Prestador de Serviços escolhido no
+	 * Frontend
+	 * 
+	 * @param prestadorServico
+	 * @return
+	 */
 	public String navegarReadPrestadorServiço(PrestadorServico prestadorServico) {
 
 		this.prestadorServico = prestadorServico;
