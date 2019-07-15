@@ -92,7 +92,7 @@ public class PrestadorServicoBean {
 		} catch (BusinessException e) {
 
 			String messageDetails = e.getLocalizedMessage();
-			FacesContext.getCurrentInstance().addMessage(null,
+			FacesContext.getCurrentInstance().addMessage("submeterCidade",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
 		}
 
