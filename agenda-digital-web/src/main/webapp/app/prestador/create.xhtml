@@ -127,11 +127,12 @@
 							infoClass="info" warnClass="warning" errorClass="error" />
 
 						<div class="pull-right">
-							<p:commandButton value="Cancelar" type="reset" styleClass="btn"
-								style="margin-right: 10px;" />
+							<p:commandButton value="Cancelar"
+								action="#{prestadorServicoBean.cancelarCreatePrestadorServico}"
+								styleClass="btn" style="margin-right: 10px;" />
 							<p:commandButton value="Submeter"
-								action="#{prestadorServicoBean.submterPrestadorServico}" update="@form"
-								styleClass="btn btn-primary" />
+								action="#{prestadorServicoBean.submterPrestadorServico}"
+								update="@form" styleClass="btn btn-primary" />
 						</div>
 					</div>
 				</h:form>
@@ -146,7 +147,7 @@
 					aria-hidden="true">×</button>
 				<h3>Adicionar Cidade</h3>
 			</div>
-			
+
 			<h:form id="formCidade" style="margin-bottom: 0;">
 				<div class="modal-body">
 					<fieldset>
@@ -164,7 +165,7 @@
 						</div>
 					</fieldset>
 				</div>
-				
+
 				<div class="modal-footer">
 
 					<p:commandButton value="Cancelar" type="reset"

@@ -40,7 +40,10 @@ public class PrestadorServicoBean {
 	 */
 	private PrestadorServico prestadorServico = new PrestadorServico();
 
-	/* Instanciamos um novo objecto Cidade para receber os dados do Frontend */
+	/*
+	 * Instanciamos um novo objecto Cidade para poder inserir uma nova Cidade a
+	 * partir da página de criação de um novo Prestador de Serviços
+	 */
 	private Cidade cidadeAdicional = new Cidade();
 
 	public PrestadorServico getPrestadorServico() {
@@ -53,6 +56,11 @@ public class PrestadorServicoBean {
 		this.prestadorServico = prestadorServico;
 	}
 
+	/**
+	 * Obtêm os Tipos de Logradouro disponívies
+	 * 
+	 * @return
+	 */
 	public TipoLogradouro[] getTiposLogradouro() {
 
 		return TipoLogradouro.values();
@@ -91,13 +99,18 @@ public class PrestadorServicoBean {
 		return null;
 	}
 
+	/**
+	 * Obtêm a lista de Cidades existentes
+	 * 
+	 * @return
+	 */
 	public Collection<Cidade> getListaCidades() {
 
 		return cidadeBusiness.read();
 	}
 
 	/**
-	 * Recupera da base de dados o nome da cidade do actual Prestador de Serviço
+	 * Obtêm o nome da cidade do actual Prestador de Serviço
 	 * 
 	 * @return
 	 */
@@ -114,6 +127,32 @@ public class PrestadorServicoBean {
 		}
 
 		return null;
+	}
+
+	/**
+	 * Carrega a página para criar um novo Prestador de Serviços
+	 * 
+	 * @param prestadorServico
+	 * @return
+	 */
+	public String navegarCreatePrestadorServiço() {
+		
+		prestadorServico = new PrestadorServico();
+
+		return "/app/prestador/create?faces-redirect=true";
+	}
+
+	/**
+	 * Cancela a criação de um Novo Prestador de Serviços e retorna à listagem de
+	 * Prestadores de Serviço
+	 * 
+	 * @return
+	 */
+	public String cancelarCreatePrestadorServico() {
+		
+		prestadorServico = new PrestadorServico();
+
+		return "/app/index?faces-redirect=true";
 	}
 
 	/**
@@ -149,18 +188,6 @@ public class PrestadorServicoBean {
 	public List<PrestadorServico> getListaPrestadoresServico() {
 
 		return prestadorServicoBusiness.read();
-	}
-
-	/**
-	 * Carrega a página para visualizar o Prestador de Serviços escolhido no
-	 * Frontend
-	 * 
-	 * @param prestadorServico
-	 * @return
-	 */
-	public String navegarCreatePrestadorServiço() {
-
-		return "/app/prestador/create?faces-redirect=true";
 	}
 
 	/**
