@@ -1,4 +1,4 @@
-package com.everis.agenda.digital.web.filter;
+package com.everis.academia.java.agenda.digital.web.filter;
 
 import java.io.IOException;
 import java.util.Arrays;
