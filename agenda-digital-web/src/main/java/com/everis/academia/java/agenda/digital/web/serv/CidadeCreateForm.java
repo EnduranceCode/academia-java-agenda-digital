@@ -1,7 +1,8 @@
-package com.everis.agenda.digital.web;
+package com.everis.academia.java.agenda.digital.web.serv;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,8 +14,8 @@ import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.agenda.digital.web.blocks.HeadHtml;
 import com.everis.agenda.digital.web.blocks.ListaCidadesHtml;
 
-@WebServlet(name = "read", urlPatterns = "/read")
-public class CidadeReadController extends HttpServlet {
+@WebServlet(name = "create-cidade", urlPatterns = "/create/cidade")
+public class CidadeCreateForm extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -26,7 +27,8 @@ public class CidadeReadController extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println(new HeadHtml("Listagem de cidades - Agenda Digital").getHead());
+		out.println(new HeadHtml("Inserir nova cidade - Agenda Digital").getHead());
+
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
 		
@@ -39,17 +41,24 @@ public class CidadeReadController extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
-		/* Listamos as cidades existentes executando o método read() */
-		out.println(new ListaCidadesHtml(cidadeBusiness.read(), request).getHtmlListaCidades());
-		
-		out.println("<div class=\"container-fluid\">");
 		out.println("<div class=\"row-fluid\">");
-		out.println("<div class=\"span12\">");
-
-		out.println("<p><a class=\"btn\" href=\"" + request.getContextPath() + "/create/cidade\">Inserir nova cidade</a></p>");
+		out.println("<div class=\"span4 offset4\">");
+		
+		
+		
+		out.println("<form action=\"" + request.getContextPath() + "/nova-cidade\">");
+		out.println("<fieldset>");
+		out.println("<legend>Inserir Cidade</legend>");
+		out.println("<label>Cidade</label>");
+		out.println("<input type=\"text\" name=\"cidade\" class=\"input-xlarge\" style=\"height: 30px\"/>");
+		out.println("<input type=\"submit\" value=\"Enviar\"/ class=\"btn btn-primary pull-right\"/>");
+		out.println("</fieldset>");
+		out.println("</form>");
 		
 		out.println("</div>");
 		out.println("</div>");
+		
+		out.println(new ListaCidadesHtml(cidadeBusiness.read(), request).getHtmlListaCidades());
 		
 		out.println("</div>");
 		out.println("</body>");

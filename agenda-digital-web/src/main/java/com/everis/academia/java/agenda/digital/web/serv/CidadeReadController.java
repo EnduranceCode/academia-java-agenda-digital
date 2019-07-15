@@ -1,33 +1,35 @@
-package com.everis.agenda.digital.web;
+package com.everis.academia.java.agenda.digital.web.serv;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.everis.agenda.digital.web.blocks.HeadHtml;
 
-@WebServlet(name = "update", urlPatterns = "/update/cidade")
-public class CidadeUpdateForm extends HttpServlet {
+import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
+import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
+import com.everis.agenda.digital.web.blocks.HeadHtml;
+import com.everis.agenda.digital.web.blocks.ListaCidadesHtml;
+
+@WebServlet(name = "read", urlPatterns = "/read")
+public class CidadeReadController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
+	/* Instanciamos um novo objecto CidadeBusiness */
+	private ICidadeBusiness cidadeBusiness = new CidadeBusiness();
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Obtemos os dados da cidade a editar */
-		Integer codigo = Integer.valueOf(request.getParameter("codigo"));
-		String cidade = request.getParameter("cidade");
-		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println(new HeadHtml("Editar cidade existente - Agenda Digital").getHead());
+		out.println(new HeadHtml("Listagem de cidades - Agenda Digital").getHead());
 		out.println("<body>");
 		out.println("<div class=\"container-fluid\">");
-
+		
 		out.println("<div class=\"row-fluid\">");
 		out.println("<div class=\"span12\">");
 		
@@ -37,18 +39,14 @@ public class CidadeUpdateForm extends HttpServlet {
 		out.println("</div>");
 		out.println("</div>");
 		
-		out.println("<div class=\"row-fluid\">");
-		out.println("<div class=\"offset4 span4\">");
+		/* Listamos as cidades existentes executando o método read() */
+		out.println(new ListaCidadesHtml(cidadeBusiness.read(), request).getHtmlListaCidades());
 		
-		out.println("<form action=\"" + request.getContextPath() + "/editar/cidade\">");
-		out.println("<fieldset>");
-		out.println("<legend>Editar Cidade</legend>");
-		out.println("<input type=\"hidden\" name=\"codigo\"/ value=\"" + codigo + "\">");
-		out.println("<label>Cidade</label>");
-		out.println("<input type=\"text\" name=\"cidade\"/ value=\"" + cidade + "\" class=\"input-xlarge\" style=\"height: 30px\" />");
-		out.println("<input type=\"submit\" value=\"Enviar\"/ class=\"btn btn-primary pull-right\">");
-		out.println("</fieldset>");
-		out.println("</form>");
+		out.println("<div class=\"container-fluid\">");
+		out.println("<div class=\"row-fluid\">");
+		out.println("<div class=\"span12\">");
+
+		out.println("<p><a class=\"btn\" href=\"" + request.getContextPath() + "/create/cidade\">Inserir nova cidade</a></p>");
 		
 		out.println("</div>");
 		out.println("</div>");
@@ -56,6 +54,5 @@ public class CidadeUpdateForm extends HttpServlet {
 		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");
-		
 	}
 }

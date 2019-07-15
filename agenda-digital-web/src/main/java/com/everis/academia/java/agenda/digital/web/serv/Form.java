@@ -1,4 +1,4 @@
-package com.everis.agenda.digital.web;
+package com.everis.academia.java.agenda.digital.web.serv;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,10 +22,10 @@ public class Form extends HttpServlet {
 		out.println("<body>");
 		out.println("<form action=\"controller\">");
 		out.println("<table border=\"1\">");
-		out.println("<tr><td colspan=\"2\">Formulário</td></tr>");
+		out.println("<tr><td colspan=\"2\">Formulï¿½rio</td></tr>");
 		out.println("<tr><td>Nome</td><td><input type=\"text\" name=\"nome\"/></td></tr>");
 		out.println("<tr><td>Idade</td><td><input type=\"text\" name=\"idade\"/></td></tr>");
-		out.println("<tr><td>Salário</td><td><input type=\"text\" name=\"salario\"/></td></tr>");
+		out.println("<tr><td>Salï¿½rio</td><td><input type=\"text\" name=\"salario\"/></td></tr>");
 		out.println("<tr><td colspan=\"2\" align=\"center\">");
 		out.println("<input type=\"submit\" value=\"Enviar\"/>");
 		out.println("<input type=\"reset\" name=\"limpar\"/>");

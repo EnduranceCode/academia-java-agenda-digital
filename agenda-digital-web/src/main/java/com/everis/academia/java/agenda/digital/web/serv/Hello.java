@@ -1,4 +1,4 @@
-package com.everis.agenda.digital.web;
+package com.everis.academia.java.agenda.digital.web.serv;
 
 import java.io.IOException;
 import java.io.PrintWriter;

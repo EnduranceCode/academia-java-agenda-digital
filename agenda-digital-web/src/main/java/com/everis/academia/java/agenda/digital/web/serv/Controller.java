@@ -1,4 +1,4 @@
-package com.everis.agenda.digital.web;
+package com.everis.academia.java.agenda.digital.web.serv;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +25,7 @@ public class Controller extends HttpServlet {
 		out.println("<html>");
 		out.println("<body bgcolor=\"#FF0000\">");
 		out.println("<table border=\"1\">");
-		out.println("<tr><td colspan=\"2\">Parâmetros Recebidos</td></tr>");
+		out.println("<tr><td colspan=\"2\">Parï¿½metros Recebidos</td></tr>");
 		out.println("<tr><td>Nome:</td><td>" + nome + "</td></tr>");
 		out.println("<tr><td>Idade:</td><td>" + idade + "</td></tr>");
 		out.println("<tr><td>Salario:</td><td>" + salario + "</td></tr>");
