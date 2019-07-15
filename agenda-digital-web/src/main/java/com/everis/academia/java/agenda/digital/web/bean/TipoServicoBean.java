@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.inter.ITipoServicoBusiness;
-import com.everis.academia.java.agenda.digital.entity.Cidade;
 import com.everis.academia.java.agenda.digital.entity.TipoServico;
 
 @ManagedBean(name = "tipoServicoBean")
