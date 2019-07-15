@@ -239,4 +239,21 @@ public class PrestadorServicoBean {
 
 		return null;
 	}
+	
+	public String deletePrestadorServico(PrestadorServico prestadorServico) {
+		
+		try {
+			
+			prestadorServicoBusiness.delete(prestadorServico.getCodigo());
+			
+			return "/app/index?faces-redirect=true";
+		} catch (BusinessException e) {
+
+			String messageDetails = e.getLocalizedMessage();
+			FacesContext.getCurrentInstance().addMessage("formPrestador:submeterCidade",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro!", messageDetails));
+		}
+
+		return null;
+	}
 }

@@ -23,26 +23,18 @@
 
 					<h4>Morada</h4>
 					<address>
-						<span style="display: block;">
-							<h:outputText
+						<span style="display: block;"> <h:outputText
 								value="#{prestadorServicoBean.prestadorServico.tipoLogradouro}" />
 							<h:outputText
 								value=" #{prestadorServicoBean.prestadorServico.logradouro}" />
 							<h:outputText
 								value=", #{prestadorServicoBean.prestadorServico.numero}" />
-						</span>
-						<span style="display: block;">
-							<h:outputText
+						</span> <span style="display: block;"> <h:outputText
 								value="#{prestadorServicoBean.prestadorServico.bairro}" />
-						</span>
-						<span style="display: block;">
-							<h:outputText
+						</span> <span style="display: block;"> <h:outputText
 								value="#{prestadorServicoBean.prestadorServico.complemento}" />
-						</span>
-						<span style="display: block;">
-							<h:outputText
-								value="#{prestadorServicoBean.prestadorServico.cep}" /> 
-							<h:outputText
+						</span> <span style="display: block;"> <h:outputText
+								value="#{prestadorServicoBean.prestadorServico.cep}" /> <h:outputText
 								value=" #{prestadorServicoBean.nomeCidade}" />
 						</span>
 					</address>
@@ -55,18 +47,63 @@
 
 					<div class="row-fluid">
 						<div class="span12">
-							<div class="pull-right">
-								<p:commandButton value="Editar Prestador de Serviços"
-									action="#{prestadorServicoBean.navegarUpdatePrestadorServico(prestadorServicoBean.prestadorServico)}"
-									styleClass="btn btn-success" style="margin-right: 10px;" />
-								<p:commandButton value="Lista de Prestador de Serviços"
-									action="#{menuPrincipalBean.navegarPrestadoresServico}"
-									styleClass="btn btn-primary" />
+						
+							<div class="form-actions" style="border: 1px solid #e5e5e5; border-radius: 4px">
+								<div class="pull-left">
+								
+									<a href="#modalEliminarPrestadorServico" role="button" class="btn btn-danger"
+										data-toggle="modal">Eliminar Prestador</a>
+								</div>
+						
+								<div class="pull-right">
+									<p:commandButton value="Editar Prestador de Serviços"
+										action="#{prestadorServicoBean.navegarUpdatePrestadorServico(prestadorServicoBean.prestadorServico)}"
+										styleClass="btn btn-success" style="margin-right: 10px;" />
+									<p:commandButton value="Lista de Prestador de Serviços"
+										action="#{menuPrincipalBean.navegarPrestadoresServico}"
+										styleClass="btn btn-primary" />
+								</div>
 							</div>
 						</div>
 					</div>
 				</h:form>
 			</div>
+		</div>
+
+		<!-- Modal para eliminar um Prestador de Serviço -->
+		<div id="modalEliminarPrestadorServico" class="modal hide fade"
+			tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">×</button>
+				<h3>Eliminar Prestador de Serviço</h3>
+			</div>
+
+			<h:form id="formCidade" style="margin-bottom: 0;">
+				<div class="modal-body alert alert-block" style="margin-bottom: 0;">
+						<h4>Atenção!</h4>
+						<br />
+						<p>Está prestes a eliminar este Prestador de Serviços. Esta é uma operação 
+						que não pode ser eliminada.</p>
+						<p> Se tiver a certeza que pretende de facto eliminar este Prestadaor de 
+						Serviço, pressionne o botão "Eliminar"</p>
+						<p>Caso contrário, pressione o botão "Cancelar"</p>
+				</div>
+
+				<div class="modal-footer">
+					<p:messages showSummary="true" showDetail="true" layout="table"
+								infoClass="info" warnClass="warning" errorClass="error" />
+
+					<p:commandButton value="Cancelar" type="reset"
+						onclick="$('#modalEliminarPrestadorServico').modal('hide')"
+						styleClass="btn" style="margin-right: 10px;" />
+					<p:commandButton value="Eliminar"
+						action="#{prestadorServicoBean.deletePrestadorServico(prestadorServicoBean.prestadorServico)}"
+						onsuccess="$('#modalEliminarPrestadorServico').modal('hide')"
+						styleClass="btn btn-danger">
+					</p:commandButton>
+				</div>
+			</h:form>
 		</div>
 	</ui:define>
 </ui:composition>

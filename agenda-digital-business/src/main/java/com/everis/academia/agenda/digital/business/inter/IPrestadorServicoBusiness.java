@@ -36,5 +36,5 @@ public interface IPrestadorServicoBusiness {
 	 * 
 	 * @param codigo
 	 */
-	void delete(Integer codigo);
+	void delete(Integer codigo) throws BusinessException;
 }

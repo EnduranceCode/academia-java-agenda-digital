@@ -77,17 +77,31 @@ public class PrestadorServicoBusiness implements IPrestadorServicoBusiness{
 	}
 
 	@Override
-	public void delete(Integer codigo) {
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void delete(Integer codigo) throws BusinessException {
 		
-		/* Verificamos se o código recebido é válido */
-		/**
-		 * TODO: Verificar se o código recebido é válido
-		 * 
-		 * if(codigoValido(codigo) {
-		 * 		throw new BusinessException("O código recebido não é válido");
-		 * }
-		 */
+		/* Verificamos se o código recebido é invalido */ 
+		if(codigoInvalido(codigo)) {
+			 
+			 throw new BusinessException("O código recebido não é válido");
+		 }
 		
 		prestadorServicoDAO.delete(codigo);
+	}
+
+	/**
+	 * Verifica se o código é invalido
+	 * 
+	 * @param codigo
+	 * @return
+	 */
+	private Boolean codigoInvalido(Integer codigo) {
+		if (codigo == null || codigo == 0) {
+
+			return true;
+		} else {
+
+			return false;
+		}
 	}
 }
