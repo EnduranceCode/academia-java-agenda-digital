@@ -8,7 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.everis.agenda.digital.web.blocks.HeadHtml;
+
+import com.everis.academia.java.agenda.digital.web.html.HeadHtml;
 
 @WebServlet(name = "update", urlPatterns = "/update/cidade")
 public class CidadeUpdateForm extends HttpServlet {

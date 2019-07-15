@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
 import com.everis.academia.java.agenda.digital.entity.Cidade;
-import com.everis.agenda.digital.web.blocks.HeadHtml;
+import com.everis.academia.java.agenda.digital.web.html.HeadHtml;
 
 @WebServlet(name = "nova-cidade", urlPatterns = "/nova-cidade")
 public class CidadeCreateController extends HttpServlet {

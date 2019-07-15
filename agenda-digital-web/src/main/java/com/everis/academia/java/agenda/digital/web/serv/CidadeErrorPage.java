@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.everis.agenda.digital.web.blocks.HeadHtml;
+import com.everis.academia.java.agenda.digital.web.html.HeadHtml;
 
 @WebServlet(name = "error-cidade", urlPatterns = "/error/cidade")
 public class CidadeErrorPage extends HttpServlet {

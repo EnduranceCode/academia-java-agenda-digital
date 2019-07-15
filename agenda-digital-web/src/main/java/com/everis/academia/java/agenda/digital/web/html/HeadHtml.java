@@ -1,4 +1,4 @@
-package com.everis.agenda.digital.web.blocks;
+package com.everis.academia.java.agenda.digital.web.html;
 
 public class HeadHtml {
 	

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.everis.academia.agenda.digital.business.impl.CidadeBusiness;
 import com.everis.academia.agenda.digital.business.inter.ICidadeBusiness;
-import com.everis.agenda.digital.web.blocks.HeadHtml;
-import com.everis.agenda.digital.web.blocks.ListaCidadesHtml;
+import com.everis.academia.java.agenda.digital.web.html.HeadHtml;
+import com.everis.academia.java.agenda.digital.web.html.ListaCidadesHtml;
 
 @WebServlet(name = "read", urlPatterns = "/read")
 public class CidadeReadController extends HttpServlet {
