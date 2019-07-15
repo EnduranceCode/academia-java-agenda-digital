@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @WebFilter(filterName = "FiltroGlobal", urlPatterns = "/*")
 public class FiltroGlobal implements Filter {
-	
+
 	private String parametrosString = "";
 
 	@Override
@@ -27,29 +27,30 @@ public class FiltroGlobal implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
-		Map<String, String[]> parametrosMap =  request.getParameterMap();
-		
+		Map<String, String[]> parametrosMap = request.getParameterMap();
+
 		for (Map.Entry<String, String[]> valor : parametrosMap.entrySet()) {
-			
+
 			parametrosString += "Parametro: " + valor.getKey() + " - Valores: " + Arrays.toString(valor.getValue());
 		}
-		
+
 		chain.doFilter(request, response);
 		String uri = ((HttpServletRequest) request).getRequestURI();
-		
+
 		if (parametrosString.isEmpty()) {
-			
+
 			System.out.println("A requisição " + uri + " não inclui parametros.");
 		} else {
-			
+
 			System.out.println("Os parâmetros da requisição " + uri + " são os seguintes: " + parametrosString);
 		}
 	}
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-
+		/*
+		 * Visto que esta classe foi adicionada para efeitos académicos a criação deste
+		 * método é desnecessária
+		 */
 	}
-
 }
