@@ -13,7 +13,7 @@ public class CidadeConverter implements Converter {
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 
-		if (value == null || value.trim().isEmpty()) {
+		if (value == null || value.trim().isEmpty() || ! representaInteiro(value)) {
 
 			return null;
 		} else {
@@ -35,5 +35,24 @@ public class CidadeConverter implements Converter {
 			
 			return ((Cidade) value).getCodigo().toString();
 		}
+	}
+	
+	/**
+	 * Verifica se uma String representa um número inteiro
+	 * 
+	 * @param string
+	 * @return
+	 */
+	private Boolean representaInteiro(String string) {
+		
+		try {
+			
+			Integer.valueOf(string);
+		} catch (Exception e) {
+			
+			return false;
+		}
+		
+		return true;
 	}
 }
