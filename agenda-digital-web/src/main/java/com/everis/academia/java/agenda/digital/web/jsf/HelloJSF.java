@@ -1,4 +1,4 @@
-package com.everis.agenda.digital.web.jsf;
+package com.everis.academia.java.agenda.digital.web.jsf;
 
 import javax.faces.bean.ManagedBean;
 
