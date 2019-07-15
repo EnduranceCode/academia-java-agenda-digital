@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "TB_TELEFONE", schema = "public")
@@ -30,6 +31,7 @@ public class Telefone implements Serializable {
 		super();
 	}
 	
+	@Transient
 	private PrestadorServico prestadorServico;
 
 	public Telefone(Integer codigo) {
