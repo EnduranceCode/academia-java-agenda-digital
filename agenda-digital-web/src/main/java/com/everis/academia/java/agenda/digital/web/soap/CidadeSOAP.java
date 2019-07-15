@@ -1,4 +1,4 @@
-package com.everis.agenda.digital.web.soap;
+package com.everis.academia.java.agenda.digital.web.soap;
 
 import java.util.Collection;
 
