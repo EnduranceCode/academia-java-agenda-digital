@@ -29,6 +29,8 @@ public class Telefone implements Serializable {
 
 		super();
 	}
+	
+	private PrestadorServico prestadorServico;
 
 	public Telefone(Integer codigo) {
 
@@ -54,6 +56,14 @@ public class Telefone implements Serializable {
 		return numero;
 	}
 	
+	public PrestadorServico getPrestadorServico() {
+		return prestadorServico;
+	}
+
+	public void setPrestadorServico(PrestadorServico prestadorServico) {
+		this.prestadorServico = prestadorServico;
+	}
+
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
