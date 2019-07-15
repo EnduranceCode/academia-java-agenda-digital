@@ -4,12 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "TB_TELEFONE", schema = "public")
@@ -25,14 +27,15 @@ public class Telefone implements Serializable {
 	
 	@Column(name = "NUM_TELEFONE", unique = true)
 	private Integer numero;
+	
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = PrestadorServico.class)
+	@JoinColumn(name = "COD_PRESTADOR_SERVICO", nullable = false)
+	private PrestadorServico prestadorServico;
 
 	public Telefone() {
 
 		super();
 	}
-	
-	@Transient
-	private PrestadorServico prestadorServico;
 
 	public Telefone(Integer codigo) {
 
@@ -57,6 +60,10 @@ public class Telefone implements Serializable {
 	public Integer getNumero() {
 		return numero;
 	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
 	
 	public PrestadorServico getPrestadorServico() {
 		return prestadorServico;
@@ -64,10 +71,6 @@ public class Telefone implements Serializable {
 
 	public void setPrestadorServico(PrestadorServico prestadorServico) {
 		this.prestadorServico = prestadorServico;
-	}
-
-	public void setNumero(Integer numero) {
-		this.numero = numero;
 	}
 
 	@Override

@@ -37,4 +37,12 @@ public interface ITelefoneBusiness {
 	 * @param codigo
 	 */
 	void delete(Integer codigo);
+
+	/**
+	 * Verifica se existe na lista de telefones um telefone com o mesmo número
+	 * 
+	 * @param telefone
+	 * @return
+	 */
+	Boolean jaExisteEsteTelefone(Telefone telefone);
 }

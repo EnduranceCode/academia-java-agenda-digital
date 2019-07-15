@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.everis.academia.agenda.digital.business.BusinessException;
 import com.everis.academia.agenda.digital.business.inter.ITelefoneBusiness;
@@ -18,6 +20,7 @@ public class TelefoneBusiness implements ITelefoneBusiness {
 	private ITelefoneDAO telefoneDAO;
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Telefone create(Telefone telefone) throws BusinessException {
 
 		/* Verificamos se os dados recebidos não estão vazios */
@@ -37,12 +40,14 @@ public class TelefoneBusiness implements ITelefoneBusiness {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<Telefone> read() {
 
 		return telefoneDAO.read();
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(Telefone telefone) throws BusinessException {
 
 		/* Verificamos se os dados recebidos não estão vazios */
@@ -76,9 +81,17 @@ public class TelefoneBusiness implements ITelefoneBusiness {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void delete(Integer codigo) {
 
 		telefoneDAO.delete(codigo);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Boolean jaExisteEsteTelefone(Telefone telefone) {
+		
+		return telefoneDAO.jaExisteEsteTelefone(telefone);
 	}
 
 	/**
