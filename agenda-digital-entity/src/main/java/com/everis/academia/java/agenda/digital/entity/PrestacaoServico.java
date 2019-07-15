@@ -77,4 +77,10 @@ public class PrestacaoServico {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "PrestacaoServico [codigo=" + codigo + ", date=" + date + ", prestadores=" + prestadores
+				+ ", servicosPrestados=" + servicosPrestados + "]";
+	}
 }

@@ -82,4 +82,9 @@ public class Cidade implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Cidade [codigo=" + codigo + ", nome=" + nome + "]";
+	}
 }

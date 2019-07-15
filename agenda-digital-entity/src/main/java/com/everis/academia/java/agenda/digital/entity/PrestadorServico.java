@@ -207,4 +207,12 @@ public class PrestadorServico implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "PrestadorServico [codigo=" + codigo + ", nome=" + nome + ", tipoLogradouro=" + tipoLogradouro
+				+ ", logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", complemento="
+				+ complemento + ", cep=" + cep + ", cidade=" + cidade + ", email=" + email + ", telefones=" + telefones
+				+ ", servicosCredenciados=" + servicosCredenciados + ", prestacoesServicos=" + prestacoesServicos + "]";
+	}
 }

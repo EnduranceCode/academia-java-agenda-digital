@@ -92,4 +92,9 @@ public class Telefone implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Telefone [codigo=" + codigo + ", numero=" + numero + ", prestadorServico=" + prestadorServico + "]";
+	}
 }
