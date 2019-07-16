@@ -20,7 +20,8 @@
 						<div class="control-group">
 							<p:outputLabel for="nome" styleClass="control-label">Nome</p:outputLabel>
 							<div class="controls">
-								<h:inputHidden id="codigo" value="#{prestadorServicoBean.prestadorServico.codigo}" />
+								<h:inputHidden id="codigo"
+									value="#{prestadorServicoBean.prestadorServico.codigo}" />
 								<p:inputText id="nome"
 									value="#{prestadorServicoBean.prestadorServico.nome}"
 									placeholder="Nome do Prestador de Serviços" type="text"
@@ -123,6 +124,47 @@
 						</div>
 					</fieldset>
 
+					<fieldset>
+						<legend>Telefones</legend>
+						<div class="row-fluid">
+							<div class="span6">
+								<div class="well">
+
+									<div class="control-group">
+										<p:outputLabel for="telefone" styleClass="control-label">Número de Telefone</p:outputLabel>
+
+										<div class="controls controls-row">
+											<p:inputText id="telefone"
+												value="#{prestadorServicoBean.telefoneAdicional.numero}"
+												styleClass="input-block-level" />
+
+											<p:messages id="submissaoTelefone" for="submissaoTelefone"
+												showSummary="true" showDetail="true" layout="table"
+												infoClass="info" warnClass="warning" errorClass="error" />
+
+											<div class="pull-right">
+												<p:commandButton value="Adicionar Telefone"
+													action="#{prestadorServicoBean.adicionarTelefoneSet}"
+													update="submissaoTelefone, telefone, telefonesRegistados"
+													styleClass="btn btn-small" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="span6">
+								<p:dataTable id="telefonesRegistados"
+									value="#{prestadorServicoBean.prestadorServico.telefones}"
+									var="telefoneActual">
+									<p:column headerText="Telefones Registados">
+										<h:outputText value="#{telefoneActual.numero}" />
+									</p:column>
+								</p:dataTable>
+							</div>
+						</div>
+					</fieldset>
+
 					<div class="form-actions" style="border: 1px solid #e5e5e5;">
 						<p:messages showSummary="true" showDetail="true" layout="table"
 							infoClass="info" warnClass="warning" errorClass="error" />
@@ -131,8 +173,8 @@
 							<p:commandButton value="Cancelar" type="reset" styleClass="btn"
 								style="margin-right: 10px;" />
 							<p:commandButton value="Submeter"
-								action="#{prestadorServicoBean.actualizarPrestadorServico(prestadorServicoBean.prestadorServico)}" update="@form"
-								styleClass="btn btn-primary" />
+								action="#{prestadorServicoBean.actualizarPrestadorServico(prestadorServicoBean.prestadorServico)}"
+								update="@form" styleClass="btn btn-primary" />
 						</div>
 					</div>
 				</h:form>
