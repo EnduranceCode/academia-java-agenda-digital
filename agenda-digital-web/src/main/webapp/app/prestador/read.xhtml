@@ -35,7 +35,7 @@
 								value="#{prestadorServicoBean.prestadorServico.complemento}" />
 						</span> <span style="display: block;"> <h:outputText
 								value="#{prestadorServicoBean.prestadorServico.cep}" /> <h:outputText
-								value=" #{prestadorServicoBean.nomeCidade}" />
+								value=" #{prestadorServicoBean.prestadorServico.cidade.nome}" />
 						</span>
 					</address>
 
@@ -45,16 +45,26 @@
 							value="#{prestadorServicoBean.prestadorServico.email}" />
 					</address>
 
+					<p:dataTable id="telefonesRegistados"
+						value="#{prestadorServicoBean.prestadorServico.telefones}"
+						var="telefoneActual">
+						<p:column headerText="Telefones Registados">
+							<h:outputText value="#{telefoneActual.numero}" />
+						</p:column>
+					</p:dataTable>
+
 					<div class="row-fluid">
 						<div class="span12">
-						
-							<div class="form-actions" style="border: 1px solid #e5e5e5; border-radius: 4px">
+
+							<div class="form-actions"
+								style="border: 1px solid #e5e5e5; border-radius: 4px">
 								<div class="pull-left">
-								
-									<a href="#modalEliminarPrestadorServico" role="button" class="btn btn-danger"
-										data-toggle="modal">Eliminar Prestador</a>
+
+									<a href="#modalEliminarPrestadorServico" role="button"
+										class="btn btn-danger" data-toggle="modal">Eliminar
+										Prestador</a>
 								</div>
-						
+
 								<div class="pull-right">
 									<p:commandButton value="Editar Prestador de Serviços"
 										action="#{prestadorServicoBean.navegarUpdatePrestadorServico(prestadorServicoBean.prestadorServico)}"
@@ -81,18 +91,18 @@
 
 			<h:form id="formCidade" style="margin-bottom: 0;">
 				<div class="modal-body alert alert-block" style="margin-bottom: 0;">
-						<h4>Atenção!</h4>
-						<br />
-						<p>Está prestes a eliminar este Prestador de Serviços. Esta é uma operação 
-						que não pode ser eliminada.</p>
-						<p> Se tiver a certeza que pretende de facto eliminar este Prestadaor de 
-						Serviço, pressionne o botão "Eliminar"</p>
-						<p>Caso contrário, pressione o botão "Cancelar"</p>
+					<h4>Atenção!</h4>
+					<br />
+					<p>Está prestes a eliminar este Prestador de Serviços. Esta é
+						uma operação que não pode ser eliminada.</p>
+					<p>Se tiver a certeza que pretende de facto eliminar este
+						Prestadaor de Serviço, pressionne o botão "Eliminar"</p>
+					<p>Caso contrário, pressione o botão "Cancelar"</p>
 				</div>
 
 				<div class="modal-footer">
 					<p:messages showSummary="true" showDetail="true" layout="table"
-								infoClass="info" warnClass="warning" errorClass="error" />
+						infoClass="info" warnClass="warning" errorClass="error" />
 
 					<p:commandButton value="Cancelar" type="reset"
 						onclick="$('#modalEliminarPrestadorServico').modal('hide')"
