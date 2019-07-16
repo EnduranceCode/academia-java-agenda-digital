@@ -36,11 +36,9 @@
 						</p:column>
 
 						<p:column headerText="Acções" style="width:90px;">
-							<div class="pull-right">
-								<h:commandButton
-									action="#{prestadorServicoBean.navegarReadPrestadorServiço(prestadorServicoActual)}"
-									value="Visualizar" styleClass="btn btn-small" />
-							</div>
+							<h:commandButton
+								action="#{prestadorServicoBean.navegarReadPrestadorServiço(prestadorServicoActual)}"
+								value="Visualizar" styleClass="btn btn-small" />
 						</p:column>
 					</p:dataTable>
 				</h:form>
