@@ -117,7 +117,49 @@
 						</div>
 					</fieldset>
 
-					<div class="form-actions" style="border: 1px solid #e5e5e5; border-radius: 4px">
+					<fieldset>
+						<legend>Telefones</legend>
+						<div class="row-fluid">
+							<div class="span6">
+								<div class="well">
+
+									<div class="control-group">
+										<p:outputLabel for="telefone" styleClass="control-label">Número de Telefone</p:outputLabel>
+
+										<div class="controls controls-row">
+											<p:inputText id="telefone"
+												value="#{prestadorServicoBean.telefoneAdicional.numero}"
+												styleClass="input-block-level" />
+
+											<p:messages id="submissaoTelefone" for="submissaoTelefone" showSummary="true" showDetail="true"
+												layout="table" infoClass="info" warnClass="warning"
+												errorClass="error" />
+
+											<div class="pull-right">
+												<p:commandButton value="Adicionar Telefone"
+													action="#{prestadorServicoBean.adicionarTelefoneSet}"
+													update="submissaoTelefone, telefone, telefonesRegistados"
+													styleClass="btn btn-small" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="span6">
+								<p:dataTable id="telefonesRegistados"
+									value="#{prestadorServicoBean.prestadorServico.telefones}"
+									var="telefoneActual">
+									<p:column headerText="Telefones Registados">
+										<h:outputText value="#{telefoneActual.numero}" />
+									</p:column>
+								</p:dataTable>
+							</div>
+						</div>
+					</fieldset>
+
+					<div class="form-actions"
+						style="border: 1px solid #e5e5e5; border-radius: 4px">
 						<p:messages showSummary="true" showDetail="true" layout="table"
 							infoClass="info" warnClass="warning" errorClass="error" />
 
@@ -164,8 +206,8 @@
 				<div class="modal-footer">
 
 					<p:messages for="submeterCidade" showSummary="true"
-								showDetail="true" layout="table" infoClass="info"
-								warnClass="warning" errorClass="error" />
+						showDetail="true" layout="table" infoClass="info"
+						warnClass="warning" errorClass="error" />
 
 					<p:commandButton value="Cancelar" type="reset"
 						onclick="$('#modalAdicionarCidade').modal('hide')"

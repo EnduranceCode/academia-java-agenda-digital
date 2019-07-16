@@ -1,8 +1,10 @@
 package com.everis.academia.java.agenda.digital.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -23,63 +26,64 @@ import com.everis.academia.java.agenda.digital.enumerator.TipoLogradouro;
 @Table(name = "TB_PRESTADOR_SERVICO", schema = "public")
 @SequenceGenerator(name = "SQ_PRESTADOR", sequenceName = "SQ_PRESTADOR", schema = "public", initialValue = 1, allocationSize = 1)
 public class PrestadorServico implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(generator = "SQ_PRESTADOR", strategy = GenerationType.SEQUENCE)
 	@Column(name = "COD_PRESTADOR_SERVICO")
 	private Integer codigo;
-	
+
 	@Column(name = "NOME_PRESTADOR_SERVICO")
 	private String nome;
-	
+
 	@Column(name = "TIPO_LOGRADOURO")
 	@Enumerated(EnumType.STRING)
 	private TipoLogradouro tipoLogradouro;
-	
+
 	@Column(name = "LOGRADOURO")
 	private String logradouro;
-	
+
 	@Column(name = "NUMERO_PORTA")
 	private String numero;
-	
+
 	@Column(name = "BAIRRO")
 	private String bairro;
-	
+
 	@Column(name = "COMPLEMENTO")
 	private String complemento;
-	
+
 	@Column(name = "CEP")
 	private String cep;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Cidade.class)
 	@JoinColumn(name = "COD_CIDADE", nullable = false)
 	private Cidade cidade;
-	
+
 	@Column(name = "EMAIL")
 	private String email;
-	
-	@Transient
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = Telefone.class)
 	private Set<Telefone> telefones;
-	
+
 	@Transient
 	private Set<TipoServico> servicosCredenciados;
-	
+
 	@Transient
 	private Set<PrestacaoServico> prestacoesServicos;
-	
+
 	public PrestadorServico() {
-		
+
 		super();
+		this.telefones = new HashSet<>();
 	}
-	
+
 	public PrestadorServico(Integer codigo) {
-		
+
 		super();
 		this.codigo = codigo;
 	}
-	
+
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -143,6 +147,7 @@ public class PrestadorServico implements Serializable {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
+
 	public Cidade getCidade() {
 		return cidade;
 	}
@@ -159,11 +164,11 @@ public class PrestadorServico implements Serializable {
 		this.email = email;
 	}
 
-	public Set<Telefone> getTelefone() {
+	public Set<Telefone> getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefone(Set<Telefone> telefone) {
+	public void setTelefones(Set<Telefone> telefone) {
 		this.telefones = telefone;
 	}
 
